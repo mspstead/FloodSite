@@ -8,7 +8,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'django_project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$', include('flood.urls')),
-    url(r'^map', include('flood.urls')),
+    url(r'^flood/', include('flood.urls')),
     url(r'^admin/', admin.site.urls),
 )

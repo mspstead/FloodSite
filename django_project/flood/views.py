@@ -8,4 +8,4 @@ def index(request):
 
 
 def map(request):
-    return HttpResponse("This is map page <a href='/'>Index</a>")
+    return HttpResponse("This is map page <a href='flood'>Index</a>")
