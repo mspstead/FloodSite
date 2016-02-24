@@ -1,6 +1,17 @@
 import requests
 
-url = "https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=d5cb0ab00f8c5cfea4aac52760ba2615&tags=flood&has_geo=1&lat=53.7996&lon=-1.5491&radius=20&format=json"
+api_key = "d5cb0ab00f8c5cfea4aac52760ba2615"
+method = "flickr.photos.search"
 
-r = requests.get(url)
-print(r.text)
+
+def reqBuilder(tags, lat, lon, rad):
+    """
+    Build a search request based on tags and location and radius
+    """
+    url1 = "https://api.flickr.com/services/rest/?&method=" + method + "&api_key=" + api_key + "&tags=" + tags +\
+           "&has_geo=1&lat=" + lat + "&lon=" + lon + "&radius=" + rad
+    r = requests.get(url1)
+    print(r.text)
+
+
+reqBuilder("flood", "53.7996", "-1.5491", "20")
