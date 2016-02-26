@@ -2,7 +2,9 @@ import requests
 import xml.etree.ElementTree as ET
 
 api_key = "d5cb0ab00f8c5cfea4aac52760ba2615"
-method = "flickr.photos.search"
+search_method = "flickr.photos.search"
+location_method = "flickr.photos.geo.getLocation"
+date_method="flickr.photos.getInfo"
 
 
 def reqBuilder(tags, lat, lon, rad):
@@ -13,8 +15,8 @@ def reqBuilder(tags, lat, lon, rad):
     requestArray = []
 
     # Create the url based on params given
-    urlInit = "https://api.flickr.com/services/rest/?&method=" + method + "&api_key=" + api_key + "&tags=" + tags + \
-           "&has_geo=1&lat=" + lat + "&lon=" + lon + "&radius=" + rad
+    urlInit = "https://api.flickr.com/services/rest/?&method=" + search_method + "&api_key=" + api_key + \
+              "&tags=" + tags + "&has_geo=1&lat=" + lat + "&lon=" + lon + "&radius=" + rad
 
     r = requests.get(urlInit)   # send the initial request
     requestArray.append(r)  # add the first request to the array
@@ -53,10 +55,42 @@ def photoUrlBuilder(photo):
     return photoUrl
 
 
+def getLocation(Id):
+    LocationUrl = "https://api.flickr.com/services/rest/?&method=" + location_method + \
+                  "&api_key=" +api_key + "&photo_id=" + Id
+    r = requests.get(LocationUrl)
+    root = ET.fromstring(r.content)
+    for child in root[0]:
+        lat = child.get("latitude")
+        lon = child.get("longitude")
 
+    locationArray = [lat, lon]
+    return locationArray
+
+def dateTaken(Id):
+    DateUrl = "https://api.flickr.com/services/rest/?&method=" + date_method + \
+                  "&api_key=" +api_key + "&photo_id=" + Id
+
+    r = requests.get(DateUrl)
+    root = ET.fromstring(r.content)
+    date_taken = root[0].find("dates").get("taken")
+    return date_taken
+
+def photoBuilder(photoArray):
+    photosDB = []
+    for photo in photoArray:
+        id = photo.get('id')
+        owner = photo.get('owner')
+        title = photo.get('title')
+        date_taken = dateTaken(id)
+        url = photoUrlBuilder(photo)
+        loc = getLocation(id)
+        photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lon":loc[1], "date_taken":date_taken}
+        print(photoDict)
+        photosDB.append(photoDict)
+    return photosDB
 
 r = reqBuilder("flood", "53.7996", "-1.5491", "20")
 photos = xmlParser(r)
 print(len(photos))
-for photo in photos:
-    print(photo.get("title") ,photoUrlBuilder(photo))
+print(photoBuilder(photos))
