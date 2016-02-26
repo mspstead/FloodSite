@@ -2,6 +2,7 @@ import requests
 import xml.etree.ElementTree as ET
 
 api_key = "d5cb0ab00f8c5cfea4aac52760ba2615"
+google_api_key = "AIzaSyBaEHqF6HeMrFAQSGZXP1f0bPoJhHZ7Vj4"
 search_method = "flickr.photos.search"
 location_method = "flickr.photos.geo.getLocation"
 date_method="flickr.photos.getInfo"
@@ -40,57 +41,81 @@ def xmlParser(requestArray):
     for request in requestArray:
         tree = ET.fromstring(request.content) #get the xml content
         for photo in tree[0]: #extract the photos
-            photos.append(photo.attrib)
+            photos.append(photo.attrib) #add to the photos array
     return photos
 
 
 def photoUrlBuilder(photo):
-    Id = photo.get('id')
-    Server = photo.get('server')
-    FarmId = photo.get('farm')
-    Secret = photo.get('secret')
 
-    photoUrl = "https://farm" + FarmId + ".staticflickr.com/" + Server + "/" + Id + "_" + Secret + ".jpg"
+    Id = photo.get('id') #get photo id
+    Server = photo.get('server') #get photo server id
+    FarmId = photo.get('farm') #get photo farm id
+    Secret = photo.get('secret') #get photo secret code
+
+    photoUrl = "https://farm" + FarmId + ".staticflickr.com/" + Server + "/" + Id + "_" + Secret + ".jpg" #compile url
 
     return photoUrl
 
 
 def getLocation(Id):
+
     LocationUrl = "https://api.flickr.com/services/rest/?&method=" + location_method + \
-                  "&api_key=" +api_key + "&photo_id=" + Id
-    r = requests.get(LocationUrl)
-    root = ET.fromstring(r.content)
-    for child in root[0]:
+                  "&api_key=" +api_key + "&photo_id=" + Id #compile location api request based on photo's Id
+
+    r = requests.get(LocationUrl) #perform get request for api
+    root = ET.fromstring(r.content) #get the element tree root
+
+    for child in root[0]: #get each individual xml element and extract relevant data
         lat = child.get("latitude")
         lon = child.get("longitude")
 
-    locationArray = [lat, lon]
+    locationArray = [lat, lon] #put latitude and longitude into an array
     return locationArray
 
 def dateTaken(Id):
-    DateUrl = "https://api.flickr.com/services/rest/?&method=" + date_method + \
-                  "&api_key=" +api_key + "&photo_id=" + Id
 
-    r = requests.get(DateUrl)
-    root = ET.fromstring(r.content)
-    date_taken = root[0].find("dates").get("taken")
+    DateUrl = "https://api.flickr.com/services/rest/?&method=" + date_method + \
+                  "&api_key=" +api_key + "&photo_id=" + Id #compile url for the date taken api request
+
+    r = requests.get(DateUrl) #send the request
+    root = ET.fromstring(r.content) #element tree root
+    date_taken = root[0].find("dates").get("taken") # find the dates element and extract date/time it was taken
+
     return date_taken
 
+def locality(lat,lon):
+    """Uses Google's reverse geo-code API
+    Takes latitude and longitude as its inputs
+    returns a locality, e.g "Leeds"
+    """
+    locality_url = "https://maps.googleapis.com/maps/api/geocode/xml?latlng="+ lat + lon +"&key=" + google_api_key
+    r =requests.get(locality_url)
+    root = ET.fromstring(r.content)
+
+
+
 def photoBuilder(photoArray):
-    photosDB = []
-    for photo in photoArray:
+
+    photosDB = [] #An Array which will store all of the photo dictionarys
+
+    for photo in photoArray: #cycle through all of the photos and extract the data to be stored
+
         id = photo.get('id')
         owner = photo.get('owner')
         title = photo.get('title')
         date_taken = dateTaken(id)
         url = photoUrlBuilder(photo)
         loc = getLocation(id)
+
+        #compile the dictionary
         photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lon":loc[1], "date_taken":date_taken}
-        print(photoDict)
-        photosDB.append(photoDict)
+
+        #print(photoDict)
+        photosDB.append(photoDict) #add the current photo dictionary to the array
+
     return photosDB
 
-r = reqBuilder("flood", "53.7996", "-1.5491", "20")
+r = reqBuilder("flood", "53.7996", "-1.5491", "20") #photos request being asked for
 photos = xmlParser(r)
 print(len(photos))
 print(photoBuilder(photos))
