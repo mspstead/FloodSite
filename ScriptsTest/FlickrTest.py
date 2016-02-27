@@ -83,15 +83,20 @@ def dateTaken(Id):
 
     return date_taken
 
-def locality(lat,lon):
+def getLocality(lat,lon):
+
     """Uses Google's reverse geo-code API
     Takes latitude and longitude as its inputs
     returns a locality, e.g "Leeds"
     """
-    locality_url = "https://maps.googleapis.com/maps/api/geocode/xml?latlng="+ lat + lon +"&key=" + google_api_key
-    r =requests.get(locality_url)
-    root = ET.fromstring(r.content)
 
+    locality_url = "https://maps.googleapis.com/maps/api/geocode/xml?latlng="+ lat + "," + lon +"&key=" + google_api_key
+    r =requests.get(locality_url)
+    root = ET.fromstring(r.text)
+
+    for address in root[1].findall("address_component"): #cycle through all the address_components
+        if(address.find("type").text == "postal_town"): #find the address_component with type=postal_town
+            return address[0].text #get the first value of the address component (Long_name)
 
 
 def photoBuilder(photoArray):
@@ -106,11 +111,13 @@ def photoBuilder(photoArray):
         date_taken = dateTaken(id)
         url = photoUrlBuilder(photo)
         loc = getLocation(id)
+        locality = getLocality(loc[0],loc[1])
 
         #compile the dictionary
-        photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lon":loc[1], "date_taken":date_taken}
+        photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lon":loc[1],
+                     "Locality":locality, "date_taken":date_taken}
 
-        #print(photoDict)
+        print(photoDict)
         photosDB.append(photoDict) #add the current photo dictionary to the array
 
     return photosDB
