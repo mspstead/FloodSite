@@ -93,7 +93,6 @@ def getLocality(lat,lon):
     locality_url = "https://maps.googleapis.com/maps/api/geocode/xml?latlng="+ lat + "," + lon +"&key=" + google_api_key
     r =requests.get(locality_url)
     root = ET.fromstring(r.text)
-    print(r.text)
 
     for address in root[1].findall("address_component"): #cycle through all the address_components
 
@@ -118,7 +117,7 @@ def photoBuilder(photoArray):
         url = photoUrlBuilder(photo)
         loc = getLocation(id)
         locality = getLocality(loc[0],loc[1])
-        
+
         f.write(owner+","+title+","+date_taken+","+url+","+loc[0]+","+loc[1]+","+locality+"\n")
         print(count-1)
 
