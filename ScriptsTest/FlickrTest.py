@@ -101,8 +101,9 @@ def getLocality(lat,lon):
 
 def photoBuilder(photoArray):
 
-    photosDB = [] #An Array which will store all of the photo dictionarys
-
+    #photosDB = [] #An Array which will store all of the photo dictionarys
+    f = open('PhotoData.txt', 'w')
+    count = len(photoArray)
     for photo in photoArray: #cycle through all of the photos and extract the data to be stored
 
         id = photo.get('id')
@@ -113,14 +114,18 @@ def photoBuilder(photoArray):
         loc = getLocation(id)
         locality = getLocality(loc[0],loc[1])
 
+        f.write(owner+","+title+","+date_taken+","+url+","+loc[0]+","+loc[1]+","+locality+"\n")
+        count=count-1
+        print(count)
+
         #compile the dictionary
-        photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lon":loc[1],
-                     "Locality":locality, "date_taken":date_taken}
+        #photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lon":loc[1],
+                   #  "Locality":locality, "date_taken":date_taken}
 
-        print(photoDict)
-        photosDB.append(photoDict) #add the current photo dictionary to the array
-
-    return photosDB
+        #print(photoDict)
+        #photosDB.append(photoDict) #add the current photo dictionary to the array
+    f.close()
+    #return photosDB
 
 r = reqBuilder("flood", "53.7996", "-1.5491", "20") #photos request being asked for
 photos = xmlParser(r)
