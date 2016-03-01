@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'leaflet',
     'twitter_bootstrap',
+    'south',
+    'flood',
 )
 
 MIDDLEWARE_CLASSES = (
