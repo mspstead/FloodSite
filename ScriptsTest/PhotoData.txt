@@ -125,7 +125,6 @@
 22017657@N05,Viaduct, Tadcaster,2012-09-30 12:52:30,https://farm9.staticflickr.com/8178/8054551538_bf0b4e0f68.jpg,53.889367,-1.265552,Tadcaster
 22017657@N05,Viaduct, Tadcaster,2012-09-30 12:52:20,https://farm9.staticflickr.com/8182/8054400542_a7bc8d22b8.jpg,53.889367,-1.265552,Tadcaster
 22017657@N05,Viaduct, Tadcaster,2012-09-30 12:50:47,https://farm9.staticflickr.com/8029/8054394603_fdfb438d3b.jpg,53.889367,-1.265552,Tadcaster
-22017657@N05,Viaduct, Tadcaster,2012-09-30 12:50:38,https://farm9.staticflickr.com/8310/8054393220_e0f6bf5541.jpg,53.889367,-1.265552,Tadcaster
 22017657@N05,Flooded fields,2012-09-30 12:48:24,https://farm9.staticflickr.com/8042/8054388093_8d7a5106f2.jpg,53.889367,-1.265552,Tadcaster
 22017657@N05,Flooded fields,2012-09-30 12:48:03,https://farm9.staticflickr.com/8041/8054387326_5bbae9e427.jpg,53.889367,-1.265552,Tadcaster
 22017657@N05,Flooded fields,2012-09-30 12:47:01,https://farm9.staticflickr.com/8317/8054382195_60278ab257.jpg,53.889367,-1.265552,Tadcaster
@@ -254,3 +253,177 @@
 48125931@N00,Railway Bridge over the Calder,2008-09-06 10:09:51,https://farm4.staticflickr.com/3024/2837098250_d3c3654814.jpg,53.672370,-1.697355,Mirfield
 74849357@N00,Huddersfield Narrow Canal,2008-09-06 10:16:25,https://farm4.staticflickr.com/3039/2833387664_2d951b75e0.jpg,53.613360,-1.907544,Huddersfield
 60107315@N00,River Wharfe in flood,2008-08-17 10:07:00,https://farm4.staticflickr.com/3184/2818152442_b1c223b115.jpg,53.905175,-1.630622,Otley
+62366110@N00,Flooding at Cawood,2008-01-24 08:35:01,https://farm4.staticflickr.com/3276/2752418675_5601d45881.jpg,53.834081,-1.126956,Yorkshire
+24110018@N08,Old Bridge Ilkley,2008-03-12 16:54:23,https://farm3.staticflickr.com/2112/2329270891_02ff8268e4.jpg,53.929322,-1.830360,Ilkley
+24110018@N08,Old Bridge Ilkley,2008-03-12 16:49:51,https://farm4.staticflickr.com/3073/2329269251_173ef85629.jpg,53.929322,-1.830360,Ilkley
+54032685@N00,A Bridge Too Far,2008-01-27 11:05:39,https://farm4.staticflickr.com/3293/2301211009_544f4744a4.jpg,53.709275,-1.902887,Sowerby Bridge
+54032685@N00,Parallel Parking,2008-01-25 13:16:32,https://farm3.staticflickr.com/2293/2238942224_afee71b727.jpg,53.650068,-1.539459,Wakefield
+54032685@N00,And the little one said "Roll over, roll over",2008-01-25 13:04:58,https://farm3.staticflickr.com/2188/2238150115_229a6eac65.jpg,53.650068,-1.539459,Wakefield
+54032685@N00,Drying Out,2008-01-25 12:57:30,https://farm3.staticflickr.com/2191/2238942092_ce272fa08f.jpg,53.649413,-1.543278,Wakefield
+54032685@N00,Waterworld,2008-01-25 12:53:57,https://farm3.staticflickr.com/2221/2238149799_4d7307ea11.jpg,53.649413,-1.543278,Wakefield
+54032685@N00,Come Hell or High Water,2008-01-25 12:49:13,https://farm3.staticflickr.com/2239/2234797729_298862f38f.jpg,53.649693,-1.541331,Wakefield
+54032685@N00,Odd Boat Out,2008-01-25 13:16:54,https://farm3.staticflickr.com/2064/2234797559_0839681075.jpg,53.649693,-1.541331,Wakefield
+54032685@N00,Flood Plain,2008-01-21 13:46:24,https://farm3.staticflickr.com/2346/2222582073_999191f50d.jpg,53.652141,-1.540682,Wakefield
+54032685@N00,Sink or Swim,2008-01-21 13:44:25,https://farm3.staticflickr.com/2324/2223374702_f39ed49e16.jpg,53.652141,-1.540682,Wakefield
+54032685@N00,Once in a Flood,2008-01-21 13:47:20,https://farm3.staticflickr.com/2284/2222581279_097b4338b3.jpg,53.652141,-1.540682,Wakefield
+62366110@N00,Floodlight,2008-01-24 08:43:54,https://farm3.staticflickr.com/2013/2220068707_40c0057b7c.jpg,53.834081,-1.126956,Yorkshire
+62366110@N00,Cawood Bridge at Night,2008-01-23 01:28:34,https://farm3.staticflickr.com/2072/2212898717_4991ca8edd.jpg,53.833188,-1.128126,Selby
+62366110@N00,Cawood Under Water,2008-01-23 01:19:34,https://farm3.staticflickr.com/2028/2212892817_34259b82bf.jpg,53.833457,-1.128641,Selby
+62366110@N00,Road to Nowhere,2008-01-23 01:38:26,https://farm3.staticflickr.com/2158/2213684162_2064bd1e5c.jpg,53.834378,-1.127246,Yorkshire
+62366110@N00,Cawood Bridge Instrumentation,2008-01-23 00:54:19,https://farm3.staticflickr.com/2194/2212887143_6a250bd54b.jpg,53.833862,-1.128137,Selby
+62366110@N00,Cawood Bridge - shut but not submerged,2008-01-23 00:52:56,https://farm3.staticflickr.com/2077/2213681080_7ec7e5a3ef.jpg,53.833862,-1.128137,Selby
+62366110@N00,Cawood Bridge,2008-01-23 00:51:10,https://farm3.staticflickr.com/2416/2212884485_8e6796f2be.jpg,53.833862,-1.128137,Selby
+62366110@N00,Navigation Hazard,2008-01-23 00:31:56,https://farm3.staticflickr.com/2119/2213678356_8d3205f151.jpg,53.833922,-1.127954,Selby
+62366110@N00,B1222 from Cawood over Kelfield Ings,2008-01-23 01:46:18,https://farm3.staticflickr.com/2183/2212881867_9d2ea9024f.jpg,53.834818,-1.127139,Yorkshire
+62366110@N00,All Saints Church, Cawood,2008-01-23 00:02:35,https://farm3.staticflickr.com/2189/2213675902_a0ff8eb223.jpg,53.834818,-1.127139,Yorkshire
+90402073@N00,Fairburn Ings flooded Jan 2008,2008-01-22 12:45:59,https://farm3.staticflickr.com/2017/2212457153_6199cc35fe.jpg,53.745481,-1.313391,Castleford
+48125931@N00,Mirfield - Floods again 21st January 2008,2008-01-21 06:55:01,https://farm3.staticflickr.com/2268/2209534393_ab8e43fbc7.jpg,53.671468,-1.692602,Mirfield
+92319881@N00,Burnley Road, Mytholmroyd.,2008-01-21 15:42:04,https://farm3.staticflickr.com/2278/2208885431_4a0ab43c90.jpg,53.730568,-1.981476,Hebden Bridge
+92319881@N00,Waiting for the school bus.,2008-01-21 14:16:34,https://farm3.staticflickr.com/2265/2208884127_86fe2a1d90.jpg,53.730521,-1.980897,Hebden Bridge
+92319881@N00,Shops, Mytholmroyd.,2008-01-21 14:02:25,https://farm3.staticflickr.com/2122/2209679012_5767953eb5.jpg,53.730551,-1.981437,Hebden Bridge
+92319881@N00,Burnley Road, Mytholmroyd.,2008-01-21 13:58:01,https://farm3.staticflickr.com/2112/2209678116_d9908a25ee.jpg,53.730602,-1.981265,Hebden Bridge
+92319881@N00,"It does'nt flood around here no more", quoting Mr Ansell, local property developer.,2008-01-21 13:56:58,https://farm3.staticflickr.com/2266/2208881089_f9ac0f4337.jpg,53.730568,-1.981476,Hebden Bridge
+92319881@N00,Flooding closes Calder High School.,2008-01-21 13:38:16,https://farm3.staticflickr.com/2310/2209677172_5c03a4cc7c.jpg,53.730568,-1.981476,Hebden Bridge
+92319881@N00,Waiting for the bus.,2008-01-21 13:13:59,https://farm3.staticflickr.com/2250/2209675640_3cd008868a.jpg,53.730549,-1.981283,Hebden Bridge
+92319881@N00,In the River Calder.,2008-01-21 13:05:38,https://farm3.staticflickr.com/2045/2208878799_4c5849021c.jpg,53.730500,-1.981179,Hebden Bridge
+92319881@N00,The Shoulder, Mytholmroyd.,2008-01-21 12:46:11,https://farm3.staticflickr.com/2234/2208877987_f9d3a72621.jpg,53.729434,-1.982939,Hebden Bridge
+92319881@N00,Burnley Road, Mytholmroyd.,2008-01-21 12:34:39,https://farm3.staticflickr.com/2393/2209673906_2a46d4414c.jpg,53.730437,-1.981050,Hebden Bridge
+92319881@N00,Almost in the windows.,2008-01-21 12:32:46,https://farm3.staticflickr.com/2418/2208876595_c1b59c133d.jpg,53.730297,-1.981780,Hebden Bridge
+92319881@N00,Riverside view.,2008-01-21 12:30:52,https://farm3.staticflickr.com/2141/2209672410_0e4ec8ec65.jpg,53.730360,-1.982553,Hebden Bridge
+92319881@N00,River Calder and River Cragg meet  , Mytholmroyd.,2008-01-21 11:46:37,https://farm3.staticflickr.com/2241/2208873201_50f0e1c9a6.jpg,53.730448,-1.982570,Hebden Bridge
+54032685@N00,Cycle Path,2008-01-21 13:48:25,https://farm3.staticflickr.com/2110/2209552592_29f646dc29.jpg,53.652141,-1.540682,Wakefield
+54032685@N00,On Your Bike,2008-01-21 13:48:46,https://farm3.staticflickr.com/2364/2208754199_e0d70206c8.jpg,53.652141,-1.540682,Wakefield
+7831183@N06,Milford Sinking1,2008-01-21 12:27:56,https://farm3.staticflickr.com/2172/2208591315_a231f74c5c.jpg,53.778023,-1.267998,Leeds
+92319881@N00,Burnley Road, Mytholmroyd.,2008-01-21 12:14:18,https://farm3.staticflickr.com/2264/2208514847_b8c67d4270.jpg,53.730476,-1.980575,Hebden Bridge
+54032685@N00,Morning All,2007-12-12 08:16:42,https://farm3.staticflickr.com/2102/2113132470_f4839ef800.jpg,53.656491,-1.533665,Wakefield
+14550536@N05,25062007085,2007-10-11 04:56:19,https://farm3.staticflickr.com/2264/1539298292_87d479ecf1.jpg,53.680460,-1.508710,Wakefield
+14550536@N05,25062007084,2007-10-11 04:56:02,https://farm3.staticflickr.com/2415/1539296464_3690c66a18.jpg,53.680499,-1.509053,Wakefield
+14550536@N05,25062007082,2007-10-11 04:55:31,https://farm3.staticflickr.com/2290/1539292932_361bbd78b8.jpg,53.680124,-1.510448,Wakefield
+14550536@N05,25062007081,2007-10-11 04:55:13,https://farm3.staticflickr.com/2330/1539290868_b3a2c9a7fd.jpg,53.679939,-1.510823,Wakefield
+14550536@N05,25062007080,2007-10-11 04:54:56,https://farm3.staticflickr.com/2345/1538425651_dc0e16f754.jpg,53.679939,-1.510823,Wakefield
+14550536@N05,25062007079,2007-10-11 04:54:40,https://farm3.staticflickr.com/2307/1539287196_8bf83e0058.jpg,53.680124,-1.510448,Wakefield
+14550536@N05,25062007077,2007-10-11 04:54:06,https://farm3.staticflickr.com/2303/1538420451_ed1b356e7b.jpg,53.680124,-1.510448,Wakefield
+10637243@N02,Project_0217.jpg,2007-06-25 19:42:47,https://farm2.staticflickr.com/1303/1296611123_6e63add6f9.jpg,53.570708,-1.786538,Holmfirth
+13446982@N00,June '07 Floods,2007-06-25 17:22:16,https://farm2.staticflickr.com/1193/893315035_91364f52fe.jpg,53.777909,-1.583747,Leeds
+85642708@N00,Better go find the sea then...,2007-06-27 15:54:06,https://farm2.staticflickr.com/1432/642414150_c8ab2ffb30.jpg,53.794123,-1.537592,Leeds
+85642708@N00,There's the path!,2007-06-27 15:54:01,https://farm2.staticflickr.com/1403/642413580_6404df9ccf.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Oracle back on dry land,2007-06-27 15:53:54,https://farm2.staticflickr.com/1326/641545365_e0f2c0a354.jpg,53.794123,-1.537592,Leeds
+51891401@N00,Flood,2007-06-27 12:02:47,https://farm2.staticflickr.com/1137/638244947_16d2ae47f3.jpg,53.728359,-1.349644,Castleford
+44943248@N00,Floodlines,2007-06-25 21:13:44,https://farm2.staticflickr.com/1328/632150934_1f6c0648d4.jpg,53.680028,-1.510598,Wakefield
+78958015@N00,Flood Reflections,2007-06-25 20:25:09,https://farm2.staticflickr.com/1425/629824996_849c6c2910.jpg,53.680454,-1.510212,Wakefield
+78958015@N00,Brooks Brook,2007-06-25 20:26:37,https://farm2.staticflickr.com/1371/629813168_f7be006144.jpg,53.680480,-1.509311,Wakefield
+78958015@N00,Sandbagged,2007-06-25 20:12:01,https://farm2.staticflickr.com/1148/629801762_cf904f026f.jpg,53.680289,-1.509611,Wakefield
+78109241@N00,IMG_0573.JPG,2007-06-25 18:10:00,https://farm2.staticflickr.com/1234/629074610_218e389dc1.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0572.JPG,2007-06-25 18:09:53,https://farm2.staticflickr.com/1320/628206779_c5f1e37555.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0571.JPG,2007-06-25 18:08:39,https://farm2.staticflickr.com/1267/628205379_218883d147.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0570.JPG,2007-06-25 18:08:31,https://farm2.staticflickr.com/1143/629070532_73f8308727.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0569.JPG,2007-06-25 18:08:30,https://farm2.staticflickr.com/1171/628202299_0740757ac7.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0568.JPG,2007-06-25 18:06:08,https://farm2.staticflickr.com/1202/629067278_0655261efc.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0566.JPG,2007-06-25 18:05:26,https://farm2.staticflickr.com/1263/628198867_18f92d1592.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0565.JPG,2007-06-25 18:05:24,https://farm2.staticflickr.com/1396/628197739_fb5ef27376.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0563.JPG,2007-06-25 18:05:14,https://farm2.staticflickr.com/1197/628195201_3842170690.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0562.JPG,2007-06-25 17:53:40,https://farm2.staticflickr.com/1314/629060362_4db655ae61.jpg,53.792751,-1.532319,Leeds
+78109241@N00,IMG_0561.JPG,2007-06-25 17:53:31,https://farm2.staticflickr.com/1111/628192339_8086ceef88.jpg,53.792751,-1.532319,Leeds
+78109241@N00,IMG_0560.JPG,2007-06-25 17:53:15,https://farm2.staticflickr.com/1027/628191245_0ed88cd3b6.jpg,53.792751,-1.532319,Leeds
+78109241@N00,IMG_0559.JPG,2007-06-25 17:34:07,https://farm2.staticflickr.com/1427/629056650_f9b5ce32d9.jpg,53.793531,-1.534861,Leeds
+78109241@N00,IMG_0557.JPG,2007-06-25 17:33:18,https://farm2.staticflickr.com/1390/628188383_b812b96616.jpg,53.793531,-1.534861,Leeds
+78109241@N00,IMG_0555.JPG,2007-06-25 17:33:07,https://farm2.staticflickr.com/1436/629052180_b2b32c3320.jpg,53.793531,-1.534861,Leeds
+78109241@N00,IMG_0554.JPG,2007-06-25 17:31:44,https://farm2.staticflickr.com/1007/629050508_076a64d390.jpg,53.793531,-1.534861,Leeds
+78109241@N00,IMG_0553.JPG,2007-06-25 17:31:37,https://farm2.staticflickr.com/1226/628182825_651f0c1889.jpg,53.792653,-1.532539,Leeds
+78109241@N00,IMG_0552.JPG,2007-06-25 17:30:14,https://farm2.staticflickr.com/1237/629048312_4f4fa155f6.jpg,53.792653,-1.532539,Leeds
+78109241@N00,IMG_0549.JPG,2007-06-25 17:28:23,https://farm2.staticflickr.com/1134/629044886_31a5c45c84.jpg,53.792308,-1.531879,Leeds
+78109241@N00,IMG_0548.JPG,2007-06-25 17:28:10,https://farm2.staticflickr.com/1299/629043448_b1116b5ac0.jpg,53.792308,-1.531879,Leeds
+78109241@N00,IMG_0547.JPG,2007-06-25 17:28:03,https://farm2.staticflickr.com/1177/628175587_446071a9ae.jpg,53.792308,-1.531879,Leeds
+78109241@N00,IMG_0546.JPG,2007-06-25 17:27:28,https://farm2.staticflickr.com/1039/629040582_34822c6fd1.jpg,53.792308,-1.531879,Leeds
+78109241@N00,IMG_0544.JPG,2007-06-25 17:25:52,https://farm2.staticflickr.com/1109/629037936_8783c84c95.jpg,53.792308,-1.531879,Leeds
+78109241@N00,IMG_0542.JPG,2007-06-25 17:25:07,https://farm2.staticflickr.com/1091/629035400_eb0a06292e.jpg,53.792308,-1.531879,Leeds
+78109241@N00,IMG_0541.JPG,2007-06-25 17:24:37,https://farm2.staticflickr.com/1186/628167389_981de67dff.jpg,53.792308,-1.531879,Leeds
+78109241@N00,IMG_0538.JPG,2007-06-25 17:24:22,https://farm2.staticflickr.com/1041/629029856_52e7dab52b.jpg,53.792308,-1.531879,Leeds
+78109241@N00,IMG_0536.JPG,2007-06-25 17:24:10,https://farm2.staticflickr.com/1198/629026806_3ab88e6e6c.jpg,53.792308,-1.531879,Leeds
+78109241@N00,IMG_0534.JPG,2007-06-25 17:23:54,https://farm2.staticflickr.com/1326/628157703_9f0f2cb1ac.jpg,53.792653,-1.532539,Leeds
+78109241@N00,IMG_0533.JPG,2007-06-25 17:23:48,https://farm2.staticflickr.com/1222/629022992_e0621e3fee.jpg,53.792653,-1.532539,Leeds
+78109241@N00,IMG_0532.JPG,2007-06-25 17:23:43,https://farm2.staticflickr.com/1118/628154965_5ef8ad9a2b.jpg,53.792653,-1.532539,Leeds
+78109241@N00,IMG_0531.JPG,2007-06-25 17:23:35,https://farm2.staticflickr.com/1291/629019918_d93d761dd2.jpg,53.792653,-1.532539,Leeds
+78109241@N00,IMG_0530.JPG,2007-06-25 15:00:40,https://farm2.staticflickr.com/1204/629018720_0adf2b0268.jpg,53.792653,-1.532539,Leeds
+78109241@N00,IMG_0527.JPG,2007-06-25 15:00:34,https://farm2.staticflickr.com/1301/628148617_fbb843cd6c.jpg,53.792653,-1.532539,Leeds
+78109241@N00,IMG_0526.JPG,2007-06-25 15:00:16,https://farm2.staticflickr.com/1283/628147581_4ff3bf04d0.jpg,53.792653,-1.532539,Leeds
+78109241@N00,IMG_0525.JPG,2007-06-25 15:00:13,https://farm2.staticflickr.com/1265/628146651_2b99c0c97e.jpg,53.792653,-1.532539,Leeds
+78109241@N00,IMG_0524.JPG,2007-06-25 15:00:08,https://farm2.staticflickr.com/1396/628145537_815ca1fb16.jpg,53.792653,-1.532539,Leeds
+78109241@N00,IMG_0522.JPG,2007-06-25 14:57:42,https://farm2.staticflickr.com/1133/628143375_8d93b7d030.jpg,53.793600,-1.535140,Leeds
+78109241@N00,IMG_0520.JPG,2007-06-25 14:57:38,https://farm2.staticflickr.com/1124/628141143_87bbb56eed.jpg,53.793600,-1.535140,Leeds
+78109241@N00,IMG_0518.JPG,2007-06-25 14:57:32,https://farm2.staticflickr.com/1234/629005454_849e3d5626.jpg,53.793600,-1.535140,Leeds
+78109241@N00,IMG_0515.JPG,2007-06-25 14:57:24,https://farm2.staticflickr.com/1255/629002384_6f2f7162b5.jpg,53.793600,-1.535140,Leeds
+78109241@N00,IMG_0514.JPG,2007-06-25 14:57:08,https://farm2.staticflickr.com/1315/628134569_e071e5fc5b.jpg,53.793328,-1.534196,Leeds
+78109241@N00,IMG_0512.JPG,2007-06-25 14:57:05,https://farm2.staticflickr.com/1272/628131925_9d810d1e0c.jpg,53.793328,-1.534196,Leeds
+78109241@N00,IMG_0509.JPG,2007-06-25 14:56:57,https://farm2.staticflickr.com/1369/628128527_f139ba4a36.jpg,53.793328,-1.534196,Leeds
+78109241@N00,IMG_0508.JPG,2007-06-25 14:54:03,https://farm2.staticflickr.com/1296/628994106_c4864ea78b.jpg,53.793328,-1.534196,Leeds
+78109241@N00,IMG_0507.JPG,2007-06-25 14:54:01,https://farm2.staticflickr.com/1287/628126329_c6fe8727fc.jpg,53.792973,-1.532973,Leeds
+78109241@N00,IMG_0506.JPG,2007-06-25 14:53:58,https://farm2.staticflickr.com/1051/628125369_ec3e11e4e4.jpg,53.792973,-1.532973,Leeds
+78109241@N00,IMG_0505.JPG,2007-06-25 14:53:55,https://farm2.staticflickr.com/1415/628124285_8d6a179cf7.jpg,53.792973,-1.532973,Leeds
+78109241@N00,IMG_0503.JPG,2007-06-25 14:53:39,https://farm2.staticflickr.com/1363/628121855_f8e056f20f.jpg,53.792973,-1.532973,Leeds
+78109241@N00,IMG_0502.JPG,2007-06-25 14:53:37,https://farm2.staticflickr.com/1210/628986708_4cab58d3f3.jpg,53.792973,-1.532973,Leeds
+78109241@N00,IMG_0497.JPG,2007-06-25 14:52:50,https://farm2.staticflickr.com/1234/628979826_f5b85d1aa8.jpg,53.792973,-1.532973,Leeds
+78109241@N00,IMG_0496.JPG,2007-06-25 14:52:40,https://farm2.staticflickr.com/1193/628978574_d5ee1b4031.jpg,53.792973,-1.532973,Leeds
+78109241@N00,IMG_0495.JPG,2007-06-25 14:52:36,https://farm2.staticflickr.com/1379/628976702_bbb59e0833.jpg,53.792973,-1.532973,Leeds
+78109241@N00,IMG_0492.JPG,2007-06-25 14:51:23,https://farm2.staticflickr.com/1141/628107549_ca7f73d695.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0491.JPG,2007-06-25 14:51:20,https://farm2.staticflickr.com/1168/628106353_5a87fa69bd.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0488.JPG,2007-06-25 14:50:56,https://farm2.staticflickr.com/1257/628968334_8516450aa1.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0486.JPG,2007-06-25 14:50:46,https://farm2.staticflickr.com/1163/628965518_b1c2cb3113.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0484.JPG,2007-06-25 14:50:39,https://farm2.staticflickr.com/1134/628962796_5e67ba4613.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0483.JPG,2007-06-25 14:50:37,https://farm2.staticflickr.com/1401/628961746_60002d06ac.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0482.JPG,2007-06-25 14:50:37,https://farm2.staticflickr.com/1107/628094367_167475df60.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0481.JPG,2007-06-25 14:50:28,https://farm2.staticflickr.com/1410/628959316_d3c6d02ee2.jpg,53.794006,-1.532984,Leeds
+78109241@N00,IMG_0582.JPG,2007-06-25 19:29:07,https://farm2.staticflickr.com/1308/628951628_97ebf7842c.jpg,53.794291,-1.538144,Leeds
+78109241@N00,The River Aire,2007-06-25 19:27:07,https://farm2.staticflickr.com/1218/628949348_38b44e6f39.jpg,53.794291,-1.538144,Leeds
+78109241@N00,IMG_0576.JPG,2007-06-25 19:26:43,https://farm2.staticflickr.com/1247/628079477_7ba1958685.jpg,53.794291,-1.538144,Leeds
+78109241@N00,IMG_0575.JPG,2007-06-25 19:26:01,https://farm2.staticflickr.com/1175/628078297_65aea9e7c1.jpg,53.794291,-1.538144,Leeds
+78109241@N00,IMG_0574.JPG,2007-06-25 19:25:47,https://farm2.staticflickr.com/1021/628076949_e02720d012.jpg,53.794291,-1.538144,Leeds
+85642708@N00,A lot wider than it should be!,2007-06-25 16:00:53,https://farm2.staticflickr.com/1193/624339487_a0445df32a.jpg,53.793718,-1.535789,Leeds
+85642708@N00,A nice dry riverside walk...,2007-06-25 16:00:44,https://farm2.staticflickr.com/1184/625204450_18801c6241.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Proof that wood does float.,2007-06-25 16:00:40,https://farm2.staticflickr.com/1281/625203892_3211a1bef7.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Higher and higher tide...,2007-06-25 16:00:36,https://farm2.staticflickr.com/1311/625203364_be6f3ced45.jpg,53.794123,-1.537592,Leeds
+85642708@N00,A little close to the river.,2007-06-25 16:00:31,https://farm2.staticflickr.com/1083/624336541_8fafa82a1c.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Great spot for launching the dinghy.,2007-06-25 16:00:26,https://farm2.staticflickr.com/1002/624335893_ba61f73b50.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Perhaps I'll go the other way.,2007-06-25 16:00:23,https://farm2.staticflickr.com/1003/624335411_b95bdd39e3.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Need your wellies for a riverside walk today.,2007-06-25 16:00:20,https://farm2.staticflickr.com/1239/624334979_9bc0a883cb.jpg,53.794123,-1.537592,Leeds
+85642708@N00,"Go throw yourself into the sea",2007-06-25 16:00:16,https://farm2.staticflickr.com/1214/625200574_526d0b320d.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Where did that path go?,2007-06-25 16:00:13,https://farm2.staticflickr.com/1105/624334153_02c005b8c2.jpg,53.794123,-1.537592,Leeds
+85642708@N00,River running fast.,2007-06-25 16:00:10,https://farm2.staticflickr.com/1193/625199594_4b2cf61400.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Those houses getting worried I think.,2007-06-25 16:00:05,https://farm2.staticflickr.com/1063/625198950_43227991c7.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Careful now...,2007-06-25 15:59:59,https://farm2.staticflickr.com/1238/625198322_067f94334a.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Prob best not to park the car here!,2007-06-25 15:59:52,https://farm2.staticflickr.com/1230/624331173_9f30ce675b.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Perhaps we'll sit inside instead...,2007-06-25 15:59:39,https://farm2.staticflickr.com/1361/625195670_e6190dc818.jpg,53.794123,-1.537592,Leeds
+85642708@N00,,2007-06-25 15:59:36,https://farm2.staticflickr.com/1288/625195252_880a88d3ff.jpg,53.793718,-1.535789,Leeds
+85642708@N00,Rain rain go away...,2007-06-25 15:59:31,https://farm2.staticflickr.com/1429/625194614_6f80fd4898.jpg,53.794123,-1.537592,Leeds
+85642708@N00,Not going out that way!,2007-06-25 15:59:16,https://farm2.staticflickr.com/1073/624326269_d4f7af7f78.jpg,53.793718,-1.535789,Leeds
+17306001@N00,storm drain,2007-06-25 15:17:54,https://farm2.staticflickr.com/1092/624215430_1d03258f32.jpg,53.815868,-1.544609,Leeds
+17306001@N00,buslingthorpe lane bridge,2007-06-25 15:16:17,https://farm2.staticflickr.com/1284/624215204_5fce258270.jpg,53.815868,-1.544609,Leeds
+17306001@N00,storm drain,2007-06-25 15:06:37,https://farm2.staticflickr.com/1193/623336731_a561a97fd4.jpg,53.806251,-1.534266,Leeds
+17306001@N00,flooded car park,2007-06-25 14:47:28,https://farm2.staticflickr.com/1278/624214342_a8fd843320.jpg,53.793933,-1.540532,Leeds
+17306001@N00,downtown flats,2007-06-25 14:47:14,https://farm2.staticflickr.com/1373/624214058_557a840299.jpg,53.793933,-1.540532,Leeds
+17306001@N00,calls pedestrian bridge,2007-06-25 14:32:01,https://farm2.staticflickr.com/1041/623335833_b794a31623.jpg,53.794130,-1.537817,Leeds
+17306001@N00,river aire,2007-06-25 14:28:34,https://farm2.staticflickr.com/1390/624213466_8a3bcdaefe.jpg,53.794744,-1.538536,Leeds
+17306001@N00,river aire flats,2007-06-25 14:28:20,https://farm2.staticflickr.com/1052/623335297_47b254310a.jpg,53.794351,-1.538858,Leeds
+17306001@N00,Leeds flooddrain,2007-06-25 20:29:50,https://farm2.staticflickr.com/1417/623280019_76bd673116.jpg,53.806251,-1.534266,Leeds
+17306001@N00,Leeds flood,2007-06-25 20:09:37,https://farm2.staticflickr.com/1390/623231481_5055f2ffe9.jpg,53.794130,-1.537817,Leeds
+65862166@N00,Flooding outside Royal Armouries,2007-06-25 16:10:30,https://farm2.staticflickr.com/1182/622738913_14c5d0436b.jpg,53.792716,-1.534545,Leeds
+65862166@N00,Crown Point Bridge,2007-06-25 16:07:27,https://farm2.staticflickr.com/1053/622738609_01d66b64a2.jpg,53.793578,-1.534910,Leeds
+65862166@N00,Flooding outside Royal Armouries,2007-06-25 16:04:42,https://farm2.staticflickr.com/1421/622737691_301d76fda7.jpg,53.792501,-1.534094,Leeds
+57202882@N00,Other side,2007-06-20 07:15:41,https://farm2.staticflickr.com/1301/573889807_c61605d6f8.jpg,53.930270,-1.625418,Otley
+57202882@N00,Close up,2007-06-20 07:15:40,https://farm2.staticflickr.com/1095/573889797_4989c18d8e.jpg,53.930270,-1.625418,Otley
+57202882@N00,soggy doggy,2007-06-20 07:15:40,https://farm2.staticflickr.com/1418/573889785_019199bec1.jpg,53.930270,-1.625418,Otley
+57202882@N00,Our Raging Creek,2007-06-20 07:15:39,https://farm2.staticflickr.com/1187/573889715_1d29f4ed53.jpg,53.930270,-1.625418,Otley
+51891401@N00,High tide in Castleford,2007-06-15 16:44:47,https://farm2.staticflickr.com/1146/566182426_2670b10bc0.jpg,53.728359,-1.349644,Castleford
+51891401@N00,Jesses Bridge,2007-06-15 16:43:39,https://farm2.staticflickr.com/1257/563874048_c7af34f697.jpg,53.728359,-1.349644,Castleford
+78958015@N00,After the Flood,2007-06-15 16:36:44,https://farm2.staticflickr.com/1132/556969236_1a87dd2bde.jpg,53.681573,-1.509869,Wakefield
+10996743@N00,swamp,2007-02-10 16:02:09,https://farm1.staticflickr.com/188/387165783_3dc7abfb76.jpg,53.524951,-1.469324,Barnsley
+54032685@N00,Spot the Difference,2007-01-19 15:32:11,https://farm1.staticflickr.com/109/363828350_4de94d0f07.jpg,53.649413,-1.543278,Wakefield
+54032685@N00,Swanning Around,2007-01-19 15:40:22,https://farm1.staticflickr.com/96/363820718_d81b4a8107.jpg,53.649413,-1.543278,Wakefield
+54032685@N00,New Lake District,2007-01-19 15:41:05,https://farm1.staticflickr.com/136/363820053_4652ef45f7.jpg,53.649413,-1.543278,Wakefield
+54032685@N00,The Day After,2007-01-19 13:23:08,https://farm1.staticflickr.com/188/363540239_2a648ee1f6.jpg,53.652720,-1.542785,Wakefield
+54032685@N00,Today It Rained,2007-01-18 13:53:27,https://farm1.staticflickr.com/144/363538896_7acfc6d3c2.jpg,53.652720,-1.542785,Wakefield
+54032685@N00,A Bit on the Damp Side,2007-01-18 13:58:15,https://farm1.staticflickr.com/164/361563196_86bf4c3d0b.jpg,53.652720,-1.542785,Wakefield
+92319881@N00,img016,2006-08-21 09:55:08,https://farm1.staticflickr.com/63/221175650_6397ff9ed3.jpg,53.730689,-1.981358,Hebden Bridge
+11071053@N00,Flooded,2006-03-18 15:46:03,https://farm1.staticflickr.com/45/114164291_394b8d909b.jpg,53.793664,-1.535033,Leeds
+11071053@N00,Flooded,2006-03-18 15:44:46,https://farm1.staticflickr.com/55/114163895_40dcd1ffd6.jpg,53.793664,-1.535033,Leeds
+41894148532@N01,Fetch the sandbags,2004-11-14 13:38:49,https://farm1.staticflickr.com/2/1464929_1fb69023b3.jpg,53.791309,-1.768755,Bradford
