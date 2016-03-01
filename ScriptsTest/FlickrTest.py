@@ -93,10 +93,14 @@ def getLocality(lat,lon):
     locality_url = "https://maps.googleapis.com/maps/api/geocode/xml?latlng="+ lat + "," + lon +"&key=" + google_api_key
     r =requests.get(locality_url)
     root = ET.fromstring(r.text)
+    print(r.text)
 
     for address in root[1].findall("address_component"): #cycle through all the address_components
+
         if(address.find("type").text == "postal_town"): #find the address_component with type=postal_town
             return address[0].text #get the first value of the address component (Long_name)
+    else:
+        return "Yorkshire"
 
 
 def photoBuilder(photoArray):
@@ -104,6 +108,7 @@ def photoBuilder(photoArray):
     #photosDB = [] #An Array which will store all of the photo dictionarys
     f = open('PhotoData.txt', 'w')
     count = len(photoArray)
+
     for photo in photoArray: #cycle through all of the photos and extract the data to be stored
 
         id = photo.get('id')
@@ -113,10 +118,10 @@ def photoBuilder(photoArray):
         url = photoUrlBuilder(photo)
         loc = getLocation(id)
         locality = getLocality(loc[0],loc[1])
+        print(id,owner,title,date_taken,url,loc,locality)
 
         f.write(owner+","+title+","+date_taken+","+url+","+loc[0]+","+loc[1]+","+locality+"\n")
-        count=count-1
-        print(count)
+        print(count-1)
 
         #compile the dictionary
         #photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lon":loc[1],
