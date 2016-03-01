@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'leaflet',
     'twitter_bootstrap',
     'south',
-    'flood',
+    'flood.apps.flood.Config',
 )
 
 MIDDLEWARE_CLASSES = (
