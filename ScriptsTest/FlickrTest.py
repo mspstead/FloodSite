@@ -28,7 +28,7 @@ def reqBuilder(tags, lat, lon, rad):
 
     if number_of_pages > 1:
         for num in range(1,int(number_of_pages)):    #cycle through the pages
-            url = urlInit + "&page=" + str(num) #add the page to the initial url string
+            url = urlInit + "&page=" + str(num+1) #add the page to the initial url string
             r = requests.get(url)   #perform the get request for the url
             requestArray.append(r)  #add the request to the array
 
