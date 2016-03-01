@@ -119,7 +119,8 @@ def photoBuilder(photoArray):
         locality = getLocality(loc[0],loc[1])
 
         f.write(owner+","+title+","+date_taken+","+url+","+loc[0]+","+loc[1]+","+locality+"\n")
-        print(count-1)
+        count = count -1
+        print(count)
 
         #compile the dictionary
         #photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lon":loc[1],
