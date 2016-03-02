@@ -2,7 +2,8 @@
 
 {% if photo_list %}
     {% for photo in photo_list %}
-        <li>{{ photo_list.url }}</li>
+        <li><i><b>Photo Url:</b></i>{{ photo_list.url }}<br>
+        </li>
     {% endfor %}
 {% else %}
     <p>No photos available</p>
