@@ -6,7 +6,6 @@ from .models import Photo
 
 def index(request):
     photo_list = Photo.objects.all()
-    print(photo_list)
     context = {'photo_list':photo_list}
     return render(request,'flood/index.html', context)
 
