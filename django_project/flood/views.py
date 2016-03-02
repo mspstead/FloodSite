@@ -7,7 +7,7 @@ from .models import Photo
 def index(request):
     photo_list = Photo.objects.all()
     context = {'photo_list':photo_list}
-    return(request,'flood/index.html', context)
+    return(request,'flood/index.html')
 
 
 def map(request):
