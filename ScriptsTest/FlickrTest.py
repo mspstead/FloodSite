@@ -2,7 +2,7 @@ import requests
 import xml.etree.ElementTree as ET
 
 api_key = "d5cb0ab00f8c5cfea4aac52760ba2615"
-google_api_key = "AIzaSyBaEHqF6HeMrFAQSGZXP1f0bPoJhHZ7Vj4"
+google_api_key = "AIzaSyBUpIx-7yc6wlReW5Wbd8gXAy7bvxHUFAQ"
 search_method = "flickr.photos.search"
 location_method = "flickr.photos.geo.getLocation"
 date_method="flickr.photos.getInfo"
