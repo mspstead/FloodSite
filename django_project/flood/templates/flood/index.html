@@ -2,8 +2,7 @@
 
 {% if photo_list %}
     {% for photo in photo_list %}
-        <li><a href="{{ photo.url }}"><{{ photo.title_text }}</a><br>
-        </li>
+        <li><a href="{{ photo.url }}">{{ photo.title_text }}</a></li>
     {% endfor %}
 {% else %}
     <p>No photos available</p>
