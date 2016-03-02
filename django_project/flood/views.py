@@ -8,5 +8,5 @@ def index(request):
 
 
 def map(request):
-    template = loader.get_template('/map.html')
+    template = loader.get_template('/templates/map.html')
     return HttpResponse(template.render(request))
