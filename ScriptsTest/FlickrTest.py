@@ -112,13 +112,14 @@ def photoBuilder(photoArray):
 
         id = photo.get('id')
         owner = photo.get('owner')
-        title = photo.get('title')
+        title = photo.get('title').replace(',', '')
         date_taken = dateTaken(id)
         url = photoUrlBuilder(photo)
         loc = getLocation(id)
         locality = getLocality(loc[0],loc[1])
 
-        f.write(owner+","+title+","+date_taken+","+url+","+loc[0]+","+loc[1]+","+locality+"\n")
+        f.write(owner+","+title+","+date_taken+","+url+","+loc[0]+","+loc[1]+","+locality+","+"\n")
+        print(owner+","+title+","+date_taken+","+url+","+loc[0]+","+loc[1]+","+locality+","+"\n")
         count = count -1
         print(count)
 
