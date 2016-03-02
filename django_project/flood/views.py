@@ -9,4 +9,4 @@ def index(request):
 
 
 def map(request):
-    return render(request, 'flood/map.html')
+    return render(request, 'flood/templates/map.html')
