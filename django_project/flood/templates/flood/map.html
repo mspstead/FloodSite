@@ -17,12 +17,12 @@
   var map = L.map('map').setView([53.74, -2.01], 13);
 
   // load a tile layer
-  L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
-    {
-      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
-      maxZoom: 17,
-      minZoom: 9
-    }).addTo(map);
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mspstead.pa7bn7bn',
+    accessToken: 'pk.eyJ1IjoibXNwc3RlYWQiLCJhIjoiY2lsYjFsZHk1MDA0cHZ3bHpnNDJ3Njl1aCJ9.6fOLqnTPbgherhFtNpcIKA'
+}).addTo(map);
 
   </script>
 </body>
