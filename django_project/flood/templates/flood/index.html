@@ -1,1 +1,9 @@
 <br>Hello Michael <br/> <a href='map'>Map</a>
+
+{% if photo_list %}
+    {% for photo in photo_list %}
+        <li>{% photo_list.url%}</li>
+    {% endfor %}
+{% else %}
+    <p>No photos available</p>
+{% endif %}
