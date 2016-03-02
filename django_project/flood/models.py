@@ -9,4 +9,4 @@ class Photo(models.Model):
     url = models.TextField()
     lat = models.TextField()
     lng = models.TextField()
-    locality = models.TimeField()
+    locality = models.TextField()

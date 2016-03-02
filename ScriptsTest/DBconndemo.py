@@ -1,7 +1,8 @@
 import psycopg2
+from random import randint
 
 try:
-    conn = psycopg2.connect(database='django', user='', password='', host='46.101.11.228', port='5432')
+    conn = psycopg2.connect(database='django', user='django', password='AgZP7U56Mw', host='localhost')
 except:
     print("Unable to connect")
 
@@ -19,5 +20,5 @@ for line in data:
     lng = content[5]
     locality = content[6]
 
-    query = ("INSERT INTO flood_table VALUES (%s)", (owner,title,date_taken,url,lat,lng,locality))
-    curr.execute(query)
+    curr.execute("INSERT INTO flood_photo (owner, title_text, date_taken, url, lat, lng, locality) VALUES (%s,%s,%s,%s,%s,%s,%s)", (owner,title,date_taken,url,lat,lng,locality))
+    conn.commit()
