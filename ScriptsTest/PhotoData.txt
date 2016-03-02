@@ -97,28 +97,6 @@
 90163458@N08,West End Church, Thruscross Demolition,2013-01-13 08:22:25,https://farm9.staticflickr.com/8475/8376050996_b8c4d9ea5e.jpg,54.018675,-1.781458,Harrogate
 63589374@N06,flooding on Cawood Road,2013-01-02 15:33:34,https://farm9.staticflickr.com/8081/8338586615_e66f3c4644.jpg,53.828202,-1.122926,Selby
 45770770@N07,There will be another pitch inspection tomorrow.,2012-10-28 14:31:19,https://farm8.staticflickr.com/7125/8153384180_495fb728dc.jpg,53.730686,-1.963887,Halifax
-7170958@N06,,2012-10-07 19:14:01,https://farm9.staticflickr.com/8456/8068173860_b6864bc3d1.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Bradford Lights,2012-10-07 18:34:30,https://farm9.staticflickr.com/8309/8068173706_6165f67f73.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Bradford Lights,2012-10-07 18:59:59,https://farm9.staticflickr.com/8316/8068173516_1fdcb6e164.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Stilt Walking Jellyfish - Bradford Lights,2012-10-07 19:03:11,https://farm9.staticflickr.com/8311/8068175531_fc50e8be0c.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Bradford Lights,2012-10-07 19:04:36,https://farm9.staticflickr.com/8033/8068173060_cac0c458a6.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Stilt Walking Jellyfish - Bradford Lights,2012-10-07 19:04:59,https://farm9.staticflickr.com/8462/8068175063_8bf676aa0a.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Stilt Walking Jellyfish - Bradford Lights,2012-10-07 19:05:51,https://farm9.staticflickr.com/8042/8068174821_0598290fb6.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Stilt Walking Jellyfish - Bradford Lights,2012-10-07 19:08:01,https://farm9.staticflickr.com/8175/8068174579_643cb20cf0.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Stilt Walking Jellyfish - Bradford Lights,2012-10-07 19:08:14,https://farm9.staticflickr.com/8321/8068172184_72bc7e854f.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Stilt Walking Jellyfish - Bradford Lights,2012-10-07 19:08:15,https://farm9.staticflickr.com/8182/8068174139_763f946446.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Stilt Walking Jellyfish - Bradford Lights,2012-10-07 19:08:25,https://farm9.staticflickr.com/8459/8068173867_06b3fea136.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Bradford Lights,2012-10-07 19:11:10,https://farm9.staticflickr.com/8457/8068171360_d12be70758.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Bradford Lights @ City Park,2012-10-07 18:15:46,https://farm9.staticflickr.com/8030/8067927204_9ed677439a.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Bradford Lights 0003 TC,2012-10-07 17:58:57,https://farm9.staticflickr.com/8452/8067926982_19318857f8.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Bradford Lights 0010 TC,2012-10-07 18:03:05,https://farm9.staticflickr.com/8316/8067926794_92ac03c94a.jpg,53.792564,-1.753027,Bradford
-7170958@N06,Bradford Lights 0013 TC,2012-10-07 18:04:45,https://farm9.staticflickr.com/8458/8067927637_d60e511085.jpg,53.792564,-1.753027,Bradford
-7170958@N06,A Fool In Silhouette,2012-10-07 18:25:53,https://farm9.staticflickr.com/8456/8067683833_6856e36941.jpg,53.792564,-1.753027,Bradford
-22017657@N05,Holly berries,2012-09-30 13:00:26,https://farm9.staticflickr.com/8446/8054576689_3e4788da2b.jpg,53.889367,-1.265552,Tadcaster
-22017657@N05,Holly berries,2012-09-30 13:00:16,https://farm9.staticflickr.com/8462/8054573169_fa9e12fd63.jpg,53.889367,-1.265552,Tadcaster
-22017657@N05,Holly berries,2012-09-30 12:59:59,https://farm9.staticflickr.com/8175/8054571758_75df4382a2.jpg,53.889367,-1.265552,Tadcaster
-22017657@N05,Holly berries,2012-09-30 12:59:51,https://farm9.staticflickr.com/8040/8054566573_f959cba273.jpg,53.889367,-1.265552,Tadcaster
-22017657@N05,Holly berries,2012-09-30 12:59:46,https://farm9.staticflickr.com/8319/8054564934_05ec44eb22.jpg,53.889367,-1.265552,Tadcaster
 22017657@N05,Viaduct, Tadcaster,2012-09-30 12:53:21,https://farm9.staticflickr.com/8321/8054561760_7a443dd2c2.jpg,53.889367,-1.265552,Tadcaster
 22017657@N05,Viaduct, Tadcaster,2012-09-30 12:53:02,https://farm9.staticflickr.com/8036/8054558496_6ca27f2665.jpg,53.889367,-1.265552,Tadcaster
 22017657@N05,Viaduct, Tadcaster,2012-09-30 12:52:54,https://farm9.staticflickr.com/8174/8054555070_204326bf36.jpg,53.889367,-1.265552,Tadcaster
