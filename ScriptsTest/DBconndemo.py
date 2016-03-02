@@ -21,4 +21,5 @@ for line in data:
     locality = content[6]
 
     curr.execute("INSERT INTO flood_photo (owner, title_text, date_taken, url, lat, lng, locality) VALUES (%s,%s,%s,%s,%s,%s,%s)", (owner,title,date_taken,url,lat,lng,locality))
-    conn.commit()
+
+conn.commit()
