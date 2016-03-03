@@ -32,7 +32,7 @@
         var latitude = "{{ photo.lat }}";
         var longitude = "{{ photo.lng }}";
         var url1 = "{{ photo.url }}";
-        marker = new L.marker([latitude,longitude]).addTo(map);
+        marker = new L.marker([latitude,longitude]).addTo(map).bindPopup("<img src="+ url1 +"/>");
         </script>
     {% endfor %}
 {% else %}
