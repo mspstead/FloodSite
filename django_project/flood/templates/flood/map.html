@@ -16,6 +16,7 @@
   // initialize the map
   var map = L.map('map').setView([53.79, -1.55], 10);
 
+
   // load a tile layer
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -25,5 +26,18 @@
 }).addTo(map);
 
   </script>
+
+    {% if photo_list %}
+    {% for photo in photo_list %}
+        <script>
+        marker = new L.marker('{{ photo.lat }}', '{{ photo.lng }}')
+        .bindPopup('{{ photo.url }}')
+        .addTo(map);
+        </script>
+    {% endfor %}
+  {% else %}
+    <p>No photos available</p>
+  {% endif %}
+
 </body>
 </html>

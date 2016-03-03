@@ -13,4 +13,4 @@ def index(request):
 def map(request):
     photo_list = Photo.objects.all()
     context = {'photo_list':photo_list}
-    return render(request, 'flood/map.html')
+    return render(request, 'flood/map.html', context)
