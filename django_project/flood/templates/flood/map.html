@@ -28,10 +28,10 @@
 
   {% if photo_list %}
     {% for photo in photo_list %}
-        <script>
-        var latitude = {{ photo.lat }};
-        var longitude = {{ photo.lng }};
-        var url1 = {{ photo.url }};
+        <script type="text/javascript">
+        var latitude = "{{ photo.lat }}";
+        var longitude = "{{ photo.lng }}";
+        var url1 = "{{ photo.url }}";
         marker = new L.marker([latitude,longitude]).addTo(map);
         </script>
     {% endfor %}
