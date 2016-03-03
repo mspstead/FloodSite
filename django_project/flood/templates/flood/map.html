@@ -24,20 +24,7 @@
     id: 'mspstead.pa7bn7bn',
     accessToken: 'pk.eyJ1IjoibXNwc3RlYWQiLCJhIjoiY2lsYjFsZHk1MDA0cHZ3bHpnNDJ3Njl1aCJ9.6fOLqnTPbgherhFtNpcIKA'
 }).addTo(map);
-
+marker = new L.marker(['53.79','-1.55']).addTo(map);
   </script>
-
-    {% if photo_list %}
-    {% for photo in photo_list %}
-        <script>
-        marker = new L.marker('{{ photo.lat }}', '{{ photo.lng }}')
-        .bindPopup('{{ photo.url }}')
-        .addTo(map);
-        </script>
-    {% endfor %}
-  {% else %}
-    <p>No photos available</p>
-  {% endif %}
-
 </body>
 </html>
