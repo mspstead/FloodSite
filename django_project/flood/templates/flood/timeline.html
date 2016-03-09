@@ -1,5 +1,10 @@
 {% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'flood/timeline.css' %}" />
+<head>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/bootstrap-glyphicons.css' %}">
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/timeline.css' %}">
+    <script type="text/javascript" src="{% static 'flood/js/jquery-1.11.0.min.js' %}"></script>
+</head>
 <div class="container">
     <div class="page-header">
         <h1 id="timeline">Timeline</h1>
