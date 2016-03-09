@@ -87,4 +87,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+STATICFILES_DIR = '/django_project/flood/static/'
+STATIC_ROOT = '/django_project/flood/static/'
 STATIC_URL = '/static/'
