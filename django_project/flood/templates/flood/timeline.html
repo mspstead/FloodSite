@@ -15,7 +15,7 @@
         {% if photo_list %}
             {% for photo in photo_list %}
                 <li>
-                    <a href="{{ photo.url }}">{{ photo.title_text }}</a>
+                    <a href="{{ photo.url }}">{{ photo.date_taken }}</a>
                     <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
