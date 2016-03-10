@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Photo
 
@@ -16,6 +15,6 @@ def map(request):
     return render(request, 'flood/map.html', context)
 
 def timeline(request):
-    photo_list = Photo.objects.all()
-    context = {'photo_list':photo_list}
+    ordered_photo_list = Photo.objects.order_by("date_taken")
+    context = {'photo_list':ordered_photo_list}
     return render(request, 'flood/timeline.html', context)
