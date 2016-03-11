@@ -1,7 +1,9 @@
 import requests
 import xml.etree.ElementTree as ET
 import datetime
-from django_project.flood.models import Photo
+from DBcrud import DBcrud
+
+
 
 """
 This is the script that will be run daily to extract any flooding photos that have been uploaded
@@ -14,21 +16,21 @@ search_method = "flickr.photos.search"
 location_method = "flickr.photos.geo.getLocation"
 date_method="flickr.photos.getInfo"
 
-
 def reqBuilder(tags, lat, lon, rad):
     """
-    Build a search request based on tags (eg. flood), location(lat,lon) and radius(in km max=20), page default=1
+    Build a search request based on tags (eg. flood), location(lat,lon) and radius(in km max=20), min date uploaded,
+    page default=1
     returns the flickr api data
     """
     requestArray = [] #holds all the return requests, there may be multiple pages = multiple requests.
 
-    min_upload_date = datetime.date.today() - datetime.timedelta(days=1) #use yesterdays date as min_upload_date
-    #print(min_upload_date)
+    min_upload_date = datetime.datetime.today() - datetime.timedelta(days=1)
+    print(min_upload_date)
 
-    # Create the url based on params given
+    #Create the url based on params given
     urlInit = "https://api.flickr.com/services/rest/?&method=" + search_method + "&api_key=" + api_key + \
               "&tags=" + tags + "&has_geo=1&lat=" + lat + "&lon=" + lon + "&radius=" + rad + \
-              "&min_upload_date=" + "2015-12-01"#min_upload_date.strftime('%y-%m-%d')
+              "&min_upload_date=" + min_upload_date.strftime("%y-%m-%d")
 
     r = requests.get(urlInit)   # send the initial request
     requestArray.append(r)  # add the first request to the array
@@ -47,6 +49,9 @@ def reqBuilder(tags, lat, lon, rad):
 
 
 def xmlParser(requestArray):
+    """
+    Method to parse the xml return from each request
+    """
 
     photos = []  # array to hold the individual photo dictionary entries.
     for request in requestArray:
@@ -57,6 +62,9 @@ def xmlParser(requestArray):
 
 
 def photoUrlBuilder(photo):
+    """
+    Method to construct and return the url string for a particular photo.
+    """
 
     Id = photo.get('id') #get photo id
     Server = photo.get('server') #get photo server id
@@ -69,6 +77,9 @@ def photoUrlBuilder(photo):
 
 
 def getLocation(Id):
+    """
+    Method to get and return the latitude and longitude of a particular photo.
+    """
 
     LocationUrl = "https://api.flickr.com/services/rest/?&method=" + location_method + \
                   "&api_key=" +api_key + "&photo_id=" + Id #compile location api request based on photo's Id
@@ -84,6 +95,9 @@ def getLocation(Id):
     return locationArray
 
 def dateTaken(Id):
+    """
+    Method to get and return the date a particular photo was taken.
+    """
 
     DateUrl = "https://api.flickr.com/services/rest/?&method=" + date_method + \
                   "&api_key=" +api_key + "&photo_id=" + Id #compile url for the date taken api request
@@ -109,47 +123,43 @@ def getLocality(lat,lon):
 
         if(address.find("type").text == "postal_town"): #find the address_component with type=postal_town
             return address[0].text #get the first value of the address component (Long_name)
-    else:
-        return "Yorkshire"
+
+        else:
+            return "Yorkshire"
 
 
 def photoBuilder(photoArray):
 
+    """
+    Method to construct a photo dictionary which has all the important details of a photo added to a dictionary,
+    the dictionary entry is then added to an array which is returned and can be used to add the photos to a DB.
+    """
+
     photosDB = [] #An Array which will store all of the photo dictionarys
-    f = open('PhotoData.txt', 'w')
-    count = len(photoArray)
+    #f = open('PhotoData.txt', 'w')
+    #count = len(photoArray)
 
     for photo in photoArray: #cycle through all of the photos and extract the data to be stored
 
         id = photo.get('id')
         owner = photo.get('owner')
-        title = photo.get('title').replace(',', '')
+        title = photo.get('title')
         date_taken = dateTaken(id)
         url = photoUrlBuilder(photo)
         loc = getLocation(id)
         locality = getLocality(loc[0],loc[1])
 
-        #f.write(owner+","+title+","+date_taken+","+url+","+loc[0]+","+loc[1]+","+locality+","+"\n")
-        #print(owner+","+title+","+date_taken+","+url+","+loc[0]+","+loc[1]+","+locality+","+"\n")
-        #count = count -1
-        #print(count)
-
         #compile the dictionary
-        photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lon":loc[1],
-                     "Locality":locality, "date_taken":date_taken}
+        photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lng":loc[1],
+                     "Locality":locality, "Date_taken":date_taken}
 
-        print(photoDict)
+        #print(photoDict)
         photosDB.append(photoDict) #add the current photo dictionary to the array
-    #f.close()
+
     return photosDB
 
-def updateDB():
-    """
-    Add the photos found to the database
-    """
-
-
 r = reqBuilder("flood", "53.7996", "-1.5491", "20") #photos request being asked for
-photos = xmlParser(r)
+photos = xmlParser(r) #parse the requests
 print(len(photos))
-print(photoBuilder(photos))
+DB = DBcrud() #create a dbconnector/operator object
+DB.addtodatabase(photoBuilder(photos)) #add the photos to the database.
