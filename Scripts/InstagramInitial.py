@@ -1,15 +1,21 @@
-#import requests
+import twitter
 
-access_token = '1964111288.2bcdedd.ff75c59254cc4511bb2fb36d0d8a53c3'
+api = twitter.Api(
+ consumer_key='sNMOctZzqS16Z9COfJQc73KS5',
+ consumer_secret='anyHcZjyf4NVgg16g6tvYU647J30nIVaiUuCb0qpIdzvhRPann',
+ access_token_key='1454778379-9MxHIctdm8jPLqUKsEZPLo6To39W74VxoWnu6ZK',
+ access_token_secret='6bKrwXPkhcpWP2fBGVq227U317IiNni8hxvrovf55QAIu'
+ )
 
-#url = "https://api.instagram.com/v1/media/search?lat=53.7996&lng=-1.5491&access_token="+ access_token
+search = api.GetSearch(term="%23flood", geocode=("53.79", "-1.54", "20mi") ,until="2015-12-28")
+for t in search:
+ print t.user.screen_name + ' (' + t.created_at + ')'
+ #Add the .encode to force encoding
+ print t.text.encode('utf-8')
 
-#req = requests.get(url)
-#print(req.text)
-from instagram.client import InstagramAPI
+def searchTweets(start_date, end_date, query, lat, lng):
 
-client_secret = "60d59c6cf6b24103ba6147669d05dcc3"
-api = InstagramAPI(access_token=access_token, client_secret=client_secret)
-popular_media = api.media_popular(count=20)
-for media in popular_media:
-    print media.images.url
+    searchUrl = "https://api.twitter.com/1.1/search/tweets.json?q="+query+"&until="+end_date
+    query = "q=%23flood&geocode=53.79,-1.54,20mi&until=2015-12-30"
+
+
