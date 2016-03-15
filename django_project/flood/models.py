@@ -10,3 +10,4 @@ class Photo(models.Model):
     lat = models.TextField()
     lng = models.TextField()
     locality = models.TextField()
+    source = models.TextField()
