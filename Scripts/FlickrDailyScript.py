@@ -148,10 +148,11 @@ def photoBuilder(photoArray):
         url = photoUrlBuilder(photo)
         loc = getLocation(id)
         locality = getLocality(loc[0],loc[1])
+        source = "Flickr"
 
         #compile the dictionary
         photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lng":loc[1],
-                     "Locality":locality, "Date_taken":date_taken}
+                     "Locality":locality, "Date_taken":date_taken, "Source":source}
 
         #print(photoDict)
         photosDB.append(photoDict) #add the current photo dictionary to the array
