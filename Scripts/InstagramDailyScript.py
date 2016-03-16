@@ -28,7 +28,7 @@ def searchLocation(lat, lng):
     for obj in jsonData['data']:
         for tag in obj['tags']:
 
-            if tag == "flood" or "flooding": #cycle through the returned media and search for photos with tags=flood
+            if tag == "flood": #cycle through the returned media and search for photos with tags=flood
 
                 latitude = obj['location']['latitude'] #get the photos latitude
                 longitude = obj['location']['longitude'] #get the longitude
@@ -38,6 +38,7 @@ def searchLocation(lat, lng):
                 title_text = obj['caption']['text']
                 source = "instagram"
                 locality = getLocality(str(latitude),str(longitude))
+                print(str(latitude))
 
                 print(latitude,longitude,imageUrl,owner,date_taken,title_text,locality)
 
@@ -64,7 +65,7 @@ def getLocality(lat,lon):
         else:
             return "Yorkshire"
 
-
-searchLocation("53.7996","-1.5491")
+#test location search
+searchLocation("40.679373","17.932539")
 
 
