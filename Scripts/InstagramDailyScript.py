@@ -38,12 +38,8 @@ def searchLocation(lat, lng):
                 title_text = obj['caption']['text']
                 source = "instagram"
                 locality = getLocality(str(latitude),str(longitude))
-                print(str(latitude))
+                print(latitude,longitude,imageUrl,owner,date_taken,title_text,locality,source)
 
-                print(latitude,longitude,imageUrl,owner,date_taken,title_text,locality)
-
-            else:
-                print("No results found")
 
 
 def getLocality(lat,lon):
@@ -64,8 +60,5 @@ def getLocality(lat,lon):
 
         else:
             return "Yorkshire"
-
-#test location search
-searchLocation("40.679373","17.932539")
 
 
