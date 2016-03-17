@@ -12,7 +12,7 @@
     <div class="page-header">
         {% if locality_list %}
             {% for locality in locality_list %}
-                <li>{{ locality }}</li>
+                <li>{{ locality.locality }}</li>
             {% endfor %}
         {% endif %}
         <h1 id="timeline">Timeline</h1>
