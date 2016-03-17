@@ -17,12 +17,13 @@
             <ul class="dropdown-menu">
                 {% if locality_list %}
                     {% for locality in locality_list %}
-                        <li>{{ locality.locality }}</li>
+                        <li><a href="#">{{ locality.locality }}</a></li>
                     {% endfor %}
                 {% endif %}
               </ul>
         </div>
     </div>
+    <h2></h2>
     <ul class="timeline">
         {% if photo_list %}
             {% for photo in photo_list %}
