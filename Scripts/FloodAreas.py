@@ -1,6 +1,7 @@
 import requests
 import simplejson as json
 import InstagramDailyScript
+import sched, time
 
 def searchArea(lat,lng):
     """
@@ -39,10 +40,14 @@ def getFloodLocation(floodUrl):
 
     return location
 
-floodurls = searchArea("53.7996","-1.5491")
+def runInstaScript(floodurls):
 
-for url in floodurls:
-    location = getFloodLocation(url)
-    InstagramDailyScript.searchLocation(str(location[0]),str(location[1]))
+    for url in floodurls:
+        location = getFloodLocation(url)
+        InstagramDailyScript.searchLocation(str(location[0]),str(location[1]))
+
+floodurls = searchArea("53.7996","-1.5491")
+s = sched.scheduler(time.time, time.sleep)
+
 
 
