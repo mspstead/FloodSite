@@ -11,9 +11,13 @@
 </head>
 <body>
   <div class="container">
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="map">Map</a></li>
+      <li role="presentation"><a href="timeline">Timeline</a></li>
+    </ul>
     <div class="jumbotron">
       <h1>Bootstrap Test</h1>
-      <a href='map'>Map</a>
       {% if photo_list %}
         {% for photo in photo_list %}
           <li><a href="{{ photo.url }}">{{ photo.title_text }}</a></li>

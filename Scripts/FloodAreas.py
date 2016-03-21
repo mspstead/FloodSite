@@ -8,7 +8,7 @@ def searchArea(lat,lng):
     Search for any flood alerts in a 20km radius area.
     :param lat:
     :param lng:
-    :return:
+    :return:Array of Urls relating to flood warning areas.
     """
 
     searchUrl = "http://environment.data.gov.uk/flood-monitoring/id/floods?lat="+lat+"&long="+lng+"&dist=20"
@@ -27,7 +27,7 @@ def getFloodLocation(floodUrl):
     """
     get the specific latitude and longitude of any flood affected areas.
     :param floodUrl:
-    :return:
+    :return:returns the latitude and longitude of a flooded area
     """
     location = []
     #print(floodUrl)
@@ -44,9 +44,10 @@ def runInstaScript(floodurls):
 
     for url in floodurls:
         location = getFloodLocation(url)
+        print(location)
         InstagramDailyScript.searchLocation(str(location[0]),str(location[1]))
 
-floodurls = searchArea("53.7996","-1.5491")
+floodurls = searchArea("51.8699","-1.1208")
 s = sched.scheduler(time.time, time.sleep)
 
 
