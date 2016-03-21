@@ -13,41 +13,43 @@
   </style>
 </head>
 <body>
-     <ul class="nav nav-pills">
-        <li role="presentation"><a href="#">Home</a></li>
-        <li role="presentation" class="active"><a href="map">Map</a></li>
-        <li role="presentation"><a href="timeline">Timeline</a></li>
-     </ul>
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="{% url index %}">Home</a></li>
+            <li role="presentation" class="active"><a href="map">Map</a></li>
+            <li role="presentation"><a href="timeline">Timeline</a></li>
+        </ul>
 
-  <div id="map"></div>
+        <div id="map"></div>
 
-  <script>
+        <script>
 
-  // initialize the map
-  var map = L.map('map').setView([53.79, -1.55], 10);
+        // initialize the map
+        var map = L.map('map').setView([53.79, -1.55], 10);
 
 
-  // load a tile layer
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mspstead.pa7bn7bn',
-    accessToken: 'pk.eyJ1IjoibXNwc3RlYWQiLCJhIjoiY2lsYjFsZHk1MDA0cHZ3bHpnNDJ3Njl1aCJ9.6fOLqnTPbgherhFtNpcIKA'
-}).addTo(map);
-  </script>
-
-  {% if photo_list %}
-    {% for photo in photo_list %}
-        <script type="text/javascript">
-        var latitude = "{{ photo.lat }}";
-        var longitude = "{{ photo.lng }}";
-        var url1 = "{{ photo.url }}";
-        var date = "{{ photo.date_taken }}"
-        marker = new L.marker([latitude,longitude]).addTo(map).bindPopup("<img src="+ url1 +"/><h2>"+ date +"</h2>");
+        // load a tile layer
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mspstead.pa7bn7bn',
+        accessToken: 'pk.eyJ1IjoibXNwc3RlYWQiLCJhIjoiY2lsYjFsZHk1MDA0cHZ3bHpnNDJ3Njl1aCJ9.6fOLqnTPbgherhFtNpcIKA'
+        }).addTo(map);
         </script>
-    {% endfor %}
-{% else %}
-    <p>No photos available</p>
-{% endif %}
+
+        {% if photo_list %}
+            {% for photo in photo_list %}
+                <script type="text/javascript">
+                var latitude = "{{ photo.lat }}";
+                var longitude = "{{ photo.lng }}";
+                var url1 = "{{ photo.url }}";
+                var date = "{{ photo.date_taken }}"
+                marker = new L.marker([latitude,longitude]).addTo(map).bindPopup("<img src="+ url1 +"/><h2>"+ date +"</h2>");
+                </script>
+            {% endfor %}
+        {% else %}
+            <p>No photos available</p>
+        {% endif %}
+    </div>
 </body>
 </html>
