@@ -1,22 +1,47 @@
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset=utf-8 />
-<title>A simple map</title>
-<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
-<link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' />
-<style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
+  <title>A Leaflet map!</title>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <style>
+    #map{ height: 100% }
+  </style>
 </head>
 <body>
-<div id='map'></div>
-<script>
-L.mapbox.accessToken = 'pk.eyJ1IjoibXNwc3RlYWQiLCJhIjoiY2lsYjFsZHk1MDA0cHZ3bHpnNDJ3Njl1aCJ9.6fOLqnTPbgherhFtNpcIKA';
-var map = L.mapbox.map('map', 'mapbox.streets')
-    .setView([53.79, -1.55], 10);
-</script>
+        <!--<ul class="nav nav-pills">
+            <li role="presentation"><a href="/flood/">Home</a></li>
+            <li role="presentation" class="active"><a href="map">Map</a></li>
+            <li role="presentation"><a href="timeline">Timeline</a></li>
+        </ul>-->
+
+        <div id="map"></div>
+
+        <script>
+
+        // initialize the map
+        var map = L.map('map').setView([53.79, -1.55], 10);
+        map.invalidateSize();
+
+        // load a tile layer
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mspstead.pa7bn7bn',
+        accessToken: 'pk.eyJ1IjoibXNwc3RlYWQiLCJhIjoiY2lsYjFsZHk1MDA0cHZ3bHpnNDJ3Njl1aCJ9.6fOLqnTPbgherhFtNpcIKA'
+        }).addTo(map);
+        </script>
+
+        {% if photo_list %}
+            {% for photo in photo_list %}
+                <script type="text/javascript">
+                var latitude = "{{ photo.lat }}";
+                var longitude = "{{ photo.lng }}";
+                var url1 = "{{ photo.url }}";
+                var date = "{{ photo.date_taken }}"
+                marker = new L.marker([latitude,longitude]).addTo(map).bindPopup("<img src="+ url1 +"/><h2>"+ date +"</h2>");
+                </script>
+            {% endfor %}
+        {% else %}
+            <p>No photos available</p>
+        {% endif %}
 </body>
 </html>
