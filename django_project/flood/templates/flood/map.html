@@ -32,14 +32,13 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibXNwc3RlYWQiLCJhIjoiY2lsYjFsZHk1MDA0cHZ3bHpnN
         var lat = "{{ photo.lat }}";
         var lng = "{{ photo.lng }}";
         var date = "{{ photo.date_taken }}"
-        var marker = L.marker(new L.LatLng(lat, lng), {
-            icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
-            title: "<img src="+ url +"/><h2>"+ date +"</h2>"
-        });
-        marker.bindPopup(title);
+        var marker = L.marker([lat, lng])
+        marker.bindPopup("<img src="+ url1 +"/><h2>"+ date +"</h2>");
         markers.addLayer(marker);
         </script>
       {% endfor %}
+    {% else %}
+        <p>No Photos available</p>
     {% endif %}
 <script>
     map.addLayer(markers);
