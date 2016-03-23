@@ -32,16 +32,15 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibXNwc3RlYWQiLCJhIjoiY2lsYjFsZHk1MDA0cHZ3bHpnN
         var lat = "{{ photo.lat }}";
         var lng = "{{ photo.lng }}";
         var date = "{{ photo.date_taken }}"
-        var marker = L.marker([lat, lng])
-        marker.bindPopup("<img src="+ url1 +"/><h2>"+ date +"</h2>");
-        markers.addLayer(marker);
+        var marker = L.marker([lat, lng]).addTo(map).bindPopup("<img src="+ url1 +"/><h2>"+ date +"</h2>");
+        //markers.addLayer(marker);
         </script>
       {% endfor %}
     {% else %}
         <p>No Photos available</p>
     {% endif %}
 <script>
-    map.addLayer(markers);
+    //map.addLayer(markers);
 </script>
 </body>
 </html>
