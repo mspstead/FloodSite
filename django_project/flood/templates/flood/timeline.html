@@ -17,12 +17,12 @@
     <div class="page-header">
         <h1 id="timeline">Timeline</h1>
         <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Locality
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
                 {% if locality_list %}
                     {% for locality in locality_list %}
-                        <li><a href="map">{{ locality.locality }}</a></li>
+                        <li><a href="timeline.html?local={{ locality.locality }}">{{ locality.locality }}</a></li>
                     {% endfor %}
                 {% endif %}
               </ul>
