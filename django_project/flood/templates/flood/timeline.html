@@ -22,13 +22,17 @@
             <ul class="dropdown-menu">
                 {% if locality_list %}
                     {% for locality in locality_list %}
-                        <li><a href="timeline.html?local={{ locality.locality }}">{{ locality.locality }}</a></li>
+                        <li><a href="timeline.html?{{ locality.locality }}">{{ locality.locality }}</a></li>
                     {% endfor %}
                 {% endif %}
               </ul>
         </div>
     </div>
     <h2></h2>
+    <script>
+        var local = location.search.substr(1);
+        document.write("<h1>"+local+"</h1>")
+    </script>
     <ul class="timeline">
         {% if photo_list %}
             {% for photo in photo_list %}
