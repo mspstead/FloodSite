@@ -16,9 +16,6 @@
 <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
 <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 
-<!-- Example data. -->
-<script src="/mapbox.js/assets/data/realworld.388.js"></script>
-
 <div id='map'></div>
 
 <script>
@@ -34,9 +31,10 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibXNwc3RlYWQiLCJhIjoiY2lsYjFsZHk1MDA0cHZ3bHpnN
         var url = "{{ photo.url }}";
         var lat = "{{ photo.lat }}";
         var lng = "{{ photo.lng }}";
+        var date = "{{ photo.date_taken }}"
         var marker = L.marker(new L.LatLng(lat, lng), {
             icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
-            title: title
+            title: "<img src="+ url +"/><h2>"+ date +"</h2>"
         });
         marker.bindPopup(title);
         markers.addLayer(marker);
