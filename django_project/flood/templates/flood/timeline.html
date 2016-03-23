@@ -34,6 +34,7 @@
             {% for photo in photo_list %}
                 <script>
                     var local = location.search.substr(1);
+                    document.write("<h1>"+local+"</h1>")
                     if ("{{photo.locality}}" == local) {
                         document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
                     }
