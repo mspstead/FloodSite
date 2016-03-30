@@ -31,7 +31,7 @@
     <h2></h2>
     <ul class="timeline">
         {% if photo_list %}
-            {% for photo in photo_list %}
+            {% for photo in reversed(photo_list) %}
                 <script>
                     var local = location.search.substr(1);
                     if ("{{photo.locality}}" == local) {
