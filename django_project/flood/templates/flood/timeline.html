@@ -23,7 +23,7 @@
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
                 {% if flood_events %}
-                    {% for flood_event in flood_events %}
+                    {% for flood_event in flood_events reversed %}
                         <li><a href="timeline.html?{{ flood_event.0.date_taken }}">{{ flood_event.0.date_taken }}</a></li>
                     {% endfor %}
                 {% endif %}
@@ -33,13 +33,13 @@
     <h2></h2>
     <ul class="timeline">
         {% if photo_list %}
-            {% for photo in photo_list reversed %}
+            {% for photo in photo_list %}
                 <script>
-                    var local = "";
-                    if ("{{photo.locality}}" == local) {
+                    var date = "15/11/2015";
+                    if ("{{photo.date_taken}}" >= date) {
                         document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }},{{ photo.locality }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
                     }
-                    else if ("" == local){
+                    else if ("" == date){
                         document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
                     }
                 </script>
