@@ -18,10 +18,10 @@ def map(request):
 def timeline(request):
     ordered_photo_list = Photo.objects.order_by("date_taken")
     flood_events = []
-    start_date = ordered_photo_list[0].get("date_taken")
+    start_date = ordered_photo_list[0].date_taken
     for x in range(1, len(ordered_photo_list)):
         flood_event = []
-        difference = abs(ordered_photo_list[x].get('date_taken') - start_date).days
+        difference = abs(ordered_photo_list[x].date_taken - start_date).days
         if difference < datetime.datetime.strptime('3','%d'):
             flood_event.append(ordered_photo_list[x-1])
         else:
