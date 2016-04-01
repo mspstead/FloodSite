@@ -19,7 +19,7 @@ def timeline(request):
     ordered_photo_list = Photo.objects.order_by("date_taken")
     flood_events = []
     start_date = ordered_photo_list[0].date_taken
-    for x in range(1, len(ordered_photo_list)):
+    for x in range(0, len(ordered_photo_list)):
         flood_event = []
         difference = (ordered_photo_list[x].date_taken - start_date).days
         print(difference)
@@ -27,7 +27,7 @@ def timeline(request):
             flood_event.append(ordered_photo_list[x])
         else:
             flood_events.append(flood_event)
-        start_date = ordered_photo_list[x]
+        start_date = ordered_photo_list[x].date_taken
     context = {'photo_list':ordered_photo_list, 'flood_events':flood_events}
     return render(request, 'flood/timeline.html', context)
 
