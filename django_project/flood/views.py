@@ -23,10 +23,11 @@ def timeline(request):
         flood_event = []
         difference = (ordered_photo_list[x].date_taken - start_date).days
         print(difference)
-        if difference < 31:
+        if difference < 7:
             flood_event.append(ordered_photo_list[x])
         else:
             flood_events.append(flood_event)
+        start_date = ordered_photo_list[x]
     context = {'photo_list':ordered_photo_list, 'flood_events':flood_events}
     return render(request, 'flood/timeline.html', context)
 
