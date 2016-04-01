@@ -22,7 +22,7 @@ def timeline(request):
     for x in range(1, len(ordered_photo_list)):
         flood_event = []
         difference = abs(ordered_photo_list[x].date_taken - start_date).days
-        if difference < 3:
+        if difference < 31:
             flood_event.append(ordered_photo_list[x-1])
         else:
             flood_events.append(flood_event)
