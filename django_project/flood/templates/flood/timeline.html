@@ -28,6 +28,8 @@
                             {% if photo = flood_event|first %}
                                 <li><a href="timeline.html?{{ photo.date_taken }}">{{ photo.date_taken }}</a></li>
                             {% endif %}
+                            {% else %}
+                                <li><a href="timeline.html">None</a></li>
                         {% endfor %}
                     {% endfor %}
                 {% endif %}
