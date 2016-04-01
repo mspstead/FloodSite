@@ -26,7 +26,8 @@ def timeline(request):
         if difference < 7:
             flood_event.append(ordered_photo_list[x])
         else:
-            flood_events.append(flood_event)
+            if(flood_event != []):
+                flood_events.append(flood_event)
             flood_event = []
         start_date = ordered_photo_list[x].date_taken
     context = {'photo_list':ordered_photo_list, 'flood_events':flood_events}
