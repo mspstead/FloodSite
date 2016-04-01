@@ -22,9 +22,9 @@
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Flood Event
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-                {% if locality_list %}
-                    {% for locality in locality_list %}
-                        <li><a href="timeline.html?{{ locality.locality }}">{{ locality.locality }}</a></li>
+                {% if flood_events %}
+                    {% for flood_event in flood_events %}
+                        <li><a href="timeline.html?{{ flood_event[0].date_taken }}">{{ flood_event[0].date_taken }}</a></li>
                     {% endfor %}
                 {% endif %}
               </ul>
@@ -35,7 +35,7 @@
         {% if photo_list %}
             {% for photo in photo_list reversed %}
                 <script>
-                    var local = location.search.substr(1);
+                    var local = "leeds";
                     if ("{{photo.locality}}" == local) {
                         document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }},{{ photo.locality }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
                     }
