@@ -32,7 +32,7 @@
     </div>
     <h2></h2>
     <ul class="timeline">
-        {% if photo_list => 1 %}
+        {% if photo_list %}
             {% for photo in photo_list reversed %}
                 <script>
                     var local = location.search.substr(1);
