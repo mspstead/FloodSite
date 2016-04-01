@@ -19,3 +19,6 @@ def timeline(request):
     locality_list = Photo.objects.distinct("locality")
     context = {'photo_list':ordered_photo_list, 'locality_list':locality_list}
     return render(request, 'flood/timeline.html', context)
+
+def graph(request):
+    return render(request, 'flood/graph.html')
