@@ -24,7 +24,7 @@
             <ul class="dropdown-menu">
                 {% if flood_events %}
                     {% for flood_event in flood_events %}
-                        {% photo = flood_event[0] %}
+                        {% photo = flood_event.0 %}
                         <li><a href="timeline.html?{{ photo.date_taken }}">{{ photo.date_taken }}</a></li>
                     {% endfor %}
                 {% endif %}
