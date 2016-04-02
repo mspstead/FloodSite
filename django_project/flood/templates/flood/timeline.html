@@ -37,11 +37,11 @@
         {% if photo_list %}
             {% for photo in photo_list %}
                 <script>
-                    var d = new Date("15-11-2015");
+                    var d = new Date("10-11-2014");
                     if (new Date("{{ photo.date_taken|date:'SHORT_DATE_FORMAT' }}") >= d) {
                         document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }},{{ photo.locality }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
                     }
-                    else if ("xxx" == d){
+                    else if (d == ""){
                         document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
                     }
                 </script>
