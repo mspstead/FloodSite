@@ -24,7 +24,7 @@
             <ul class="dropdown-menu">
                 {% if flood_events %}
                     {% for flood_event in flood_events reversed %}
-                        <li><a href="timeline.html?{{ flood_event.0.date_taken }}">{{ flood_event.0.date_taken }}</a></li>
+                        <li><a href="timeline.html?{{ flood_event.0.date_taken }}+{{ flood_event|last.date_taken }}">{{ flood_event.0.date_taken }} - {{ flood_event|last.date_taken }}</a></li>
                     {% endfor %}
                 {% endif %}
               </ul>
@@ -36,7 +36,7 @@
             {% for photo in photo_list %}
                 <script>
                     var d = new Date("15-11-2015");
-                    if ("{{ photo.date_taken|date:'SHORT_DATE_FORMAT' }}" >= d) {
+                    if (new Date("{{ photo.date_taken|date:'SHORT_DATE_FORMAT' }}") >= d) {
                         document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }},{{ photo.locality }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
                     }
                     else if ("xxx" == d){
