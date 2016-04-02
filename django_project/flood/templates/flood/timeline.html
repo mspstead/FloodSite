@@ -32,7 +32,13 @@
               </ul>
         </div>
     </div>
-    <h2></h2>
+    {% if flood_events %}
+        {% for flood_event in flood_events %}
+            {% for photo in flood_event %}
+                <h2><li>{{ photo.date_taken }}</li></h2>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
     <ul class="timeline">
         {% if photo_list %}
             {% for photo in photo_list %}
