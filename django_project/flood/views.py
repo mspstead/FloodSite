@@ -27,7 +27,6 @@ def timeline(request):
             #start_date = ordered_photo_list[x].date_taken #set new start_date to current photo date in list.
 
         else:
-            flood_event.append(ordered_photo_list[x]) #if photos within 7 days of each other add to flood event
             flood_events.append(flood_event) #add flood event to the
             flood_event = [] #reset flood event to empty
             start_date = ordered_photo_list[x+1].date_taken #set new start_date to current photo date in list.
