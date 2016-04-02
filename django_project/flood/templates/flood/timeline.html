@@ -35,11 +35,11 @@
         {% if photo_list %}
             {% for photo in photo_list %}
                 <script>
-                    var date = new date("15-11-2015");
-                    if ("{{photo.date_taken}}" >= date) {
+                    var d = new Date("15-11-2015");
+                    if ("{{photo.date_taken}}" >= d) {
                         document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }},{{ photo.locality }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
                     }
-                    else if ("xxx" == date){
+                    else if ("xxx" == d){
                         document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
                     }
                 </script>
