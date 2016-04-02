@@ -40,7 +40,7 @@
                     var substr = location.search.substr(1);
                     var dates = substr.split("+");
 
-                    if (new Date("{{ photo.date_taken|date:'SHORT_DATE_FORMAT' }}") >= dates[0]) {
+                    if (new Date("{{ photo.date_taken|date:'SHORT_DATE_FORMAT' }}") >= new Date(dates[0])) {
                         document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }},{{ photo.locality }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
                     }
                     else if (dates[0] == ""){
