@@ -29,7 +29,7 @@ def timeline(request):
         else:
             flood_events.append(flood_event) #add flood event to the flood_events list
             flood_event = [] #reset flood event to empty
-            start_date = ordered_photo_list[x+1].date_taken #set new start_date to the next photo date in list.
+            start_date = ordered_photo_list[x].date_taken #set new start_date to the next photo date in list.
     context = {'photo_list':ordered_photo_list, 'flood_events':flood_events}
     return render(request, 'flood/timeline.html', context)
 
