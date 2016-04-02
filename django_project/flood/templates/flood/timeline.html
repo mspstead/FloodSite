@@ -24,7 +24,9 @@
             <ul class="dropdown-menu">
                 {% if flood_events %}
                     {% for flood_event in flood_events reversed %}
-                        <li><a href="timeline.html?{{ flood_event.0.date_taken }}+{{ flood_event|last.date_taken }}">{{ flood_event.0.date_taken }} - {{ flood_event|last.date_taken }}</a></li>
+                        {% with last_element=flood_event|last %}
+                            <li><a href="timeline.html?{{ flood_event.0.date_taken }}+{{ last_element.date_taken }}">{{ flood_event.0.date_taken }} - {{ last_element.date_taken }}</a></li>
+                        {% endwith %}
                     {% endfor %}
                 {% endif %}
               </ul>
