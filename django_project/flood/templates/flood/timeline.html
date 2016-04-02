@@ -32,13 +32,7 @@
               </ul>
         </div>
     </div>
-    {% if flood_events %}
-        {% for flood_event in flood_events %}
-            {% for photo in flood_event %}
-                <h2><li>{{ photo.date_taken }}</li></h2>
-            {% endfor %}
-        {% endfor %}
-    {% endif %}
+    <h2>Timeline for flooding throughout areas in West Yorkshire</h2>
     <ul class="timeline">
         {% if photo_list %}
             {% for photo in photo_list %}
