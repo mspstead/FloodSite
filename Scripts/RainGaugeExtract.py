@@ -1,5 +1,6 @@
 import csv
 import psycopg2
+from datetime import datetime
 
 def openCsv(file):
     with open(file) as csvfile:
@@ -22,7 +23,7 @@ def populateDB(rainLevels):
             print("Unable to connect")
 
         for rain in rainLevels:
-            dateValue = rain[0]
+            dateValue = datetime.strptime(rain[0],'%d/%m/%Y %H:%M').strftime('%Y/%m/%d %H:%M')
             mm = rain[1]
             ref = "Pottery Fields"
             curr.execute("INSERT INTO flood_rainlevel (date_taken,level,reference) "
