@@ -30,6 +30,8 @@ def populateDB(rainLevels):
                               "VALUES (%s,%s,%s)",(dateValue,mm,ref))
             print("ADDED:",rain)
 
+        conn.commit()
+
 
 levels = openCsv('RainGaugePtryF.csv')
 populateDB(levels)
