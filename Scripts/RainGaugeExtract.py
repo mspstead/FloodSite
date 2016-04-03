@@ -16,7 +16,7 @@ def populateDB(rainLevels):
     if len(rainLevels) > 1:
 
         try:
-            conn = psycopg2.connect(database='django', user='django', password='AgZP7U56Mw', host='http://46.101.11.228')
+            conn = psycopg2.connect(database='django', user='django', password='AgZP7U56Mw', host='localhost')
             curr = conn.cursor()
         except:
             print("Unable to connect")
