@@ -40,7 +40,7 @@ def getFloodEvents(list):
             start_date = ordered_list[x].date_taken.date()
         else:
             flood_event.append(ordered_list[x-1].date_taken)
-            rain_levels = RainLevel.objects.filter(date_taken__gte=flood_event[0].date_taken.date(), date_taken__lte=flood_event[-1].date_taken.date())
+            rain_levels = RainLevel.objects.filter(date_taken__gte=flood_event[0].date(), date_taken__lte=flood_event[-1].date())
             flood_events.append([flood_event[0],flood_event[-1],rain_levels]) #add flood event to the flood_events list
             flood_event = [] #reset flood event to empty
         start_date = ordered_list[x].date_taken.date() #set new start_date to the next photo date in list.
