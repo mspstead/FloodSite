@@ -14,7 +14,6 @@
         <li role="presentation"><a href="map">Map</a></li>
         <li role="presentation" class="active"><a href="timeline">Timeline</a></li>
         <li role="presentation>"><a href="graph">Graph</a> </li>
-
     </ul>
     <div class="page-header">
         <h1 id="timeline">Timeline</h1>
@@ -25,9 +24,7 @@
                 <li><a href="timeline.html">All Events</a></li>
                {% if flood_events %} 
                     {% for flood_event in flood_events reversed %} 
-                        {% with last_element=flood_event|last %} 
-                            <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT' }}">{{ flood_event.0|date:'SHORT_DATE_FORMAT' }} - {{ flood_event.1|date:'SHORT_DATE_FORMAT' }}</a></li> 
-                        {% endwith %} 
+                        <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT' }}">{{ flood_event.0|date:'SHORT_DATE_FORMAT' }} - {{ flood_event.1|date:'SHORT_DATE_FORMAT' }}</a></li> 
                     {% endfor %} 
                {% endif %}
               </ul>
