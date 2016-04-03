@@ -11,3 +11,8 @@ class Photo(models.Model):
     lng = models.TextField()
     locality = models.TextField()
     source = models.TextField()
+
+class RainLevel(models.Model):
+    date_taken = models.DateTimeField('date taken')
+    level = models.TextField()
+    reference = models.TextField()

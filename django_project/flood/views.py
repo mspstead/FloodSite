@@ -26,7 +26,7 @@ def timeline(request):
 
     for x in range(0, len(ordered_photo_list)): #cycle through the list
         difference = (ordered_photo_list[x].date_taken.date() - start_date).days #calculate the difference between dates between photos
-        if difference <= 3: #check the difference between dates is less than or equal to 1 day
+        if difference <= 1: #check the difference between dates is less than or equal to 1 day
             flood_event.append(ordered_photo_list[x]) #if photos within 1 day of each other add to flood event
             start_date = ordered_photo_list[x].date_taken.date()
         else:
