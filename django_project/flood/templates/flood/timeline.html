@@ -22,6 +22,7 @@
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Flood Event
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
+                <li><a href="timeline.html">All Events</a></li>
                 {% if flood_events %}
                     {% for flood_event in flood_events reversed %}
                         {% with last_element=flood_event|last %}
