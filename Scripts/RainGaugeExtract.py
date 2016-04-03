@@ -4,7 +4,6 @@ def openCsv(file):
     with open(file) as csvfile:
         reader = csv.DictReader(csvfile)
         rainLevels = []
-        largest =
         for row in reader:
             level = float(row['mm'])
             if level > 0 and level < 3:
