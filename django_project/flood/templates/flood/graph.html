@@ -21,7 +21,7 @@
   {% if flood_events %}
     {% for flood_event in flood_events %}
       {% for rain in flood_event.2 %}
-        <li>{{ rain.date_taken|date:'SHORT_DATE_FORMAT' }}, {{ rain.level }}</li>
+        <li>{{ rain.date_taken }}, {{ rain.level }}</li>
       {% endfor %}
     {% endfor %}
   {% endif %}
