@@ -8,6 +8,8 @@
   <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/bootstrap.min.css' %}">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -18,12 +20,27 @@
       <li role="presentation>" class="active"><a href="graph">Graph</a> </li>
     </ul>
   </div>
+  <script>
+    var trace1 = {
+      x: [],
+      y: [],
+      type: 'scatter'
+    };
+  </script>
   {% if flood_events %}
     {% for flood_event in flood_events %}
       {% for rain in flood_event.2 %}
-        <li>{{ rain.date_taken }}, {{ rain.level }}</li>
+        <script>
+          trace1.x = "{{ rain.date_taken }}".push()
+          trace1.y = "{{ rain.level }}".push()
+        </script>
       {% endfor %}
     {% endfor %}
   {% endif %}
+  <div id="myDiv" style="width: 480px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+  <script>
+    var data = [trace1];
+    Plotly.newPlot('myDiv', data);
+  </script>
 </body>
 </html>
