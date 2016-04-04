@@ -27,7 +27,7 @@ def timeline(request):
 def graph(request):
 
     ordered_photo_list = Photo.objects.order_by("date_taken") #order the photos based on the date_taken
-    flood_events = getFloodEvents(ordered_photo_list)
+    flood_events = getFlood(ordered_photo_list)
 
     context = {'photo_list':ordered_photo_list, 'flood_events':flood_events}
 
@@ -54,7 +54,7 @@ def getFloodEvents(list):
 
 def getFlood(list):
     # Remove duplicates, and sort the dates ascending
-    sorted_dates = sorted(set(list))
+    sorted_dates = list
     # Set initial first and last element as the current element
     first, last = sorted_dates[0].date_taken, sorted_dates[0].date_taken
     flood_events = []
