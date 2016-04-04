@@ -64,14 +64,14 @@ def getFlood(list):
         # Check if the current date is exactly one day later then the current
         # "last" date
         if d.date_taken - last != timedelta(days=1):
-            rain_levels = RainLevel.objects.filter(date_taken__gte=d.date_taken.date(), date_taken__lte=last)
+            rain_levels = RainLevel.objects.filter(date_taken__gte=d.date_taken, date_taken__lte=last)
             flood_events.append([first, last, rain_levels])
             first, last = d.date_taken, d.date_taken
         else:
             last = d.date_taken
 
     # Handle last element
-    rain_levels = RainLevel.objects.filter(date_taken__gte=d.date_taken.date(), date_taken__lte=last)
+    rain_levels = RainLevel.objects.filter(date_taken__gte=d.date_taken, date_taken__lte=last)
     if first == last:
         flood_events.append(([first, last, rain_levels]))
     else:
