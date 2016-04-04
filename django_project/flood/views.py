@@ -19,7 +19,7 @@ def map(request):
 def timeline(request):
 
     ordered_photo_list = Photo.objects.order_by("date_taken") #order the photos based on the date_taken
-    flood_events = getFlood(ordered_photo_list)
+    flood_events = getFloodEvents(ordered_photo_list)
 
     context = {'photo_list':ordered_photo_list, 'flood_events':flood_events}
     return render(request, 'flood/timeline.html', context)
