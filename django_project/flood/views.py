@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Photo, RainLevel
 import itertools as it
-import datetime
+from datetime import datetime, timedelta
 
 # Create your views here.
 
@@ -19,7 +19,7 @@ def map(request):
 def timeline(request):
 
     ordered_photo_list = Photo.objects.order_by("date_taken") #order the photos based on the date_taken
-    flood_events = getFloodEvents(ordered_photo_list)
+    flood_events = getFlood(ordered_photo_list)
 
     context = {'photo_list':ordered_photo_list, 'flood_events':flood_events}
     return render(request, 'flood/timeline.html', context)
@@ -50,4 +50,31 @@ def getFloodEvents(list):
             flood_events.append([flood_event[0],flood_event[-1],rain_levels]) #add flood event to the flood_events list
             flood_event = [] #reset flood event to empty
         start_date = ordered_list[x].date_taken.date() #set new start_date to the next photo date in list.
+    return flood_events
+
+def getFlood(list):
+    # Remove duplicates, and sort the dates ascending
+    sorted_dates = sorted(set(list))
+    # Set initial first and last element as the current element
+    first, last = sorted_dates[0], sorted_dates[0]
+    flood_events = []
+
+    # Loop over the sorted list from the second value
+    for d in sorted_dates[1:]:
+        # Check if the current date is exactly one day later then the current
+        # "last" date
+        if d - last != timedelta(days=1):
+            rain_levels = RainLevel.objects.filter(date_taken__gte=d.date(), date_taken__lte=last.date())
+            flood_events.append([first, last, rain_levels])
+            first, last = d, d
+        else:
+            last = d
+
+    # Handle last element
+    rain_levels = RainLevel.objects.filter(date_taken__gte=d.date(), date_taken__lte=last.date())
+    if first == last:
+        flood_events.append(([first, last, rain_levels]))
+    else:
+        flood_events.append([first, last, rain_levels])
+
     return flood_events
