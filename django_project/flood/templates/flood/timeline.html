@@ -34,15 +34,17 @@
                {% if flood_events %} 
                     {% for flood_event in flood_events reversed %} 
                         <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT' }}">{{ flood_event.0|date:'SHORT_DATE_FORMAT' }} - {{ flood_event.1|date:'SHORT_DATE_FORMAT' }}</a></li> 
-                        <script>
-                            var substr = location.search.substr(1);
-                            var dates = substr.split("+");
-                            var dateTaken = new Date("{{ flood_event.2.date_taken|date:'SHORT_DATE_FORMAT' }}")
-                            if (dateTaken >= Date(dates[0]) && dateTaken <= new Date(dates[1])) {
-                                trace1.x.push("{{ flood_event.2.date_taken }}")
-                                trace1.y.push("{{ flood_event.2.level }}")
-                            }
-                        </script>
+                        {% for rain in flood_event.2 %}
+                            <script>
+                                var substr = location.search.substr(1);
+                                var dates = substr.split("+");
+                                var dateTaken = new Date("{{ rain.date_taken|date:'SHORT_DATE_FORMAT' }}")
+                                if (dateTaken >= Date(dates[0]) && dateTaken <= new Date(dates[1])) {
+                                    trace1.x.push("{{ rain.date_taken }}")
+                                    trace1.y.push("{{ rain.level }}")
+                                }
+                            </script>
+                        {% endfor %}
                     {% endfor %} 
                {% endif %}
               </ul>
