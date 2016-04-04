@@ -48,7 +48,7 @@
                         var substr = location.search.substr(1);
                         var dates = substr.split("+");
                         var dateTaken = new Date("{{ rain.date_taken|date:'SHORT_DATE_FORMAT' }}")
-                        if (dateTaken >= Date(dates[0]) && dateTaken <= new Date(dates[1])) {
+                        if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) {
                             trace1.x.push("{{ rain.date_taken }}")
                             trace1.y.push("{{ rain.level }}")
                         }
