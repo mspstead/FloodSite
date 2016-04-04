@@ -47,11 +47,11 @@
                         var dates = substr.split("+");
                         var dateTaken = new Date("{{ rain.date_taken|date:'SHORT_DATE_FORMAT' }}")
                         if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) {
-                            trace1.x.push("{{ rain.date_taken }}")
+                            trace1.x.push("{{ rain.date_taken|date:'d/m/Y H:m' }}")
                             trace1.y.push("{{ rain.level }}")
                         }
                         else if (dates[0] == ""){
-                            trace1.x.push("{{ rain.date_taken }}")
+                            trace1.x.push("{{ rain.date_taken|date: 'd/m/Y H:m }}")
                             trace1.y.push("{{ rain.level }}")
                         }
                     </script>
