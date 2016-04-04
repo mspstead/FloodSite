@@ -31,8 +31,8 @@
     {% for flood_event in flood_events %}
       {% for rain in flood_event.2 %}
         <script>
-          trace1.x = "{{ rain.date_taken }}".push()
-          trace1.y = "{{ rain.level }}".push()
+          trace1.x.push("{{ rain.date_taken }}")
+          trace1.y.push("{{ rain.level }}")
         </script>
       {% endfor %}
     {% endfor %}
