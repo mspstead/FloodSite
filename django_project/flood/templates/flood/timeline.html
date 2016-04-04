@@ -39,9 +39,7 @@
               </ul>
         </div>
     </div>
-    <h2>Timeline for flooding throughout areas in West Yorkshire</h2>
-    <ul class="timeline">
-        {% if flood_events %}
+    {% if flood_events %}
             {% for flood_event in flood_events %}
                 {% for rain in flood_event.2 %}
                     <script>
@@ -59,19 +57,20 @@
                     </script>
                 {% endfor %}
             {% endfor %}
-        {% endif %}
-        <script>
-            if (dates[0] != ""){
-                document.write('<li class="timeline-inverted"><div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div><div class="timeline-panel"> <div class="timeline-heading"> <h4 class="timeline-title">Rain Gauge Graph</h4> </div> <div class="timeline-body"> <div id="myDiv" style="width: 480px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div> </div> </div> </li>')
-                var data = [trace1];
-                Plotly.newPlot('myDiv', data);
-            }
-            else if (dates[0] == ""){
-                document.write('<li class="timeline-inverted"><div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div><div class="timeline-panel"> <div class="timeline-heading"> <h4 class="timeline-title">Rain Gauge Graph</h4> </div> <div class="timeline-body"> <div id="myDiv" style="width: 480px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div> </div> </div> </li>')
-                var data = [trace1];
-                Plotly.newPlot('myDiv', data);
-            }
-        </script>
+    {% endif %}
+    <script>
+        if (dates[0] != ""){
+            document.write('<div id="myDiv" style="width: 480px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
+            var data = [trace1];
+            Plotly.newPlot('myDiv', data);
+        }
+        else if (dates[0] == ""){
+            document.write('<div id="myDiv" style="width: 480px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
+            var data = [trace1];
+            Plotly.newPlot('myDiv', data);
+        }
+    </script>
+    <ul class="timeline">
         {% if photo_list %}
             {% for photo in photo_list %}
                 <script>
