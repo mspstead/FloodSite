@@ -50,6 +50,34 @@
         {% else %}
             <p>No photos available</p>
         {% endif %}
+        <script>
+            var trace1 = {
+            x: [],
+            y: [],
+            type: 'scatter'
+            };
+        </script>
+        {% if flood_events %}
+            {% for flood_event in flood_events %}
+                {% for rain in flood_event.2 %}
+                    <script>
+                        var dateTaken = new Date("{{ rain.date_taken|date:'SHORT_DATE_FORMAT' }}")
+                        if (dateTaken >= Date(dates[0]) && dateTaken <= new Date(dates[1])) {
+                            trace1.x.push("{{ rain.date_taken }}")
+                            trace1.y.push("{{ rain.level }}")
+                        }
+                    </script>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        <div id="myDiv" style="width: 480px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+        <script>
+            if (dates[0] != ""){
+                document.write('<li class="timeline-inverted"><div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div><div class="timeline-panel"> <div class="timeline-heading"> <h4 class="timeline-title">Rain Gauge Graph</h4> </div> <div class="timeline-body"> <div id="myDiv" style="width: 480px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div> </div> </div> </li>')
+                var data = [trace1];
+                Plotly.newPlot('myDiv', data);
+            }
+        </script>
         <!--<li>
           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
           <div class="timeline-panel">
