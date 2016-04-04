@@ -60,12 +60,12 @@
     {% endif %}
     <script>
         if (dates[0] != ""){
-            document.write('<div id="myDiv" style="width: 480px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
+            document.write('<div id="myDiv" style="width: 700px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
             var data = [trace1];
             Plotly.newPlot('myDiv', data);
         }
         else if (dates[0] == ""){
-            document.write('<div id="myDiv" style="width: 480px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
+            document.write('<div id="myDiv" style="width: 700px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
             var data = [trace1];
             Plotly.newPlot('myDiv', data);
         }
