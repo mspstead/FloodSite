@@ -71,7 +71,7 @@ def getFlood(list):
             last = d.date_taken
 
     # Handle last element
-    rain_levels = RainLevel.objects.filter(date_taken__gte=d.date(), date_taken__lte=last.date())
+    rain_levels = RainLevel.objects.filter(date_taken__gte=d.date_taken.date(), date_taken__lte=last)
     if first == last:
         flood_events.append(([first, last, rain_levels]))
     else:
