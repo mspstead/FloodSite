@@ -33,5 +33,5 @@ def populateDB(rainLevels):
         conn.commit()
 
 
-levels = openCsv('RainGaugePtryF.csv')
+levels = openCsv('')
 populateDB(levels)
