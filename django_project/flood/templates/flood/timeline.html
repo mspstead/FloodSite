@@ -83,10 +83,10 @@
                     var photoDate = new Date("{{ photo.date_taken|date:'SHORT_DATE_FORMAT' }}");
 
                     if (photoDate >= new Date(dates[0]) && photoDate <= new Date(dates[1])) {
-                        document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }},{{ photo.locality }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}" height="100%" width="100%" /></div></div></li>')
+                        document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }},{{ photo.locality }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}" height="100%" width="100%" /><form action="" method="post"><input type="submit" name="up" value="up"/><input type="submit" name="down" value="down"/></form></div></div></li>')
                     }
                     else if (dates[0] == ""){
-                        document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}" height="100%" width="100%"/></div></div></li>')
+                        document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}" height="100%" width="100%"/><form action="" method="post"><input type="submit" name="up" value="up"/><input type="submit" name="down" value="down"/></form></div></div></li>')
                     }
                 </script>
             {% endfor %}
