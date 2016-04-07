@@ -34,7 +34,7 @@ class PhotoListFilter(SimpleListFilter):
         # to decide how to filter the queryset.
         if self.value() == 'negative':
             return queryset.filter(score__lt=0)
-        if self.value() == 'postive':
+        if self.value() == 'positive':
             return queryset.filter(score__gt=0)
 
 class PhotoAdmin(admin.ModelAdmin):
