@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Photo, RainLevel
+from forms import PhotoForm
+
 # Create your views here.
 
 def index(request):
