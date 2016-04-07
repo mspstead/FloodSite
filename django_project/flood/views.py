@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Photo, RainLevel
-from django.template import RequestContext
 # Create your views here.
 
 def index(request):
