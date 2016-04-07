@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from .models import Photo, RainLevel
 
 class PhotoAdmin(admin.ModelAdmin):
-    list_display = ('date_taken', 'locality')
+    list_display = ('date_taken', 'locality', 'score')
     list_filter = ('locality',PhotoListFilter)
 
 class PhotoListFilter(SimpleListFilter):
@@ -37,9 +37,9 @@ class PhotoListFilter(SimpleListFilter):
         # Compare the requested value (either '80s' or '90s')
         # to decide how to filter the queryset.
         if self.value() == 'negative':
-            return queryset.filter(Photo__lt=0)
+            return Photo.objects.filter(score__lt=0)
         if self.value() == 'postive':
-            return queryset.filter(Photo__gt=0)
+            return Photo.objects.filter(score__gt=0)
 
 
 
