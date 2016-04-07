@@ -40,7 +40,7 @@ def upvote(request, photo_id):
 
 def downvote(request, photo_id):
     photo = Photo.objects.get(pk=photo_id)
-    photo.score += 1
+    photo.score -= 1
     photo.save()
     return HttpResponse('46.101.11.228/flood/timeline')
 
