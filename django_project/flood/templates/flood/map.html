@@ -46,7 +46,7 @@
                 var longitude = "{{ photo.lng }}";
                 var url1 = "{{ photo.url }}";
                 var date = "{{ photo.date_taken }}"
-                marker = new L.marker([latitude,longitude]).bindPopup('<img src='+ url1 +' height="100%" width="100%"/><h2>'+ date +'</h2>');
+                marker = new L.marker([latitude,longitude]).bindPopup('<img src='+ url1 +' width="100%"/><h2>'+ date +'</h2>');
                 marker.addTo(markers)
                 </script>
             {% endfor %}
