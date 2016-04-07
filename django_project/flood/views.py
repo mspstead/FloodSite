@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from .models import Photo, RainLevel
-import itertools as it
-from datetime import datetime, timedelta
-
+from django.template import RequestContext
 # Create your views here.
 
 def index(request):
@@ -20,8 +18,20 @@ def timeline(request):
 
     ordered_photo_list = Photo.objects.order_by("date_taken") #order the photos based on the date_taken
     flood_events = getFloodEvents(ordered_photo_list)
-
     context = {'photo_list':ordered_photo_list, 'flood_events':flood_events}
+
+    if ('up' in request.POST):
+        urlVal = request.POST.get('up')
+        photo = Photo.objects.get(url=urlVal)
+        photo.score += 1
+        photo.save()
+
+    elif ('down' in request.POST):
+        urlVal = request.POST.get('down')
+        photo = Photo.objects.get(url=urlVal)
+        photo.score -= 1
+        photo.save()
+
     return render(request, 'flood/timeline.html', context)
 
 def graph(request):
