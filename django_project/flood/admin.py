@@ -8,7 +8,7 @@ from .models import Photo, RainLevel
 
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ('date_taken', 'locality', 'score')
-    list_filter = ('locality',PhotoListFilter)
+    list_filter = (PhotoListFilter)
 
 class PhotoListFilter(SimpleListFilter):
 
