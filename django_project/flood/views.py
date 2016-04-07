@@ -35,13 +35,13 @@ def upvote(request, photo_id):
     photo = Photo.objects.get(pk=photo_id)
     photo.score += 1
     photo.save()
-    return render('flood/timeline.html')
+    return HttpResponse(status=204)
 
 def downvote(request, photo_id):
     photo = Photo.objects.get(pk=photo_id)
     photo.score -= 1
     photo.save()
-    return render('flood/timeline.html')
+    return HttpResponse(status=204)
 
 def getFloodEvents(list):
     ordered_list = list
