@@ -39,7 +39,7 @@ class PhotoListFilter(SimpleListFilter):
 
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ('date_taken', 'locality', 'score')
-    list_filter = (PhotoListFilter)
+    list_filter = (PhotoListFilter,)
 
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(RainLevel)
