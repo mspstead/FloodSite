@@ -8,11 +8,12 @@ AccessToken = "1964111288.2bcdedd.ff75c59254cc4511bb2fb36d0d8a53c3"
 google_api_key = "AIzaSyBUpIx-7yc6wlReW5Wbd8gXAy7bvxHUFAQ"
 
 
-def searchLocation(lat, lng):
+def searchLocation(lat, lng, searchTerm):
     """
     Returns 20 most recent tweets based on location, all tweets are then searched for tags relating to flooding.
     :param lat:
     :param lng:
+    :param searcTerm: Any tags without the '#' eg. flood
     :return:PhotoArray of all recent photos relating to flooding.
     """
 
@@ -25,10 +26,11 @@ def searchLocation(lat, lng):
 
     jsonData = json.loads(req.text) #load the json data returned from the request
 
+    photoArray = []
     for obj in jsonData['data']:
         for tag in obj['tags']:
 
-            if tag == "flood": #cycle through the returned media and search for photos with tags=flood
+            if tag == searchTerm: #cycle through the returned media and search for photos with tags=flood
 
                 latitude = obj['location']['latitude'] #get the photos latitude
                 longitude = obj['location']['longitude'] #get the longitude
@@ -37,8 +39,16 @@ def searchLocation(lat, lng):
                 date_taken = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(float(obj['created_time'])))
                 title_text = obj['caption']['text']
                 source = "instagram"
+                score = 0 #set initial score to zero.
                 locality = getLocality(str(latitude),str(longitude))
-                print(latitude,longitude,imageUrl,owner,date_taken,title_text,locality,source)
+
+                #compile the dictionary
+                photoDict = {"Owner":owner, "Title":title_text, "Url": imageUrl, "Lat":latitude, "Lng":longitude,
+                             "Locality":locality, "Date_taken":date_taken, "Source":source, "Score":score}
+                photoArray.append(photoDict)
+                print(latitude,longitude,imageUrl,owner,date_taken,title_text,locality,source,score)
+
+    return photoArray
 
 
 

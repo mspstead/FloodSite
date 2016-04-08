@@ -24,8 +24,9 @@ class DBcrud:
                 lng = photo.get('Lng')
                 locality = photo.get('Locality')
                 source = photo.get('Source')
-                curr.execute("INSERT INTO flood_photo (owner, title_text, date_taken, url, lat, lng, locality, source) "
-                              "VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",(owner,title,date_taken,url,lat,lng,locality,source))
+                score = photo.get('score')
+                curr.execute("INSERT INTO flood_photo (owner, title_text, date_taken, url, lat, lng, locality, source, score) "
+                              "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)",(owner,title,date_taken,url,lat,lng,locality,source,score))
                 print("ADDED: ", photo)
 
             conn.commit()

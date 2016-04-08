@@ -30,7 +30,7 @@ def reqBuilder(tags, lat, lon, rad):
     #Create the url based on params given
     urlInit = "https://api.flickr.com/services/rest/?&method=" + search_method + "&api_key=" + api_key + \
               "&tags=" + tags + "&has_geo=1&lat=" + lat + "&lon=" + lon + "&radius=" + rad + \
-              "&min_upload_date=" + min_upload_date.strftime("%y-%m-%d")
+              "&min_upload_date=" + "2016-01-11"#min_upload_date.strftime("%y-%m-%d")
 
     r = requests.get(urlInit)   # send the initial request
     requestArray.append(r)  # add the first request to the array
@@ -149,10 +149,11 @@ def photoBuilder(photoArray):
         loc = getLocation(id)
         locality = getLocality(loc[0],loc[1])
         source = "Flickr"
+        score = 0 #set photo's score to default value of 0
 
         #compile the dictionary
         photoDict = {"Id": id, "Owner":owner, "Title":title, "Url": url, "Lat":loc[0], "Lng":loc[1],
-                     "Locality":locality, "Date_taken":date_taken, "Source":source}
+                     "Locality":locality, "Date_taken":date_taken, "Source":source, "Score":score}
 
         #print(photoDict)
         photosDB.append(photoDict) #add the current photo dictionary to the array
@@ -163,4 +164,5 @@ r = reqBuilder("flood", "53.7996", "-1.5491", "20") #photos request being asked 
 photos = xmlParser(r) #parse the requests
 print(len(photos))
 DB = DBcrud() #create a dbconnector/operator object
-DB.addtodatabase(photoBuilder(photos)) #add the photos to the database.
+photoArray = (photoBuilder(photos)) #get the array of all the photos
+DB.addtodatabase(photoArray) #add the photos to the database.
