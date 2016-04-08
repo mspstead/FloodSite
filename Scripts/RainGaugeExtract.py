@@ -3,6 +3,11 @@ import psycopg2
 from datetime import datetime
 
 def openCsv(file):
+    """
+    Used to get initial historic rainfall data
+    :param file: csv file of rain gauge data
+    :return: array of rainlevels of format [date,rainfall in mm]
+    """
     with open(file) as csvfile:
         reader = csv.DictReader(csvfile)
         rainLevels = []
