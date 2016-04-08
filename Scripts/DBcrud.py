@@ -18,13 +18,13 @@ class DBcrud:
             for photo in photoArray:
                 owner = photo.get('Owner')
                 title = photo.get('Title')
-                date_taken = photo.get('date_taken')
+                date_taken = photo.get('Date_taken')
                 url = photo.get('Url')
                 lat = photo.get('Lat')
                 lng = photo.get('Lng')
                 locality = photo.get('Locality')
                 source = photo.get('Source')
-                score = photo.get('score')
+                score = photo.get('Score')
                 curr.execute("INSERT INTO flood_photo (owner, title_text, date_taken, url, lat, lng, locality, source, score) "
                               "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)",(owner,title,date_taken,url,lat,lng,locality,source,score))
                 print("ADDED: ", photo)
