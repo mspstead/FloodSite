@@ -84,9 +84,9 @@
             {% for photo in photo_list %}
                 <script>
                     function up(id){
-                            var scr = document.getElementById("score")
-                            scr = scr + 1;
-                            document.getElementById("score").innerHTML = scr;
+                            var scr = document.getElementById("score");
+                            var finalScr = parseInt(scr,10) + 1;
+                            document.getElementById("score").innerHTML = finalScr;
                             window.open("upvote/"+id);
                             }
 
