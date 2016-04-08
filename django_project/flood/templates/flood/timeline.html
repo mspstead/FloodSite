@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/timeline.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript" src="{% static 'flood/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'flood/js/timelinefunctions.js' %}"></script>
+
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
@@ -83,23 +85,6 @@
         {% if photo_list %}
             {% for photo in photo_list %}
                 <script>
-                    function up(id){
-                            var scr = document.getElementById("Score").innerHTML;
-                            console.log(scr);
-                            var finalScr = parseInt(scr) + 1;
-                            console.log(finalScr);
-                            document.getElementById("Score").innerHTML = finalScr;
-                            window.location.replace("upvote/"+id);
-                            }
-
-                    function down(id){
-                            var scr = document.getElementById("Score").innerHTML;
-                            console.log(scr);
-                            var finalScr = parseInt(scr) - 1;
-                            console.log(finalScr);
-                            document.getElementById("Score").innerHTML = finalScr;
-                            window.location.replace("downvote/"+id);
-                            }
 
                     var photoDate = new Date("{{ photo.date_taken|date:'SHORT_DATE_FORMAT' }}");
 
