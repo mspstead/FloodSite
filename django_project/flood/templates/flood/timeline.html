@@ -83,10 +83,10 @@
         {% if photo_list %}
             {% for photo in photo_list %}
                 <script>
-                    function up(score, id){
-                            var scr = score
+                    function up(id){
+                            var scr = document.getElementById("score")
                             scr = scr + 1;
-                            document.getElementById("score").value = scr;
+                            document.getElementById("score").innerHTML = scr;
                             window.open("upvote/"+id);
                             }
 
