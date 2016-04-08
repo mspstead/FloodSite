@@ -83,11 +83,11 @@
         {% if photo_list %}
             {% for photo in photo_list %}
                 <script>
-                    var score = "{{ photo.score }}";
+                    var score = parseInt("{{ photo.score }}");
                     function up(){
                             score = score + 1
-                            document.getElementById("score").innerHTML = score
-                            location.replace("upvote/{{ photo.id }}")
+                            document.getElementById("score").value = score
+                            window.location.href("upvote/{{ photo.id }}")
                             }
 
                     var photoDate = new Date("{{ photo.date_taken|date:'SHORT_DATE_FORMAT' }}");
