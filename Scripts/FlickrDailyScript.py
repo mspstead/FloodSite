@@ -30,7 +30,7 @@ def reqBuilder(tags, lat, lon, rad):
     #Create the url based on params given
     urlInit = "https://api.flickr.com/services/rest/?&method=" + search_method + "&api_key=" + api_key + \
               "&tags=" + tags + "&has_geo=1&lat=" + lat + "&lon=" + lon + "&radius=" + rad + \
-              "&min_upload_date=" + "2016-01-11"#min_upload_date.strftime("%y-%m-%d")
+              "&min_upload_date=" + min_upload_date.strftime("%y-%m-%d")
 
     r = requests.get(urlInit)   # send the initial request
     requestArray.append(r)  # add the first request to the array
