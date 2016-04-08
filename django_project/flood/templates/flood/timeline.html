@@ -85,7 +85,7 @@
                 <script>
                     function up(id){
                             var scr = document.getElementById("Score").value;
-                            var finalScr = parseInt(scr) + 1;
+                            var finalScr = scr + 1;
                             document.getElementById("Score").innerHTML = finalScr;
                             window.location.replace("upvote/"+id);
                             }
