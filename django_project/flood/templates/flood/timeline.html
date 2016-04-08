@@ -87,7 +87,7 @@
                     function up(){
                             score = score + 1;
                             document.getElementById("score").value = score;
-                            window.open("upvote/{{ photo.id }}");
+                            window.open("upvote/{{ photo.id }}, _self");
                             }
 
                     var photoDate = new Date("{{ photo.date_taken|date:'SHORT_DATE_FORMAT' }}");
