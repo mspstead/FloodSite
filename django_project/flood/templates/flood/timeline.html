@@ -85,9 +85,9 @@
                 <script>
                     function up(id){
                             var scr = document.getElementById("score");
-                            var finalScr = parseInt(scr,10) + 1;
+                            var finalScr = parseInt(scr) + 1;
                             document.getElementById("score").innerHTML = finalScr;
-                            window.open("upvote/"+id);
+                            window.location.replace("upvote/"+id);
                             }
 
                     var photoDate = new Date("{{ photo.date_taken|date:'SHORT_DATE_FORMAT' }}");
