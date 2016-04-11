@@ -17,7 +17,7 @@ def GetEmbedHtml(TweetId):
 def ExtractTweetsCsv(csvFile):
 
     tweets = []
-    process = "x"
+    process = ""
     Users = ["tynetravel", "northyorktravel", "westyorkstravel", "teestravel", "floodAlerts", "riverlevelsuk", "southyorktravel"]
 
     with open(csvFile) as file:
@@ -33,6 +33,8 @@ def ExtractTweetsCsv(csvFile):
                 html = GetEmbedHtml(TweetId)
                 tweets.append({"Time":row["TimeInterval"][2:25], "Lat":row["lat"], "Lng":row["lng"], "Label":row["Label"],
                                     "UserId":row["userid"], "TweetId":TweetId, "Tweet":tweet, "Html":html})
+                process=process+"x"
+                print("Processing:"+process)
     return tweets
 
 tweets = ExtractTweetsCsv("nodes.csv")
