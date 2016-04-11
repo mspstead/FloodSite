@@ -28,7 +28,9 @@ def timeline(request):
 
     for tweet in ordered_tweet_list:
         date = tweet.date_taken
-        combined_list.append([date,"tweet",tweet])
+        tweetHtml = tweet.html
+        tweetHtml.replace('</script>', '"</scr"+"ipt>"')
+        combined_list.append([date,"tweet",tweetHtml])
 
     combined_list.sort(key=lambda x: x[0])
 
