@@ -23,6 +23,7 @@ def ExtractTweetsCsv(csvFile):
     with open(csvFile) as file:
 
         reader = csv.DictReader(file)
+        leng = len(reader)
         for row in reader:
 
             tweet = str.lower(row['tweet'])
@@ -34,8 +35,8 @@ def ExtractTweetsCsv(csvFile):
                 tweets.append({"Time":row["TimeInterval"][2:25], "Lat":row["lat"], "Lng":row["lng"], "Label":row["Label"],
                                     "UserId":row["userid"], "TweetId":TweetId, "Tweet":tweet, "Html":html})
 
-                process=process+"x"
-                print("processing:"+process)
+            leng = leng -1
+            print(leng)
     return tweets
 
 tweets = ExtractTweetsCsv("nodes.csv")
