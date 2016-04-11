@@ -30,7 +30,7 @@ def timeline(request):
         date = tweet.date_taken
         combined_list.append([date,"tweet",tweet])
 
-    combined_list.sort(key=lambda x: datetime.datetime.strptime(x[0], '%Y-%m-%d %H:%M:%S'))
+    combined_list.sort(key=lambda x: x[0])
 
     flood_events = getFloodEvents(ordered_photo_list)
     context = {'combined_list': combined_list, 'photo_list':ordered_photo_list, 'flood_events':flood_events, 'tweet_list':ordered_tweet_list}
