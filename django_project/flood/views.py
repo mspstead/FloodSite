@@ -23,11 +23,11 @@ def timeline(request):
     combined_list = []
 
     for photo in ordered_photo_list:
-        date = photo.get("date_taken")
+        date = photo.date_taken
         combined_list.append([date,"photo",photo])
 
     for tweet in ordered_tweet_list:
-        date = tweet.get("date_taken")
+        date = tweet.date_taken
         combined_list.append([date,"tweet",tweet])
 
     combined_list.sort(key=lambda x: datetime.datetime.strptime(x[0], '%Y-%m-%d %H:%M:%S'))
