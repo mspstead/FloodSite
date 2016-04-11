@@ -9,7 +9,7 @@ def GetEmbedHtml(TweetId):
 
     req = requests.get(embedUrl)
     jsonData = req.json() #load the json data returned from the request
-    html = jsonData.get("html")
+    html = str(jsonData.get("html"))
     print(html)
 
     if html != None:
