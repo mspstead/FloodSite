@@ -1,5 +1,6 @@
 import csv
 import requests
+import BeautifulSoup
 from DBcrud import DBcrud
 
 def GetEmbedHtml(TweetId):
@@ -10,7 +11,11 @@ def GetEmbedHtml(TweetId):
     jsonData = req.json() #load the json data returned from the request
     html = jsonData.get("html")
     if html != None:
-        return html
+
+        htmltext = BeautifulSoup(html)
+        [s.extract() for s in htmltext('script')]
+
+        return htmltext
     else:
         return ""
 
