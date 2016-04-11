@@ -55,7 +55,7 @@ class DBcrud:
                 tweetMessage = tweet.get("Tweet")
                 html = tweet.get("Html")
 
-                curr.execute("INSERT INTO flood_tweets (date_taken,lat,lng,username,userId,tweetId,tweet,html) "
+                curr.execute("INSERT INTO flood_tweets (date_taken,lat,lng,username,userid,tweetid,tweet,html) "
                               "VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",(tweetTime,lat,lng,username,userId,tweetId,tweetMessage,html))
                 print("ADDED: ", tweet)
 
