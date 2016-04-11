@@ -35,7 +35,7 @@ def ExtractTweetsCsv(csvFile):
                                     "UserId":row["userid"], "TweetId":TweetId, "Tweet":tweet, "Html":html})
 
                 process=process+"x"
-                print "Left:"+process,
+                print("processing:"+process)
     return tweets
 
 tweets = ExtractTweetsCsv("nodes.csv")
