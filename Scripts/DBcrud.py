@@ -2,7 +2,7 @@ import psycopg2
 
 class DBcrud:
 
-    def addtodatabase(self, photoArray):
+    def addphotodatabase(self, photoArray):
 
         if len(photoArray) > 1:
 
@@ -33,6 +33,39 @@ class DBcrud:
 
         else:
             print("Nothing to add to DB.")
+
+
+    def addtweetdatabase(self, tweets):
+
+        if len(tweets) > 1:
+            try:
+                conn = psycopg2.connect(database='django', user='django', password='AgZP7U56Mw', host='localhost')
+                curr = conn.cursor()
+
+            except:
+                print('ERROR:unable to connect')
+
+            for tweet in tweets:
+                tweetTime = tweet.get("Time")
+                lat = tweet.get("Lat")
+                lng = tweet.get("Lng")
+                username = tweet.get("Label")
+                userId = tweet.get("UserId")
+                tweetId = tweet.get("TweetId")
+                tweetMessage = tweet.get("Tweet")
+                html = tweet.get("Html")
+
+                curr.execute("INSERT INTO flood_tweets (date_taken,lat,lng,username,userId,tweetId,tweet,html) "
+                              "VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",(tweetTime,lat,lng,username,userId,tweetId,tweetMessage,html))
+                print("ADDED: ", tweet)
+
+            conn.commit()
+
+        else:
+            print("No tweets to add to DB")
+
+
+
 
 
 

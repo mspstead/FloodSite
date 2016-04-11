@@ -165,4 +165,4 @@ photos = xmlParser(r) #parse the requests
 print(len(photos))
 DB = DBcrud() #create a dbconnector/operator object
 photoArray = (photoBuilder(photos)) #get the array of all the photos
-DB.addtodatabase(photoArray) #add the photos to the database.
+DB.addphotodatabase(photoArray) #add the photos to the database.

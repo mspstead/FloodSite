@@ -54,7 +54,7 @@ def runScripts(floodurls):
         instaArray = InstagramDailyScript.searchLocation(str(location[0]),str(location[1],"flood"))
         print(instaArray)
 
-        #DBUpdate.addtodatabase(instaArray)
+        #DBUpdate.addphotodatabase(instaArray)
 
 
 floodurls = searchArea("53.7996","-1.5491") #execute for 20km radius around leeds lat/lng

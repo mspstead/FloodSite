@@ -18,3 +18,13 @@ class RainLevel(models.Model):
     date_taken = models.DateTimeField('date taken')
     level = models.TextField()
     reference = models.TextField()
+
+class Tweets(models.Model):
+    date_taken = models.DateTimeField('date_taken')
+    lat = models.TextField()
+    lng = models.TextField()
+    username = models.TextField()
+    userId = models.TextField()
+    tweetId = models.TextField()
+    tweet = models.TextField()
+    html = models.TextField()
