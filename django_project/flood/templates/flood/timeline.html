@@ -93,15 +93,19 @@
                             document.write('<li><div class="timeline-badge"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="{{ object.2.url }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="score">{{ object.2.score }}</b></div></div></li>')
                         }
                         else if(objType == "tweet"){
-                            document.write('<li class="timeline-inverted"><div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4><div class="timeline-body">{{ object.2.html|safe }}</div></div></li>')
-                        }
+                            var embedTweet = tweetremoveScripts("{{ object.2.html|safe }}")
+                            document.write('<li class="timeline-inverted"><div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4><div class="timeline-body"></div></div></li>')
+                            document.getElementById("timeline-body").innerHTML = embedTweet                        }
                     }
                     else if (dates[0] == ""){
                         if (objType == "photo"){
                             document.write('<li><div class="timeline-badge"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="{{ object.2.url }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="Score">{{ object.2.score }}</b></div></div></li>')
                         }
                         else if (objType == "tweet"){
-                            document.write('<li class="timeline-inverted"><div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4><div class="timeline-body">{{ object.2.html|safe }}</div></div></li>')
+                            var embedTweet = tweetremoveScripts("{{ object.2.html|safe }}")
+                            document.write('<li class="timeline-inverted"><div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4><div class="timeline-body"></div></div></li>')
+                            document.getElementById("timeline-body").innerHTML = "{{ object.2.html|safe }}"
+
                         }
                     }
                 </script>
