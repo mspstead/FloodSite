@@ -34,7 +34,7 @@ def ExtractTweetsCsv(csvFile):
                 tweets.append({"Time":row["TimeInterval"][2:25], "Lat":row["lat"], "Lng":row["lng"], "Label":row["Label"],
                                     "UserId":row["userid"], "TweetId":TweetId, "Tweet":tweet, "Html":html})
                 process=process+"x"
-                print("Processing:"+process)
+                print("Processing:"+process,)
     return tweets
 
 tweets = ExtractTweetsCsv("nodes.csv")
