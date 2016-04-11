@@ -9,12 +9,12 @@ def GetEmbedHtml(TweetId):
 
     req = requests.get(embedUrl)
     jsonData = req.json() #load the json data returned from the request
-    html = str(jsonData.get("html"))
+    html = jsonData.get("html")
     print(html)
 
     if html != None:
 
-        htmltext = BeautifulSoup(html)
+        htmltext = BeautifulSoup.BeautifulSoup(html)
         [s.extract() for s in htmltext('script')]
 
         return htmltext
@@ -24,7 +24,6 @@ def GetEmbedHtml(TweetId):
 def ExtractTweetsCsv(csvFile):
 
     tweets = []
-    process = ""
     Users = ["tynetravel", "northyorktravel", "westyorkstravel", "teestravel", "floodAlerts", "riverlevelsuk", "southyorktravel"]
 
     with open(csvFile) as file:
