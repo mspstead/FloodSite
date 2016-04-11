@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 # Register your models here.
-from .models import Photo, RainLevel
+from .models import Photo, RainLevel, Tweets
 
 class PhotoListFilter(SimpleListFilter):
 
@@ -43,3 +43,4 @@ class PhotoAdmin(admin.ModelAdmin):
 
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(RainLevel)
+admin.site.register(Tweets)
