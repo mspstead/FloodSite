@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Photo, RainLevel
+from .models import Photo, RainLevel, Tweets
+import datetime
 
 # Create your views here.
 
@@ -18,8 +19,21 @@ def map(request):
 def timeline(request):
 
     ordered_photo_list = Photo.objects.order_by("date_taken") #order the photos based on the date_taken
+    ordered_tweet_list = Tweets.objects.order_by("date_taken") #order the tweets based on date_taken
+    combined_list = []
+
+    for photo in ordered_photo_list:
+        date = photo.get("date_taken")
+        combined_list.append([date,"photo",photo])
+
+    for tweet in ordered_tweet_list:
+        date = tweet.get("date_taken")
+        combined_list.append([date,"tweet",tweet])
+
+    combined_list.sort(key=lambda x: datetime.datetime.strptime(x[0], '%Y-%m-%d %H:%M:%S'))
+
     flood_events = getFloodEvents(ordered_photo_list)
-    context = {'photo_list':ordered_photo_list, 'flood_events':flood_events}
+    context = {'combined_list': combined_list, 'photo_list':ordered_photo_list, 'flood_events':flood_events, 'tweet_list':ordered_tweet_list}
     return render(request, 'flood/timeline.html', context)
 
 def graph(request):
