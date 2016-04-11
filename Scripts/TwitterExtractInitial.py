@@ -1,6 +1,6 @@
 import csv
 import requests
-import DBcrud
+from DBcrud import DBcrud
 
 def GetEmbedHtml(TweetId):
 
@@ -33,8 +33,9 @@ def ExtractTweetsCsv(csvFile):
                 html = GetEmbedHtml(TweetId)
                 tweets.append({"Time":row["TimeInterval"][2:25], "Lat":row["lat"], "Lng":row["lng"], "Label":row["Label"],
                                     "UserId":row["userid"], "TweetId":TweetId, "Tweet":tweet, "Html":html})
+
                 process=process+"x"
-                print("Processing:"+process,)
+                print "Left:"+process,
     return tweets
 
 tweets = ExtractTweetsCsv("nodes.csv")
