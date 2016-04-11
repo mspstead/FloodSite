@@ -35,7 +35,7 @@ def ExtractTweetsCsv(csvFile):
                                     "UserId":row["userid"], "TweetId":TweetId, "Tweet":tweet, "Html":html})
     return tweets
 
-tweets = ExtractTweetsCsv("tweets.csv")
+tweets = ExtractTweetsCsv("nodes.csv")
 DB = DBcrud() #create a dbconnector/operator object
 DB.addtweetdatabase(tweets)
 
