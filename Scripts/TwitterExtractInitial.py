@@ -17,7 +17,7 @@ def GetEmbedHtml(TweetId):
 
         print(htmltext)
 
-        return htmltext
+        return str(htmltext)
     else:
         return ""
 
