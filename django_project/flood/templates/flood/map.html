@@ -59,7 +59,7 @@
                 <script type="text/javascript">
                     var lat = "{{ tweet.lat }}";
                     var long = "{{ tweet.lng }}";
-                    var html = "{{ tweet.html|safe }}";
+                    var html = '{{ tweet.html|safe }}';
                     mark = new L.marker([lat,long]).bindPopup(html);
                     mark.addTo(markers)
                 </script>
