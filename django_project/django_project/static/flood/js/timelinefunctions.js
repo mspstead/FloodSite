@@ -3,7 +3,7 @@
  */
 
 function up(id){
-    var scr = document.getElementById("Score").innerHTML;
+    var scr = document.getElementById("score").innerHTML;
     console.log(scr);
     var finalScr = parseInt(scr) + 1;
     console.log(finalScr);
@@ -12,7 +12,7 @@ function up(id){
 }
 
 function down(id){
-    var scr = document.getElementById("Score").innerHTML;
+    var scr = document.getElementById("score").innerHTML;
     console.log(scr);
     var finalScr = parseInt(scr) - 1;
     console.log(finalScr);
