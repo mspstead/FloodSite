@@ -13,11 +13,11 @@ def GetEmbedHtml(TweetId):
     if html != None:
 
         htmltext = BeautifulSoup.BeautifulSoup(html)
-        [s.extract() for s in htmltext('script')]
+        [s.extract() for s in htmltext('script')] #remove all javascript from the html embed code
 
-        print(htmltext)
+        tweetHtml = str(htmltext).replace("\n", "") #remove all line breaks
 
-        return str(htmltext)
+        return str(tweetHtml)
     else:
         return ""
 
