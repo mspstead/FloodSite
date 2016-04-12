@@ -16,7 +16,13 @@
     <li role="presentation"><a href="timeline">Timeline</a></li>
   </nav>
   <div class="jumbotron">
-    <div><{{ message }}</div>
+    {% if floods %}
+      {% for flood in floods %}
+        <li><p>Location:{{flood.description}}</p><p>Type:{{ flood.severity }}</p><p>Threat Level:{{ flood.severitylevel }}</p></li>
+      {% endfor %}
+    {% else %}
+      <h5 style="text-align: center">There are no flood alerts</h5>
+
   </div>
   <div class="container">
     HELLLOOO DATASDASDK

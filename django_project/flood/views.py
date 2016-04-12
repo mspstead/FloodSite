@@ -8,12 +8,7 @@ import datetime
 
 def index(request):
     floods = FloodAreas.searchArea("53.7996","-1.5491")
-    message = ""
-    if floods == []:
-        message = "<h3 style='text-align: center'>No floods or flood warnings<h3>"
-    else:
-        message=""
-    context = {'message':message}
+    context = {'floods':floods}
     return render(request,'flood/index.html', context)
 
 

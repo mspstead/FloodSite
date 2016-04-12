@@ -6,7 +6,6 @@
   <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/bootstrap.min.css' %}">
   <script type="text/javascript" src="{% static 'flood/js/bootstrap.min.js' %}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   <style>
     #map{ height: 90% }
@@ -19,6 +18,7 @@
    <li role="presentation"><a href="timeline">Timeline</a></li>
  </ul>
 
+ <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
@@ -61,8 +61,10 @@
                     var lat = "{{ tweet.lat }}";
                     var long = "{{ tweet.lng }}";
                     var html = '{{ tweet.html|safe }}';
-                    mark = new L.marker([lat,long]).bindPopup(html);
-                    mark.addTo(markers)
+                    if (html != ""){
+                        mark = new L.marker([lat,long]).bindPopup(html);
+                        mark.addTo(markers)
+                    }
                 </script>
             {% endfor %}
         {% endif %}
