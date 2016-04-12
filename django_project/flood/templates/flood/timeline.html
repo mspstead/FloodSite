@@ -95,7 +95,7 @@
                         }
                         else if(objType == "tweet"){
                             document.write('<li class="timeline-inverted"><div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title"></h4><div class="timeline-body"></div></div></li>')
-                            document.getElementById("timeline-body").innerHTML('{{ object.2|safe }}');
+                            document.getElementById("timeline-body").innerHTML = '{{ object.2|safe }}';
                         }
                     }
                     else if (dates[0] == ""){
