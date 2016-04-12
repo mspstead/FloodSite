@@ -1,5 +1,4 @@
 import psycopg2
-from django.db import models
 from django_project.flood.models import Photo, Tweets
 
 class DBcrud:
