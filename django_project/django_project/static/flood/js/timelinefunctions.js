@@ -7,7 +7,7 @@ function up(id){
     console.log(scr);
     var finalScr = parseInt(scr) + 1;
     console.log(finalScr);
-    document.getElementById("Score").innerHTML = finalScr;
+    document.getElementById("score").innerHTML = finalScr;
     window.location.replace("upvote/"+id);
 }
 
@@ -16,6 +16,6 @@ function down(id){
     console.log(scr);
     var finalScr = parseInt(scr) - 1;
     console.log(finalScr);
-    document.getElementById("Score").innerHTML = finalScr;
+    document.getElementById("score").innerHTML = finalScr;
     window.location.replace("downvote/"+id);
 }
