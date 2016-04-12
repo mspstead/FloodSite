@@ -23,6 +23,9 @@ def searchArea(lat,lng):
     for item in jsonData['items']:
         floodAreaUrls.append(item["@id"])
 
+    if floodAreaUrls == []:
+        print("No flooding")
+
     return floodAreaUrls
 
 def getFloodLocation(floodUrl):
