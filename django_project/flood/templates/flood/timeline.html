@@ -35,7 +35,7 @@
                 </script>
                {% if flood_events %} 
                     {% for flood_event in flood_events reversed %} 
-                        <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT ' }}">{{ flood_event.0|date:'d/m/Y' }} - {{ flood_event.1|date:'d/m/Y' }}</a></li> 
+                        <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT' }}">{{ flood_event.0|date:'d/m/Y' }} - {{ flood_event.1|date:'d/m/Y' }}</a></li> 
                     {% endfor %} 
                {% endif %}
               </ul>
