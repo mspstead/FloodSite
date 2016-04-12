@@ -68,18 +68,18 @@ def getFloodEvents(list):
 
     ordered_list = list
     flood_events = [] #empty list to hold all of the flood events
-    start_date = ordered_list[0][0].date_taken.date() #Initialise start_date
+    start_date = ordered_list[0][0].date() #Initialise start_date
     flood_event = [] #list to hold individual flood event dates
 
     for x in range(0, len(ordered_list)): #cycle through the list
-        difference = (ordered_list[x][0].date_taken.date() - start_date).days #calculate the difference between dates between photos
+        difference = (ordered_list[x][0].date() - start_date).days #calculate the difference between dates between photos
         if difference <= 3: #check the difference between dates is less than or equal to 1 day
-            flood_event.append(ordered_list[x][0].date_taken) #if photos within 1 day of each other add to flood event
-            start_date = ordered_list[x][0].date_taken.date()
+            flood_event.append(ordered_list[x][0]) #if photos within 1 day of each other add to flood event
+            start_date = ordered_list[x][0].date()
         else:
-            flood_event.append(ordered_list[x-1].date_taken)
+            flood_event.append(ordered_list[x-1][0])
             rain_levels = RainLevel.objects.filter(date_taken__gte=flood_event[0].date(), date_taken__lte=flood_event[-1].date())
             flood_events.append([flood_event[0],flood_event[-1],rain_levels]) #add flood event to the flood_events list
             flood_event = [] #reset flood event to empty
-        start_date = ordered_list[x][0].date_taken.date() #set new start_date to the next photo date in list.
+        start_date = ordered_list[x][0].date() #set new start_date to the next photo date in list.
     return flood_events
