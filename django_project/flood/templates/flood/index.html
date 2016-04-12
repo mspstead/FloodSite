@@ -17,14 +17,9 @@
       <li role="presentation"><a href="timeline">Timeline</a></li>
     </ul>
     <div class="jumbotron">
-      <h1>Bootstrap Test</h1>
-      {% if photo_list %}
-        {% for photo in photo_list %}
-          <li><a href="{{ photo.url }}">{{ photo.title_text }}</a></li>
-        {% endfor %}
-      {% else %}
-        <p>No photos available</p>
-      {% endif %}
+      <h1>Flooding:</h1>
+      {% if message %}
+        <h3>{{ message }}</h3>
     </div>
   </div>
 </body>

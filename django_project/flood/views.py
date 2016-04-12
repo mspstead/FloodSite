@@ -1,13 +1,17 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Photo, RainLevel, Tweets
+from Scripts import FloodAreas
 import datetime
 
 # Create your views here.
 
 def index(request):
-    photo_list = Photo.objects.all()
-    context = {'photo_list':photo_list}
+    floods = FloodAreas.searchArea("53.7996","-1.5491")
+    message = ""
+    if floods == []:
+        message = "No floods or flood warnings"
+    context = {'message':message}
     return render(request,'flood/index.html', context)
 
 
