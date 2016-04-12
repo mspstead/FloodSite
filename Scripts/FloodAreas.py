@@ -22,7 +22,8 @@ def searchArea(lat,lng):
     floodAreaInfo = [] #holds all the individual urls relating to any flooding in the search area
     for item in jsonData['items']:
         floodAreaInfo.append({'id':item["@id"], 'description':item["description"],
-                              'severity':item["severity"], 'severitylevel':item["severityLevel"]})
+                              'severity':item["severity"], 'severitylevel':item["severityLevel"],
+                              'time':item["timeRaised"]})
 
     if floodAreaInfo == []:
         print("No flooding")

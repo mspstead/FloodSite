@@ -18,7 +18,7 @@
   <div class="jumbotron">
     {% if floods %}
       {% for flood in floods %}
-        <li><p>Location:{{flood.description}}</p><p>Type:{{ flood.severity }}</p><p>Threat Level:{{ flood.severitylevel }}</p></li>
+        <li>Location:{{flood.description}<br>Type:{{ flood.severity }}<br>Threat Level:{{ flood.severitylevel }}<br>Time: {{flood.time|date:'d/m/Y H:m'}}</li>
       {% endfor %}
     {% else %}
       <h5 style="text-align: center">There are no flood alerts</h5>
