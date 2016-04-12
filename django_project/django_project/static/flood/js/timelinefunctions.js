@@ -3,19 +3,19 @@
  */
 
 function up(id){
-    var scr = document.getElementById("score").innerHTML;
+    var scr = document.getElementById("Score").innerHTML;
     console.log(scr);
     var finalScr = parseInt(scr) + 1;
     console.log(finalScr);
-    document.getElementById("score").innerHTML = finalScr;
+    document.getElementById("Score").innerHTML = finalScr;
     window.location.replace("upvote/"+id);
 }
 
 function down(id){
-    var scr = document.getElementById("score").innerHTML;
+    var scr = document.getElementById("Score").innerHTML;
     console.log(scr);
     var finalScr = parseInt(scr) - 1;
     console.log(finalScr);
-    document.getElementById("score").innerHTML = finalScr;
+    document.getElementById("Score").innerHTML = finalScr;
     window.location.replace("downvote/"+id);
 }
