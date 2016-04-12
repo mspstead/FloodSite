@@ -15,16 +15,18 @@
     <li role="presentation"><a href="map">Map</a></li>
     <li role="presentation"><a href="timeline">Timeline</a></li>
   </nav>
-  <div class="jumbotron">
+  <div class="container">
     {% if floods %}
       {% for flood in floods %}
-        <li><p>Location: {{flood.description}}<br>Type: {{ flood.severity }}<br>Threat Level: {{ flood.severitylevel }}<br>Time: {{flood.time|date:'d/m/Y H:m'}}</p></li>
+        <div class="alert alert-danger">
+          <strong>Alert!</strong> <p>Location: {{flood.description}}<br>Type: {{ flood.severity }}<br>Threat Level: {{ flood.severitylevel }}<br>Time: {{flood.time|date:'d/m/Y H:m'}}</p>
+        </div>
       {% endfor %}
     {% else %}
-      <h5 style="text-align: center">There are no flood alerts</h5>
+      <div class="alert alert-success">
+        <strong>No Warnings!</strong> There are currently no flood warnings.
+      </div>
     {% endif %}
-  </div>
-  <div class="container">
     HELLLOOO DATASDASDK
   </div>
 </body>
