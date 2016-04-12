@@ -6,8 +6,9 @@
   <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/bootstrap.min.css' %}">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   <style>
-    #map{ height: 100% }
+    #map{ height: 90% }
   </style>
 </head>
 <body>
@@ -52,6 +53,17 @@
             {% endfor %}
         {% else %}
             <p>No photos available</p>
+        {% endif %}
+        {% if tweet_list %}
+            {% for tweet in tweet_list %}
+                <script type="text/javascript">
+                    var lat = "{{ tweet.lat }}";
+                    var long = "{{ tweet.lng }}";
+                    var html = "{{ tweet.html|safe }}";
+                    mark = new L.marker([lat,long]).bindPopup(html);
+                    mark.addTo(markers)
+                </script>
+            {% endfor %}
         {% endif %}
 <script>
     markers.addTo(map)
