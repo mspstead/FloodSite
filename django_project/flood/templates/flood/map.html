@@ -6,7 +6,6 @@
   <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/bootstrap.min.css' %}">
   <script type="text/javascript" src="{% static 'flood/js/bootstrap.min.js' %}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   <style>
     #map{ height: 90% }
   </style>
@@ -60,7 +59,7 @@
                     var lat = "{{ tweet.lat }}";
                     var long = "{{ tweet.lng }}";
                     var html = '{{ tweet.html|safe }}';
-                    mark = new L.marker([lat,long]).bindPopup(html);
+                    mark = new L.marker([lat,long]).bindPopup(html+'<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>');
                     mark.addTo(markers)
                 </script>
             {% endfor %}
