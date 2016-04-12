@@ -1,3 +1,5 @@
+#!/usr/bin python
+
 import requests
 import xml.etree.ElementTree as ET
 import datetime
