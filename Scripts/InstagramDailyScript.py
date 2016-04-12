@@ -20,12 +20,11 @@ def searchLocation(lat, lng, searchTerm):
     #searchUrl which is used to get the json data of all recent media in an area
     searchUrl = "https://api.instagram.com/v1/media/search?lat="+ lat +"&lng="+ lng +"&distance=5000" \
                 + "&access_token=" + AccessToken
-    #print(searchUrl)
+    print(searchUrl)
 
     req = requests.get(searchUrl)
 
     jsonData = json.loads(req.text) #load the json data returned from the request
-
     photoArray = []
     for obj in jsonData['data']:
         for tag in obj['tags']:

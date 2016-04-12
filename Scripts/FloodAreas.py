@@ -1,7 +1,7 @@
 import requests
 import simplejson as json
 import InstagramDailyScript
-import sched, time
+import time
 import DBcrud
 
 def searchArea(lat,lng):
@@ -13,7 +13,7 @@ def searchArea(lat,lng):
     """
 
     #search the api based on the lat,lng provided
-    searchUrl = "http://environment.data.gov.uk/flood-monitoring/id/floods?lat="+lat+"&long="+lng+"&dist=100"
+    searchUrl = "http://environment.data.gov.uk/flood-monitoring/id/floods?lat="+lat+"&long="+lng+"&dist=20"
 
     req = requests.get(searchUrl)
     #print(req.text)
@@ -24,9 +24,6 @@ def searchArea(lat,lng):
         floodAreaInfo.append({'id':item["@id"], 'description':item["description"],
                               'severity':item["severity"], 'severitylevel':item["severityLevel"],
                               'time':item["timeRaised"]})
-
-    if floodAreaInfo == []:
-        print("No flooding")
 
     return floodAreaInfo
 
@@ -47,7 +44,7 @@ def getFloodLocation(floodUrl):
 
     return location
 
-def runScripts(floodInfo):
+def runInstagram(floodInfo):
 
     #DBUpdate = DBcrud()
 
@@ -62,9 +59,16 @@ def runScripts(floodInfo):
         #DBUpdate.addphotodatabase(instaArray)
 
 
-floodurls = searchArea("53.7996","-1.5491") #execute for 20km radius around leeds lat/lng
-runScripts(floodurls)
-s = sched.scheduler(time.time, time.sleep)
+floodInfo = searchArea("53.7996","-1.5491") #execute for 20km radius around leeds lat/lng
+
+if floodInfo != []: #check that there has been flood alerts
+
+    for i in range(0,144): #cycle through 144 times as 144*600seconds = 24hours
+
+        runInstagram(floodInfo) #run instagram script every 10minutes for 24hours, gets recent media
+        time.sleep(600) #sleep for 10minutes
+else:
+    print("No flooding")
 
 
 
