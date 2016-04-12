@@ -38,15 +38,6 @@ def timeline(request):
     context = {'combined_list': combined_list, 'flood_events':flood_events}
     return render(request, 'flood/timeline.html', context)
 
-def graph(request):
-
-    ordered_photo_list = Photo.objects.order_by("date_taken") #order the photos based on the date_taken
-    flood_events = getFloodEvents(ordered_photo_list)
-
-    context = {'photo_list':ordered_photo_list, 'flood_events':flood_events}
-
-    return render(request, 'flood/graph.html', context)
-
 def upvote(request, photo_id):
     photo = Photo.objects.get(pk=photo_id)
     photo.score += 1
