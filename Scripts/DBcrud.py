@@ -1,4 +1,5 @@
 import psycopg2
+from django_project.flood.models import Photo, Tweets
 
 class DBcrud:
 
@@ -35,35 +36,26 @@ class DBcrud:
             print("Nothing to add to DB.")
 
 
-    def addtweetdatabase(self, tweets):
+    def addtweetdatabase(self, tweetList):
 
-        if len(tweets) > 1:
-            try:
-                conn = psycopg2.connect(database='django', user='django', password='AgZP7U56Mw', host='localhost')
-                curr = conn.cursor()
+        if len(tweetList) > 1:
 
-            except:
-                print('ERROR:unable to connect')
-
-            for tweet in tweets:
+            for tweet in tweetList:
                 tweetTime = tweet.get("Time")
-                lat = tweet.get("Lat")
-                lng = tweet.get("Lng")
-                username = tweet.get("Label")
+                latitude = tweet.get("Lat")
+                longitude = tweet.get("Lng")
+                user = tweet.get("Label")
                 userId = tweet.get("UserId")
                 tweetId = tweet.get("TweetId")
                 tweetMessage = tweet.get("Tweet")
-                html = tweet.get("Html")
-
-                curr.execute("INSERT INTO flood_tweets (date_taken,lat,lng,username,userid,tweetid,tweet,html) "
-                              "VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",(tweetTime,lat,lng,username,userId,tweetId,tweetMessage,html))
-                print("ADDED: ", tweet)
-
-            conn.commit()
+                Html = tweet.get("Html")
+                tweetObject = Tweets(date_taken=tweetTime, lat=latitude, lng= longitude, username=user,
+                                     userid=userId, tweetid=tweetId, tweet=tweetMessage, html=Html)
+                tweetObject.save()
+                print("Added tweet to database")
 
         else:
-            print("No tweets to add to DB")
-
+            print("No tweet to add to db")
 
 
 
