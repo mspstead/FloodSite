@@ -19,11 +19,13 @@
     {% if floods %}
       {% for flood in floods %}
         <div class="alert alert-danger">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           <strong>Alert!</strong> <p>Location: {{flood.description}}<br>Type: {{ flood.severity }}<br>Threat Level: {{ flood.severitylevel }}<br>Time: {{flood.time|date:'d/m/Y H:m'}}</p>
         </div>
       {% endfor %}
     {% else %}
       <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>No Warnings!</strong> There are currently no flood warnings.
       </div>
     {% endif %}
