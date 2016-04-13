@@ -7,7 +7,7 @@ import InstagramDailyScript
 import time
 import DBcrud
 
-def searchArea(lat,lng):
+def searchArea(lat,lng,rad):
     """
     Search for any flood alerts in a 20km radius area.
     :param lat:
@@ -16,7 +16,7 @@ def searchArea(lat,lng):
     """
 
     #search the api based on the lat,lng provided
-    searchUrl = "http://environment.data.gov.uk/flood-monitoring/id/floods?lat="+lat+"&long="+lng+"&dist=20"
+    searchUrl = "http://environment.data.gov.uk/flood-monitoring/id/floods?lat="+lat+"&long="+lng+"&dist="+rad
 
     req = requests.get(searchUrl)
     #print(req.text)
@@ -49,20 +49,22 @@ def getFloodLocation(floodUrl):
 
 def runInstagram(floodInfo):
 
-    #DBUpdate = DBcrud()
+    DBUpdate = DBcrud()
 
     for flood in floodInfo: #cycle through all the flooded areas urls
 
         location = getFloodLocation(flood.get("id")) #get the flooded areas lat/lng
         print(location)
+
         #search for any instagram posts relating to those locations and specified search term
         instaArray = InstagramDailyScript.searchLocation(str(location[0]),str(location[1]),"flood")
+
         print(instaArray)
 
-        #DBUpdate.addphotodatabase(instaArray)
+        DBUpdate.addphotodatabase(instaArray)
 
 
-floodInfo = searchArea("53.7996","-1.5491") #execute for 20km radius around leeds lat/lng
+floodInfo = searchArea("53.7996","-1.5491","20") #execute for 20km radius around leeds lat/lng
 
 if floodInfo != []: #check that there has been flood alerts
 
@@ -71,7 +73,7 @@ if floodInfo != []: #check that there has been flood alerts
         runInstagram(floodInfo) #run instagram script every 10minutes for 24hours, gets recent media
         time.sleep(600) #sleep for 10minutes
 else:
-    print("No flooding")
+    print("No flood alerts")
 
 
 

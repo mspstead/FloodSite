@@ -1,5 +1,6 @@
 import psycopg2
-from random import randint
+
+#First Initial database connection script to get the photo data from the text file and add to database.
 
 try:
     conn = psycopg2.connect(database='django', user='django', password='AgZP7U56Mw', host='localhost')

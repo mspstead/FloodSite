@@ -4,10 +4,16 @@ import psycopg2
 class DBcrud:
 
     def addphotodatabase(self, photoArray):
+        """
+        Method used to add photos to the database
+        :param photoArray: Array of photo dictionarys
+        :return:
+        """
 
-        if len(photoArray) > 1:
+        if len(photoArray) > 1: #check that there is atleast 1 photo in the array.
 
             try:
+                #try to connect to the database
                 conn = psycopg2.connect(database='django', user='django', password='AgZP7U56Mw', host='localhost')
                 curr = conn.cursor()
 
@@ -16,7 +22,8 @@ class DBcrud:
 
 
 
-            for photo in photoArray:
+            for photo in photoArray: #cycle through the photos, extract the relevant data to be added to the database
+
                 owner = photo.get('Owner')
                 title = photo.get('Title')
                 date_taken = photo.get('Date_taken')
@@ -26,11 +33,13 @@ class DBcrud:
                 locality = photo.get('Locality')
                 source = photo.get('Source')
                 score = photo.get('Score')
+
                 curr.execute("INSERT INTO flood_photo (owner, title_text, date_taken, url, lat, lng, locality, source, score) "
                               "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)",(owner,title,date_taken,url,lat,lng,locality,source,score))
+
                 print("ADDED: ", photo)
 
-            conn.commit()
+            conn.commit() #Commit all the photos to the database
 
         else:
             print("Nothing to add to DB.")
@@ -38,7 +47,13 @@ class DBcrud:
 
     def addtweetdatabase(self, tweets):
 
-        if len(tweets) > 1:
+        """
+        Method to add tweets to the database.
+        :param tweets: array of tweet dictionaries
+        :return:
+        """
+
+        if len(tweets) > 1: #check atleast 1 tweet in array
 
             try:
                 conn = psycopg2.connect(database='django', user='django', password='AgZP7U56Mw', host='localhost')
@@ -48,7 +63,7 @@ class DBcrud:
                print('ERROR:unable to connect')
 
 
-            for tweet in tweets:
+            for tweet in tweets: #cycle through the tweets and extract the relevant information and add to database
 
                 tweetTime = tweet.get("Time")
                 lat = tweet.get("Lat")
@@ -62,7 +77,8 @@ class DBcrud:
                                "VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",(tweetTime,lat,lng,username,userId,tweetId,tweetMessage,html))
 
                 print("ADDED: ", tweet)
-            conn.commit()
+
+            conn.commit() #commit the added tweets to the databse
 
         else:
             print("No tweets to add to DB")
