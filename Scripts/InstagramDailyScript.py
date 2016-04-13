@@ -25,11 +25,12 @@ def searchLocation(lat, lng, searchTerm):
     req = requests.get(searchUrl)
 
     jsonData = json.loads(req.text) #load the json data returned from the request
-    photoArray = []
+    photoArray = [] #holds the photo dictionaries
+
     for obj in jsonData['data']:
         for tag in obj['tags']:
 
-            if tag == searchTerm: #cycle through the returned media and search for photos with tags=flood
+            if tag == searchTerm: #cycle through the returned media and search for photos with tags=searchTerm
 
                 latitude = obj['location']['latitude'] #get the photos latitude
                 longitude = obj['location']['longitude'] #get the longitude
@@ -44,7 +45,9 @@ def searchLocation(lat, lng, searchTerm):
                 #compile the dictionary
                 photoDict = {"Owner":owner, "Title":title_text, "Url": imageUrl, "Lat":latitude, "Lng":longitude,
                              "Locality":locality, "Date_taken":date_taken, "Source":source, "Score":score}
-                photoArray.append(photoDict)
+
+                photoArray.append(photoDict) #add photo dictionary to photo array
+
                 print(latitude,longitude,imageUrl,owner,date_taken,title_text,locality,source,score)
 
     return photoArray
@@ -69,5 +72,3 @@ def getLocality(lat,lon):
 
         else:
             return "Yorkshire"
-
-

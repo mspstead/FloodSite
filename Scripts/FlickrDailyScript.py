@@ -52,7 +52,7 @@ def reqBuilder(tags, lat, lon, rad):
 
 def xmlParser(requestArray):
     """
-    Method to parse the xml return from each request
+    Function to parse the xml from each request
     """
 
     photos = []  # array to hold the individual photo dictionary entries.
@@ -65,7 +65,7 @@ def xmlParser(requestArray):
 
 def photoUrlBuilder(photo):
     """
-    Method to construct and return the url string for a particular photo.
+    Function to construct and return the url string for a particular photo.
     """
 
     Id = photo.get('id') #get photo id
@@ -80,7 +80,7 @@ def photoUrlBuilder(photo):
 
 def getLocation(Id):
     """
-    Method to get and return the latitude and longitude of a particular photo.
+    Function to get and return the latitude and longitude of a particular photo.
     """
 
     LocationUrl = "https://api.flickr.com/services/rest/?&method=" + location_method + \
@@ -98,7 +98,7 @@ def getLocation(Id):
 
 def dateTaken(Id):
     """
-    Method to get and return the date a particular photo was taken.
+    Function to get and return the date a particular photo was taken.
     """
 
     DateUrl = "https://api.flickr.com/services/rest/?&method=" + date_method + \
@@ -133,7 +133,7 @@ def getLocality(lat,lon):
 def photoBuilder(photoArray):
 
     """
-    Method to construct a photo dictionary which has all the important details of a photo added to a dictionary,
+    Function to construct a photo dictionary which has all the important details of a photo added to a dictionary,
     the dictionary entry is then added to an array which is returned and can be used to add the photos to a DB.
     """
 
@@ -167,4 +167,4 @@ photos = xmlParser(r) #parse the requests
 print(len(photos))
 DB = DBcrud() #create a dbconnector/operator object
 photoArray = (photoBuilder(photos)) #get the array of all the photos
-DB.addphotodatabase(photoArray) #add the photos to the database.
+DB.addphotodatabase(photoArray) #add the photos to the database using method from DBcrud

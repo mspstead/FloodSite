@@ -9,16 +9,22 @@ def openCsv(file):
     :return: array of rainlevels of format [date,rainfall in mm]
     """
     with open(file) as csvfile:
+
         reader = csv.DictReader(csvfile)
-        rainLevels = []
+        rainLevels = [] #empty list to hold lists of rain level and date
+
         for row in reader:
+
             level = float(row['mm'])
-            if level >= 0 and level < 3:
+
+            if level >= 0 and level < 3: #filter out any anomalies
+
                 rainLevels.append([row['DateTime'],row['mm']])
 
     return rainLevels
 
 def populateDB(rainLevels):
+
     if len(rainLevels) > 1:
 
         try:

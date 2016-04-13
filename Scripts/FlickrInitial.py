@@ -1,6 +1,8 @@
 import requests
 import xml.etree.ElementTree as ET
 
+#Intial flickr script which found all relevant historical photos and added them to a text file for processing.
+
 api_key = "d5cb0ab00f8c5cfea4aac52760ba2615"
 google_api_key = "AIzaSyBUpIx-7yc6wlReW5Wbd8gXAy7bvxHUFAQ"
 search_method = "flickr.photos.search"

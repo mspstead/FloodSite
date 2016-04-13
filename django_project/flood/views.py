@@ -7,7 +7,7 @@ import datetime
 # Create your views here.
 
 def index(request):
-    floods = FloodAreas.searchArea("53.7996","-1.5491")
+    floods = FloodAreas.searchArea("53.7996","-1.5491","20")
     context = {'floods':floods}
     return render(request,'flood/index.html', context)
 
