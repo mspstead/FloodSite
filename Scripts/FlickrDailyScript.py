@@ -28,7 +28,7 @@ def reqBuilder(tags, lat, lon, rad):
     min_upload_date = datetime.datetime.today() - datetime.timedelta(days=1)
     print(min_upload_date)
 
-    #Create the url based on params given
+    #Create the url based on params given, and include minimum date of yesterdays date.
     urlInit = "https://api.flickr.com/services/rest/?&method=" + search_method + "&api_key=" + api_key + \
               "&tags=" + tags + "&has_geo=1&lat=" + lat + "&lon=" + lon + "&radius=" + rad + \
               "&min_upload_date=" + min_upload_date.strftime("%y-%m-%d")
