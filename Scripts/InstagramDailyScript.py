@@ -10,10 +10,10 @@ google_api_key = "AIzaSyBUpIx-7yc6wlReW5Wbd8gXAy7bvxHUFAQ"
 
 def searchLocation(lat, lng, searchTerm):
     """
-    Returns 20 most recent tweets based on location, all tweets are then searched for tags relating to flooding.
+    Returns 20 most recent posts based on location, all posts are then searched for tags relating to flooding.
     :param lat:
     :param lng:
-    :param searcTerm: Any tags without the '#' eg. flood
+    :param searchTerm: Any tags without the '#' eg. flood
     :return:PhotoArray of all recent photos relating to flooding.
     """
 

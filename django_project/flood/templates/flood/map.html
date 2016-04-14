@@ -9,22 +9,21 @@
   <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   <style>
-    #map{ height: 90% }
+    #map{ height: 90%; width: 100%}
   </style>
 </head>
 <body>
- <ul class="nav nav-pills">
-   <li role="presentation"><a href="/">Home</a></li>
-   <li role="presentation" class="active"><a href="map">Map</a></li>
-   <li role="presentation"><a href="timeline">Timeline</a></li>
- </ul>
-
  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 
  <div class="container">
-    <div id="map"></div>
+   <ul class="nav nav-pills">
+    <li role="presentation"><a href="/">Home</a></li>
+    <li role="presentation" class="active"><a href="map">Map</a></li>
+    <li role="presentation"><a href="timeline">Timeline</a></li>
+   </ul>
+   <div id="map"></div>
  </div>
  <script>
 
