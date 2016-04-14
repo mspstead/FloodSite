@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/bootstrap.min.css' %}">
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{% static 'flood/js/bootstrap.min.js' %}"></script>
 </head>
 <body>
   <div class="container">
@@ -29,7 +29,18 @@
         <strong>No Warnings!</strong> There are currently no flood warnings.
       </div>
     {% endif %}
-    To include: relevant information about the website/project
+    <div class="panel panel-primary">
+      <div class="panel-heading">About</div>
+      <div class="panel-body"><p>This website resource was produced as part of a research project for the University of Leeds.</p></div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">Map</div>
+      <div class="panel-body"><p>On this page you will find a map of geo-tag photos taken througout west yorkshire.</p></div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">Timeline</div>
+      <div class="panel-body"><p>On this page you will find a timeline of photos, tweets and where available rain level data.</p></div>
+    </div>
   </div>
 </body>
 </html>
