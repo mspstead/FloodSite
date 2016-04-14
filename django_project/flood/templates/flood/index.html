@@ -29,17 +29,39 @@
         <strong>No Warnings!</strong> There are currently no flood warnings.
       </div>
     {% endif %}
-    <div class="panel panel-primary">
-      <div class="panel-heading">About</div>
-      <div class="panel-body"><p>This website resource was produced as part of a research project for the University of Leeds.</p></div>
-    </div>
-    <div class="panel panel-primary">
-      <div class="panel-heading">Map</div>
-      <div class="panel-body"><p>On this page you will find a map of geo-tag photos taken througout west yorkshire.</p></div>
-    </div>
-    <div class="panel panel-primary">
-      <div class="panel-heading">Timeline</div>
-      <div class="panel-body"><p>On this page you will find a timeline of photos, tweets and where available rain level data.</p></div>
+
+    <div class="panel-group" id="flood">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#flood" href="#collapse1">About</a>
+          </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in">
+          <div class="panel-body">This website resource was produced as part of a research
+            project for the University of Leeds.</div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#flood" href="#collapse2">Map</a>
+          </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+          <div class="panel-body">Info about map page</div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#flood" href="#collapse3">Timeline</a>
+          </h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse">
+          <div class="panel-body">Info about timeline</div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
