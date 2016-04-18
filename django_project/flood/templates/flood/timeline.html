@@ -88,23 +88,27 @@
         {% if combined_list %}
             {% for object in combined_list reversed %}
                 <script>
-                    var objDate = new Date("{{ object.0|date:'SHORT_DATE_FORMAT' }}");
-                    var objType = "{{ object.1 }}"
+                    var objDate = new Date("{{ object.0|date:'SHORT_DATE_FORMAT' }}"); //Get date of photo or tweet object
+                    var objType = "{{ object.1 }}" //get the objects type (photo or tweet)
 
-                    if (objDate >= new Date(dates[0]) && objDate <= new Date(dates[1])) {
-                        if(objType == "photo"){
-                            document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="http://flickr.com/photos/{{ object.2.owner }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>')
+                    if (objDate >= new Date(dates[0]) && objDate <= new Date(dates[1])) { //if obj date is between selected flood event dates
+                        if(objType == "photo"){ //if the obj is a photo
+                            if("{{ object.2.source }}" == "instagram"){
+                                document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="http://instagram.com/{{ object.2.owner }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>')
+                            }
                         }
-                        else if(objType == "tweet" && '{{ object.2|safe }}' !== ""){
+                        else if(objType == "tweet" && '{{ object.2|safe }}' !== ""){ //if obj is a tweet and its html is safe and not null
                             document.write('<li class="timeline-inverted"><div class="timeline-badge info"><i class="glyphicon glyphicon-info-sign"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title"></h4><div class="timeline-body">{{ object.2|safe }}</div></div></li>')
 
                         }
                     }
-                    else if (dates[0] == ""){
-                        if (objType == "photo"){
-                            document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title"></h4></div><div class="timeline-body"><a href="http://flickr.com/photos/{{ object.2.url }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>')
+                    else if (dates[0] == ""){ //else if no flood event is selected
+                        if(objType == "photo"){ //if the obj is a photo
+                            if("{{ object.2.source }}" == "instagram"){
+                                document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="http://instagram.com/{{ object.2.owner }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>')
+                            }
                         }
-                        else if(objType == "tweet" && '{{ object.2|safe }}' !== ""){
+                        else if(objType == "tweet" && '{{ object.2|safe }}' !== ""){ //if tweet
                             document.write('<li class="timeline-inverted"><div class="timeline-badge info"><i class="glyphicon glyphicon-info-sign"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title"></h4><div class="timeline-body">{{ object.2|safe }}</div></div></li>')
                         }
                     }
