@@ -93,8 +93,11 @@
 
                     if (objDate >= new Date(dates[0]) && objDate <= new Date(dates[1])) { //if obj date is between selected flood event dates
                         if(objType == "photo"){ //if the obj is a photo
-                            if("{{ object.2.source }}" == "Instagram"){
+                            if("{{ object.2.source }}" == "Instagram"){ //use instagram url for link back to owner
                                 document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="http://instagram.com/{{ object.2.owner }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>')
+                            }
+                            else if("{{ object.2.source }}" == "Flickr"){ //use flickr url for link back to owner
+                                document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="https://www.flickr.com/photos/{{ object.2.owner }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>')
                             }
                         }
                         else if(objType == "tweet" && '{{ object.2|safe }}' !== ""){ //if obj is a tweet and its html is safe and not null
@@ -104,8 +107,11 @@
                     }
                     else if (dates[0] == ""){ //else if no flood event is selected
                         if(objType == "photo"){ //if the obj is a photo
-                            if("{{ object.2.source }}" == "Instagram"){
+                            if("{{ object.2.source }}" == "Instagram"){ //use instagram url for link back to owner
                                 document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="http://instagram.com/{{ object.2.owner }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>')
+                            }
+                            else if("{{ object.2.source }}" == "Flickr"){ //use Flickr url for the link back to owner
+                                document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="https://www.flickr.com/photos/{{ object.2.owner }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>')
                             }
                         }
                         else if(objType == "tweet" && '{{ object.2|safe }}' !== ""){ //if tweet
