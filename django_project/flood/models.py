@@ -19,6 +19,13 @@ class RainLevel(models.Model):
     level = models.TextField()
     reference = models.TextField()
 
+class RiverLevel(models.Model):
+    date_taken = models.DateTimeField('date_taken')
+    river_level = models.TextField()
+    place = models.TextField()
+    lat = models.TextField()
+    lng = models.TextField()
+
 class Tweets(models.Model):
     date_taken = models.DateTimeField('date_taken')
     lat = models.TextField()

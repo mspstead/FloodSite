@@ -84,7 +84,32 @@ class DBcrud:
             print("No tweets to add to DB")
 
 
+    def addRiverLevel(self, levels):
+
+        if len(levels) > 1: #check atleast 1 tweet in array
+
+            try:
+                conn = psycopg2.connect(database='django', user='django', password='AgZP7U56Mw', host='localhost')
+                curr = conn.cursor()
+
+            except:
+               print('ERROR:unable to connect')
 
 
+            for level in levels: #cycle through the tweets and extract the relevant information and add to database
 
+                date_taken = level.get("datetime")
+                place = level.get("measure")
+                river_level = level.get("level")
+                lat = level.get("lat")
+                lng = level.get("lng")
 
+                curr.execute("INSERT INTO flood_riverlevel (date_taken,place,river_level,lat,lng) "
+                               "VALUES (%s,%s,%s,%s,%s)",(date_taken,place,river_level,lat,lng))
+
+                print("ADDED: ", level)
+
+            conn.commit()
+
+        else:
+            print("No river levels to add")
