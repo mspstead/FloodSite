@@ -115,11 +115,11 @@
             else {
                 document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
                 var riverdata = [trace2]
-                Plotly.newPlot('rainGraph', riverdata);
+                Plotly.newPlot('riverGraph', riverdata);
             }
         }
         else if (dates[0] == ""){
-            document.write('<h4 style="text-align: center">Displaying rain gauge for all available dates.</h4>')
+            document.write('<h4 style="text-align: center">Displaying River level data for all available dates.</h4>')
             document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
             var riverdata = [trace2];
             Plotly.newPlot('riverGraph', riverdata);
