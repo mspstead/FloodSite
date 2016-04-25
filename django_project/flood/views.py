@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Photo, RainLevel, Tweets
+from .models import Photo, RainLevel, Tweets, RiverLevel
 from Scripts import FloodAreas
 import datetime
 
@@ -71,8 +71,10 @@ def getFloodEvents(list):
         else:
             flood_event.append(ordered_list[x-1][0])
             rain_levels = RainLevel.objects.filter(date_taken__gte=flood_event[0].date(), date_taken__lte=flood_event[-1].date())
+            river_levels = RiverLevel.objects.filter(date_taken__gte=flood_event[0].date(), date_taken__lte=flood_event[-1].date())
+
             if len(flood_event) > 2:
-                flood_events.append([flood_event[0],flood_event[-1],rain_levels]) #add flood event to the flood_events list
+                flood_events.append([flood_event[0],flood_event[-1],rain_levels,river_levels]) #add flood event to the flood_events list
             flood_event = [] #reset flood event to empty
         start_date = ordered_list[x][0].date() #set new start_date to the next photo date in list.
     return flood_events
