@@ -2,7 +2,7 @@ import requests
 import csv
 from datetime import date, timedelta
 from time import strftime
-import DBcrud
+from DBcrud import DBcrud
 
 base_url = "http://environment.data.gov.uk/flood-monitoring/archive/readings-"
 
