@@ -88,6 +88,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATICFILES_DIR = '/django_project/django_project/static/'
-STATIC_ROOT = '/django_project/django_project/static/'
+#STATICFILES_DIR = '/django_project/django_project/static/'
+#STATIC_ROOT = '/django_project/django_project/static/'
 STATIC_URL = '/static/'
