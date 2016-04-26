@@ -47,7 +47,7 @@
     </script>
     {% if flood_events %}
             {% for flood_event in flood_events %}
-                {% for river in flood_event.2 %}
+                {% for river in flood_event.3 %}
                     <script>
                         var substr = location.search.substr(1); //search url for input
                         var dates = substr.split("+"); //get dates seperated by + in url
