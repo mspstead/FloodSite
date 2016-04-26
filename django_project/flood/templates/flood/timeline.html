@@ -29,13 +29,6 @@
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li><a href="timeline.html">All Events</a></li>
-                <script>
-                    var trace1 = {
-                    x: [],
-                    y: [],
-                    type: 'scatter'
-                    };
-                </script>
                {% if flood_events %} 
                     {% for flood_event in flood_events reversed %} 
                         <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT' }}">{{ flood_event.0|date:'d/m/Y' }} - {{ flood_event.1|date:'d/m/Y' }}</a></li> 
@@ -44,43 +37,97 @@
               </ul>
         </div>
     </div>
+    <script>
+        var traceAll = {x: [], y: [], type: 'scatter'}; //graph data for all river data
+        var traceLeeds = {x: [], y: [], type: 'scatter'}; //graph data for leeds river data
+        var traceCastl = {x: [], y: [], type: 'scatter'}; //graph data for castleford river data
+        var traceKirk = {x: [], y: [], type: 'scatter'}; //graph data for kirkstall river data
+        var traceMyth = {x: [], y: [], type: 'scatter'}; //graph data for Mytholmroyd river data
+        var traceTad = {x: [], y: [], type: 'scatter'}; //graph data for Tadcaster river data
+    </script>
     {% if flood_events %}
             {% for flood_event in flood_events %}
                 {% for river in flood_event.2 %}
                     <script>
-                        var substr = location.search.substr(1);
-                        var dates = substr.split("+");
-                        var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}")
-                        if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) {
-                            trace1.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                            trace1.y.push("{{ river.level }}");
+                        var substr = location.search.substr(1); //search url for input
+                        var dates = substr.split("+"); //get dates seperated by + in url
+                        var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}") //get the date_taken of river level
+                        if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) { //check river level date corresponds to dates requested
+
+                            if ("{{ river.place }}".toLowerCase() == "leeds"){ //populate leeds graph with relevant data
+                                traceLeeds.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                traceLeeds.y.push("{{ river.level }}");
+                            }
+                            else if ("{{ river.place }}".toLowerCase() == "kirkstall"){ //populat kirkstall graph with relevant data
+                                traceKirk.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                traceKirk.y.push("{{ river.level }}");
+                            }
+                            else if ("{{ river.place }}".toLowerCase() == "castleford"){ //populate castleford graph
+                                traceCastl.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                traceCastl.y.push("{{ river.level }}");
+                            }
+                            else if ("{{ river.place }}".toLowerCase() == "tadcaster"){ //populate tadcaster graph
+                                traceTad.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                traceTad.y.push("{{ river.level }}");
+                            }
+                            else if ("{{ river.place }}".toLowerCase() == "mytholmroyd"){ //populate mytholmroyd graph
+                                traceMyth.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                traceMyth.y.push("{{ river.level }}");
+                            }
+                            traceAll.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}"); //populate the graph that combines all river levels
+                            traceAll.y.push("{{ river.level }}");
                         }
-                        else if (dates[0] == ""){
-                            trace1.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                            trace1.y.push("{{ river.level }}");
+
+                        else if (dates[0] == ""){ //no dates selected by user so no dates present in url.
+
+                            if ("{{ river.place }}".toLowerCase() == "leeds"){ //populate leeds graph with relevant data
+                                traceLeeds.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                traceLeeds.y.push("{{ river.level }}");
+                            }
+                            else if ("{{ river.place }}".toLowerCase() == "kirkstall"){ //populat kirkstall graph with relevant data
+                                traceKirk.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                traceKirk.y.push("{{ river.level }}");
+                            }
+                            else if ("{{ river.place }}".toLowerCase() == "castleford"){ //populate castleford graph
+                                traceCastl.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                traceCastl.y.push("{{ river.level }}");
+                            }
+                            else if ("{{ river.place }}".toLowerCase() == "tadcaster"){ //populate tadcaster graph
+                                traceTad.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                traceTad.y.push("{{ river.level }}");
+                            }
+                            else if ("{{ river.place }}".toLowerCase() == "mytholmroyd"){ //populate mytholmroyd graph
+                                traceMyth.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                traceMyth.y.push("{{ river.level }}");
+                            }
+
+                            traceAll.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");//populate graph that combines all river data.
+                            traceAll.y.push("{{ river.level }}");
                         }
                     </script>
                 {% endfor %}
             {% endfor %}
     {% endif %}
     <script>
-        if (dates[0] != ""){
-            if (trace1.x === 0 || trace1.y.length == 0){
+        if (dates[0] != ""){ //if particular flood event dates have been requested by the user
+            if (traceAll.x === 0 || traceAll.y.length == 0){ //if there is no river data available for the dates display message
                 document.write('<h4 style="text-align: center">No River level data available for the flood event selected.</h4>')
             }
-            else if (trace1.length <= 1) {
+            else if (traceAll.length <= 1) { //if there is not enough river level data for the selected dates.
                 document.write('<h4 style="text-align: center">Not enough River level data available for selected flood event.</h4>')
             }
-            else {
+            else { //display river data for the selected data
+                document.write('<h4 style="text-align: center">Displaying River level data for the selected dates.</h4>')
+                document.write('') //add dropdown menu to select between river data sources.
                 document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
-                var riverdata = [trace1]
+                var riverdata = [traceAll, traceLeeds]
                 Plotly.newPlot('riverGraph', riverdata);
             }
         }
         else if (dates[0] == ""){
             document.write('<h4 style="text-align: center">Displaying River level data for all available dates.</h4>')
             document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
-            var riverdata = [trace1];
+            var riverdata = [traceAll, traceLeeds];
             Plotly.newPlot('riverGraph', riverdata);
         }
     </script>
