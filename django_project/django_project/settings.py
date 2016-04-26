@@ -33,21 +33,21 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'debug_toolbar',
     'django.contrib.staticfiles',
     'leaflet',
     'twitter_bootstrap',
     'flood',
-    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 
 )
 
@@ -88,6 +88,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-#STATICFILES_DIR = '/django_project/django_project/static/'
-#STATIC_ROOT = '/django_project/django_project/static/'
+STATICFILES_DIR = '/django_project/django_project/static/'
+STATIC_ROOT = '/django_project/django_project/static/'
 STATIC_URL = '/static/'
