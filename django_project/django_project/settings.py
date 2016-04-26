@@ -47,12 +47,15 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
 )
 
 ROOT_URLCONF = 'django_project.urls'
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
 
+INTERNAL_IPS = ('127.0.0.1',)
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
