@@ -57,8 +57,6 @@ ROOT_URLCONF = 'django_project.urls'
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
 
-INTERNAL_IPS = ('46.101.11.228',)
-
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
