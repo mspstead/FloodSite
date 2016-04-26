@@ -7,15 +7,15 @@ import datetime
 # Create your views here.
 
 def index(request):
-    floods = FloodAreas.searchArea("53.7996","-1.5491","20")
-    context = {'floods':floods}
+    floods = FloodAreas.searchArea("53.7996","-1.5491","20") #search within 20km of leeds for any flood warnings
+    context = {'floods':floods} #return list of flood warnings send to webpage.
     return render(request,'flood/index.html', context)
 
 
 def map(request):
-    photo_list = Photo.objects.all()
-    tweet_list = Tweets.objects.all()
-    context = {'photo_list':photo_list, 'tweet_list':tweet_list}
+    photo_list = Photo.objects.all() #get every photo object from database
+    tweet_list = Tweets.objects.all() #get every tweet object from database
+    context = {'photo_list':photo_list, 'tweet_list':tweet_list} #send to webpage
     return render(request, 'flood/map.html', context)
 
 def timeline(request):
@@ -40,16 +40,16 @@ def timeline(request):
     return render(request, 'flood/timeline.html', context)
 
 def upvote(request, photo_id):
-    photo = Photo.objects.get(pk=photo_id)
-    photo.score += 1
-    photo.save()
-    return HttpResponse(status=204)
+    photo = Photo.objects.get(pk=photo_id) #get the specified photo based on its id
+    photo.score += 1 #add 1 to the photos score
+    photo.save() #save this new value
+    return HttpResponse(status=204) #stay on the same webpage
 
 def downvote(request, photo_id):
-    photo = Photo.objects.get(pk=photo_id)
-    photo.score -= 1
+    photo = Photo.objects.get(pk=photo_id) #get the specified photo based on its id
+    photo.score -= 1 #subtract 1 from its score
     photo.save()
-    return HttpResponse(status=204)
+    return HttpResponse(status=204) #stay on the same webpage
 
 def getFloodEvents(list):
     """
