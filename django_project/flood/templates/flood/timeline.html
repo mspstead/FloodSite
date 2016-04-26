@@ -53,24 +53,24 @@
                         var dates = substr.split("+"); //get dates seperated by + in url
                         var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}") //get the date_taken of river level
                         if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) { //check river level date corresponds to dates requested
-
-                            if ("{{ river.place }}".toLowerCase() == "leeds"){ //populate leeds graph with relevant data
+                            console.log("{{ river.place }}")
+                            if ("{{ river.place }}" == "Leeds"){ //populate leeds graph with relevant data
                                 traceLeeds.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
                                 traceLeeds.y.push("{{ river.level }}");
                             }
-                            else if ("{{ river.place }}".toLowerCase() == "kirkstall"){ //populat kirkstall graph with relevant data
+                            else if ("{{ river.place }}" == "Kirkstall"){ //populat kirkstall graph with relevant data
                                 traceKirk.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
                                 traceKirk.y.push("{{ river.level }}");
                             }
-                            else if ("{{ river.place }}".toLowerCase() == "castleford"){ //populate castleford graph
+                            else if ("{{ river.place }}" == "castleford"){ //populate castleford graph
                                 traceCastl.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
                                 traceCastl.y.push("{{ river.level }}");
                             }
-                            else if ("{{ river.place }}".toLowerCase() == "tadcaster"){ //populate tadcaster graph
+                            else if ("{{ river.place }}" == "tadcaster"){ //populate tadcaster graph
                                 traceTad.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
                                 traceTad.y.push("{{ river.level }}");
                             }
-                            else if ("{{ river.place }}".toLowerCase() == "mytholmroyd"){ //populate mytholmroyd graph
+                            else if ("{{ river.place }}" == "mytholmroyd"){ //populate mytholmroyd graph
                                 traceMyth.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
                                 traceMyth.y.push("{{ river.level }}");
                             }
