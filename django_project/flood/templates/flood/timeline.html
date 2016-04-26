@@ -56,53 +56,53 @@
                             console.log("{{ river.place }}")
                             if ("{{ river.place }}" == "Leeds"){ //populate leeds graph with relevant data
                                 traceLeeds.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                                traceLeeds.y.push("{{ river.level }}");
+                                traceLeeds.y.push("{{ river.river_level }}");
                             }
                             else if ("{{ river.place }}" == "Kirkstall"){ //populat kirkstall graph with relevant data
                                 traceKirk.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                                traceKirk.y.push("{{ river.level }}");
+                                traceKirk.y.push("{{ river.river_level }}");
                             }
                             else if ("{{ river.place }}" == "castleford"){ //populate castleford graph
                                 traceCastl.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                                traceCastl.y.push("{{ river.level }}");
+                                traceCastl.y.push("{{ river.river_level }}");
                             }
                             else if ("{{ river.place }}" == "tadcaster"){ //populate tadcaster graph
                                 traceTad.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                                traceTad.y.push("{{ river.level }}");
+                                traceTad.y.push("{{ river.river_level }}");
                             }
                             else if ("{{ river.place }}" == "mytholmroyd"){ //populate mytholmroyd graph
                                 traceMyth.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                                traceMyth.y.push("{{ river.level }}");
+                                traceMyth.y.push("{{ river.river_level }}");
                             }
                             traceAll.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}"); //populate the graph that combines all river levels
-                            traceAll.y.push("{{ river.level }}");
+                            traceAll.y.push("{{ river.river_level }}");
                         }
 
                         else if (dates[0] == ""){ //no dates selected by user so no dates present in url.
 
                             if ("{{ river.place }}".toLowerCase() == "leeds"){ //populate leeds graph with relevant data
                                 traceLeeds.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                                traceLeeds.y.push("{{ river.level }}");
+                                traceLeeds.y.push("{{ river.river_level }}");
                             }
                             else if ("{{ river.place }}".toLowerCase() == "kirkstall"){ //populat kirkstall graph with relevant data
                                 traceKirk.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                                traceKirk.y.push("{{ river.level }}");
+                                traceKirk.y.push("{{ river.river_level }}");
                             }
                             else if ("{{ river.place }}".toLowerCase() == "castleford"){ //populate castleford graph
                                 traceCastl.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                                traceCastl.y.push("{{ river.level }}");
+                                traceCastl.y.push("{{ river.river_level }}");
                             }
                             else if ("{{ river.place }}".toLowerCase() == "tadcaster"){ //populate tadcaster graph
                                 traceTad.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                                traceTad.y.push("{{ river.level }}");
+                                traceTad.y.push("{{ river.river_level }}");
                             }
                             else if ("{{ river.place }}".toLowerCase() == "mytholmroyd"){ //populate mytholmroyd graph
                                 traceMyth.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
-                                traceMyth.y.push("{{ river.level }}");
+                                traceMyth.y.push("{{ river.river_level }}");
                             }
 
                             traceAll.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");//populate graph that combines all river data.
-                            traceAll.y.push("{{ river.level }}");
+                            traceAll.y.push("{{ river.river_level }}");
                         }
                     </script>
                 {% endfor %}
