@@ -126,10 +126,10 @@
 
 
         if (dates[0] != ""){ //if particular flood event dates have been requested by the user
-            if (traceAll.x === 0 || traceAll.y.length == 0){ //if there is no river data available for the dates display message
+            if (traceLeeds.x === 0 || traceLeeds.y.length == 0){ //if there is no river data available for the dates display message
                 document.write('<h4 style="text-align: center">No River level data available for the flood event selected.</h4>')
             }
-            else if (traceAll.length <= 1) { //if there is not enough river level data for the selected dates.
+            else if (traceLeeds.length <= 1) { //if there is not enough river level data for the selected dates.
                 document.write('<h4 style="text-align: center">Not enough River level data available for selected flood event.</h4>')
             }
             else { //display river data for the selected data
