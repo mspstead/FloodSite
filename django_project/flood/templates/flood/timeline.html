@@ -38,12 +38,11 @@
         </div>
     </div>
     <script>
-        var traceAll = {x: [], y: [], type: 'scatter'}; //graph data for all river data
-        var traceLeeds = {x: [], y: [], type: 'scatter'}; //graph data for leeds river data
-        var traceCastl = {x: [], y: [], type: 'scatter'}; //graph data for castleford river data
-        var traceKirk = {x: [], y: [], type: 'scatter'}; //graph data for kirkstall river data
-        var traceMyth = {x: [], y: [], type: 'scatter'}; //graph data for Mytholmroyd river data
-        var traceTad = {x: [], y: [], type: 'scatter'}; //graph data for Tadcaster river data
+        var traceLeeds = {x: [], y: [], name: 'Leeds', type: 'scatter'}; //graph data for leeds river data
+        var traceCastl = {x: [], y: [], name: 'Castleford', type: 'scatter'}; //graph data for castleford river data
+        var traceKirk = {x: [], y: [], name: 'Kirkstall', type: 'scatter'}; //graph data for kirkstall river data
+        var traceMyth = {x: [], y: [], name: 'Mytholmroyd', type: 'scatter'}; //graph data for Mytholmroyd river data
+        var traceTad = {x: [], y: [], name: 'Tadcaster', type: 'scatter'}; //graph data for Tadcaster river data
     </script>
     {% if flood_events %}
             {% for flood_event in flood_events %}
