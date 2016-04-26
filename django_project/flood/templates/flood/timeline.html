@@ -51,9 +51,10 @@
                     <script>
                         var substr = location.search.substr(1); //search url for input
                         var dates = substr.split("+"); //get dates seperated by + in url
-                        var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}") //get the date_taken of river level
+                        var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}"); //get the date_taken of river level
                         if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) { //check river level date corresponds to dates requested
-                            console.log("{{ river.place }}")
+                            //console.log("{{ river.place }}")
+                            //console.log("{{ river.river_level }}")
                             if ("{{ river.place }}" == "Leeds"){ //populate leeds graph with relevant data
                                 traceLeeds.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
                                 traceLeeds.y.push("{{ river.river_level }}");
@@ -74,8 +75,6 @@
                                 traceMyth.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
                                 traceMyth.y.push("{{ river.river_level }}");
                             }
-                            traceAll.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}"); //populate the graph that combines all river levels
-                            traceAll.y.push("{{ river.river_level }}");
                         }
 
                         else if (dates[0] == ""){ //no dates selected by user so no dates present in url.
@@ -101,18 +100,30 @@
                                 traceMyth.y.push("{{ river.river_level }}");
                             }
 
-                            traceAll.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");//populate graph that combines all river data.
-                            traceAll.y.push("{{ river.river_level }}");
                         }
                     </script>
                 {% endfor %}
             {% endfor %}
     {% endif %}
     <script>
-        var riverGraph = "riverGraph"
-        var alldata = [traceAll];
+        var riverGraph = "riverGraph";
+
         var leedsdata = [traceLeeds];
-        var riverButtons = '<button onclick="Plotly.newPlot(riverGraph, alldata)" class="btn btn-primary" type="button">All Data</button><button onclick="Plotly.newPlot(riverGraph, leedsdata)" class="btn btn-primary" type="button">Leeds</button>'
+        var kirkdata = [traceKirk];
+        var castdata = [traceCastl];
+        var taddata = [traceTad];
+        var mythdata = [traceMyth];
+
+        var alldata = [traceLeeds, traceCastl, traceKirk, traceMyth, traceTad];
+
+        var allbutton = '<button onclick="Plotly.newPlot(riverGraph, alldata)" class="btn btn-primary" type="button">All</button>';
+        var leedsbutton = '<button onclick="Plotly.newPlot(riverGraph, leedsdata)" class="btn btn-primary" type="button">Leeds</button>';
+        var kirkbutton = '<button onclick="Plotly.newPlot(riverGraph, kirkdata)" class="btn btn-primary" type="button">Kirkstall</button>';
+        var castbutton = '<button onclick="Plotly.newPlot(riverGraph, castdata)" class="btn btn-primary" type="button">Castleford</button>';
+        var tadbutton = '<button onclick="Plotly.newPlot(riverGraph, taddata)" class="btn btn-primary" type="button">Tadcaster</button>';
+        var mythbutton = '<button onclick="Plotly.newPlot(riverGraph, mythdata)" class="btn btn-primary" type="button">Mytholmroyd</button>';
+
+
 
         if (dates[0] != ""){ //if particular flood event dates have been requested by the user
             if (traceAll.x === 0 || traceAll.y.length == 0){ //if there is no river data available for the dates display message
@@ -122,19 +133,19 @@
                 document.write('<h4 style="text-align: center">Not enough River level data available for selected flood event.</h4>')
             }
             else { //display river data for the selected data
-                document.write('<h4 style="text-align: center">Displaying River level data for the selected dates.</h4>') //add relevant message
-                document.write(riverButtons)
-                document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>') //add the graph to the webpage
-                var riverdata = [traceAll];
-                Plotly.newPlot(riverGraph, riverdata);
+                document.write('<h4 style="text-align: center">Displaying River level data for the selected dates.</h4>'); //add relevant message
+                document.write('<p>Select a river level data source:</p>');
+                document.write(allbutton+leedsbutton+kirkbutton+castbutton+tadbutton+mythbutton);
+                document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>'); //add the graph to the webpage
+                Plotly.newPlot(riverGraph, alldata);
             }
         }
         else if (dates[0] == ""){
-            document.write('<h4 style="text-align: center">Displaying River level data for all available dates.</h4>')
-            document.write(riverButtons)
-            document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
-            var riverdata = [traceAll];
-            Plotly.newPlot('riverGraph', riverdata);
+            document.write('<h4 style="text-align: center">Displaying River level data for all available dates.</h4>');
+            document.write('<p>Select a river level data source:</p>');
+            document.write(allbutton+leedsbutton+kirkbutton+castbutton+tadbutton+mythbutton);
+            document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>');
+            Plotly.newPlot('riverGraph', alldata);
         }
     </script>
     <ul class="timeline">
