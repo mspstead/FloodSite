@@ -109,6 +109,9 @@
             {% endfor %}
     {% endif %}
     <script>
+        var riverGraph = "riverGraph"
+        var dropdown = '<div class="dropdown"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Flood Event<span class="caret"></span></button><ul class="dropdown-menu"><li><a onclick="Plotly.newPlot(riverGraph, traceAll);">All Data</a></li><li><a onclick="Plotly.newPlot(riverGraph, traceLeeds);">Leeds</a></li></ul></div>'
+
         if (dates[0] != ""){ //if particular flood event dates have been requested by the user
             if (traceAll.x === 0 || traceAll.y.length == 0){ //if there is no river data available for the dates display message
                 document.write('<h4 style="text-align: center">No River level data available for the flood event selected.</h4>')
@@ -117,17 +120,18 @@
                 document.write('<h4 style="text-align: center">Not enough River level data available for selected flood event.</h4>')
             }
             else { //display river data for the selected data
-                document.write('<h4 style="text-align: center">Displaying River level data for the selected dates.</h4>')
-                document.write('') //add dropdown menu to select between river data sources.
-                document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
-                var riverdata = [traceAll, traceLeeds]
-                Plotly.newPlot('riverGraph', riverdata);
+                document.write('<h4 style="text-align: center">Displaying River level data for the selected dates.</h4>') //add relevant message
+                document.write(dropdown)
+                document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>') //add the graph to the webpage
+                var riverdata = [traceAll]
+                Plotly.newPlot(riverGraph, riverdata);
             }
         }
         else if (dates[0] == ""){
             document.write('<h4 style="text-align: center">Displaying River level data for all available dates.</h4>')
+            document.write(dropdown)
             document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>')
-            var riverdata = [traceAll, traceLeeds];
+            var riverdata = [traceAll];
             Plotly.newPlot('riverGraph', riverdata);
         }
     </script>
