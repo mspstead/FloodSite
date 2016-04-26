@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'leaflet',
     'twitter_bootstrap',
     'flood',
+    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
