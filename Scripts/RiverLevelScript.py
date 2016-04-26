@@ -56,16 +56,16 @@ def DownloadRiverData(start_date, end_date):
                 river_level = {"measure":"mytholmroyd", "datetime":date, "level":value, "lat":"53.73128", "lng":"-1.983282"}
                 levels.append(river_level)
 
-            #if river_level != {}:
+            if river_level != {}:
 
-                #river_file.write(river_level.get("measure")+","+river_level.get("datetime")+","+
-                    #river_level.get("level")+","+river_level.get("lat")+","+river_level.get("lng")+"\n")
+                river_file.write(river_level.get("measure")+","+river_level.get("datetime")+","+
+                    river_level.get("level")+","+river_level.get("lat")+","+river_level.get("lng")+"\n")
 
             #print (river_level)
         print(datecsv.strftime("%Y-%m-%d")+", completed.")
     DB = DBcrud()
     DB.addRiverLevel(levels)
-    #river_file.close()
+    river_file.close()
 
 def readFromFile(fileName):
 
@@ -83,10 +83,10 @@ def readFromFile(fileName):
     DB = DBcrud()
     DB.addRiverLevel(levels)
 
-strt_date = date(2015,01,15)
+strt_date = date(2015,11,14)
 ed_date = date(2016,01,10)
 
-#DownloadRiverData(strt_date,ed_date)
+DownloadRiverData(strt_date,ed_date)
 readFromFile("YorkshireRiverLevels.txt")
 
 
