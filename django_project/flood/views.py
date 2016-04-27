@@ -25,7 +25,7 @@ def timeline(request):
     river_levels = []
 
     count = RiverLevel.objects.all().count()
-    number_of_objects = 100
+    number_of_objects = 10
     for i in xrange(0,count,number_of_objects):
         smaller_queryset = RiverLevel.objects.all()[i:i+number_of_objects]
         for model_instance in smaller_queryset:
