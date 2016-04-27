@@ -22,7 +22,7 @@ def timeline(request):
 
     ordered_photo_list = Photo.objects.order_by("date_taken") #order the photos based on the date_taken
     ordered_tweet_list = Tweets.objects.order_by("date_taken") #order the tweets based on date_taken
-    river_levels = RiverLevel.objects.all()
+    #river_levels = RiverLevel.objects.all()
     combined_list = [] #holds both tweets and photos, so the timeline can display them in correct date order.
 
     for photo in ordered_photo_list: #cycle through photos and add to combined list
@@ -37,7 +37,7 @@ def timeline(request):
 
     flood_events = getFloodEvents(combined_list)
 
-    context = {'combined_list': combined_list, 'flood_events':flood_events,}
+    context = {'combined_list': combined_list, 'flood_events':flood_events}
     return render(request, 'flood/timeline.html', context)
 
 def upvote(request, photo_id):
@@ -53,11 +53,11 @@ def downvote(request, photo_id):
     return HttpResponse(status=204) #stay on the same webpage
 
 def getFloodEvents(list):
-    '''
+    """
     Method that returns a compiled list of flood_events.
     :param list: flood photos.
     :return: list of flood events.
-    '''
+    """
 
     ordered_list = list
     flood_events = [] #empty list to hold all of the flood events
