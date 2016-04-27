@@ -72,5 +72,5 @@ function displayRiverLevels(riverlevels){
                 traceMyth.y.push(river.river_level);
             }
         }
-    }
+    };
 }

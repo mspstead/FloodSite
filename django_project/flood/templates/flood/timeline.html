@@ -117,6 +117,7 @@
         var castbutton = '<button onclick="Plotly.newPlot(riverGraph, castdata)" class="btn btn-primary" type="button">Castleford</button>';
         var tadbutton = '<button onclick="Plotly.newPlot(riverGraph, taddata)" class="btn btn-primary" type="button">Tadcaster</button>';
         var mythbutton = '<button onclick="Plotly.newPlot(riverGraph, mythdata)" class="btn btn-primary" type="button">Mytholmroyd</button>';
+
         if (dates[0] != ""){ //if particular flood event dates have been requested by the user
             if (traceLeeds.x === 0 || traceLeeds.y.length == 0){ //if there is no river data available for the dates display message
                 document.write('<h4 style="text-align: center">No River level data available for the flood event selected.</h4>')
