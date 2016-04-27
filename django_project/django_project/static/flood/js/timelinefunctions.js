@@ -21,7 +21,6 @@ function down(id){
 }
 
 function displayRiverLevels(){
-    {% for river in flood_event.2 %}
 
     var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}"); //get the date_taken of river level
     if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) { //check river level date corresponds to dates requested
@@ -70,5 +69,5 @@ function displayRiverLevels(){
             traceMyth.y.push("{{ river.river_level }}");
         }
     }
-    {% endfor %}
+
 }
