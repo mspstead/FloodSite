@@ -44,10 +44,7 @@
                         <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT' }}">{{ flood_event.0|date:'d/m/Y' }} - {{ flood_event.1|date:'d/m/Y' }}</a></li> 
                         {% for river in flood_event.2 %}
                             <script>
-                                river_levels.push("{{ river }}");
-                            </script>
-                            <script>
-                                /*//var substr = location.search.substr(1); //search url for input
+                                //var substr = location.search.substr(1); //search url for input
                                 //var dates = substr.split("+"); //get dates seperated by + in url
                                 var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}"); //get the date_taken of river level
                                 if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) { //check river level date corresponds to dates requested
@@ -95,7 +92,7 @@
                                         traceMyth.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
                                         traceMyth.y.push("{{ river.river_level }}");
                                     }
-                                }*/
+                                }
                             </script>
                         {% endfor %}
                     {% endfor %} 
