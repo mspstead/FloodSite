@@ -1,8 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Photo, RainLevel, Tweets, RiverLevel
+from .models import Photo, Tweets, RiverLevel
 from Scripts import FloodAreas
-import datetime
 
 # Create your views here.
 
@@ -36,7 +35,7 @@ def timeline(request):
 
     flood_events = getFloodEvents(combined_list)
 
-    context = {'combined_list': combined_list, 'flood_events':flood_events}
+    context = {'combined_list': combined_list, 'flood_events': flood_events}
     return render(request, 'flood/timeline.html', context)
 
 def upvote(request, photo_id):
