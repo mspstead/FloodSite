@@ -38,6 +38,8 @@
         </div>
     </div>
     <script>
+        var substr = location.search.substr(1); //search url for input
+        var dates = substr.split("+"); //get dates seperated by + in url
         var traceLeeds = {x: [], y: [], name: 'Leeds', type: 'scatter'}; //graph data for leeds river data
         var traceCastl = {x: [], y: [], name: 'Castleford', type: 'scatter'}; //graph data for castleford river data
         var traceKirk = {x: [], y: [], name: 'Kirkstall', type: 'scatter'}; //graph data for kirkstall river data
@@ -48,8 +50,8 @@
             {% for flood_event in flood_events %}
                 {% for river in flood_event.3 %}
                     <script>
-                        var substr = location.search.substr(1); //search url for input
-                        var dates = substr.split("+"); //get dates seperated by + in url
+                        //var substr = location.search.substr(1); //search url for input
+                        //var dates = substr.split("+"); //get dates seperated by + in url
                         var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}"); //get the date_taken of river level
                         if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) { //check river level date corresponds to dates requested
                             //console.log("{{ river.place }}")
