@@ -35,9 +35,10 @@ def timeline(request):
 
     combined_list.sort(key=lambda x: x[0]) #sort the list based on date_taken.
 
-    flood_events = getFloodEvents(combined_list)
+    #flood_events = getFloodEvents(combined_list)
+    #'flood_events':flood_events,
 
-    context = {'combined_list': combined_list, 'flood_events':flood_events, "river_levels": river_levels}
+    context = {'combined_list': combined_list, "river_levels": river_levels}
     return render(request, 'flood/timeline.html', context)
 
 def upvote(request, photo_id):
@@ -52,12 +53,12 @@ def downvote(request, photo_id):
     photo.save()
     return HttpResponse(status=204) #stay on the same webpage
 
-def getFloodEvents(list):
-    """
+"""def getFloodEvents(list):
+    '''
     Method that returns a compiled list of flood_events.
     :param list: flood photos.
     :return: list of flood events.
-    """
+    '''
 
     ordered_list = list
     flood_events = [] #empty list to hold all of the flood events
@@ -78,3 +79,4 @@ def getFloodEvents(list):
             flood_event = [] #reset flood event to empty
         start_date = ordered_list[x][0].date() #set new start_date to the next photo date in list.
     return flood_events
+    """

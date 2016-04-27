@@ -24,18 +24,6 @@
 <div class="container">
     <div class="page-header">
         <h1 id="timeline">Timeline</h1>
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Flood Event
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                <li><a href="timeline.html">All Events</a></li>
-               {% if flood_events %} 
-                    {% for flood_event in flood_events reversed %} 
-                        <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT' }}">{{ flood_event.0|date:'d/m/Y' }} - {{ flood_event.1|date:'d/m/Y' }}</a></li> 
-                    {% endfor %} 
-               {% endif %}
-              </ul>
-        </div>
     </div>
     <script>
         var traceLeeds = {x: [], y: [], name: 'Leeds', type: 'scatter'}; //graph data for leeds river data
