@@ -22,6 +22,7 @@ def timeline(request):
 
     ordered_photo_list = Photo.objects.order_by("date_taken") #order the photos based on the date_taken
     ordered_tweet_list = Tweets.objects.order_by("date_taken") #order the tweets based on date_taken
+    river_levels = RiverLevel.objects.all()
     combined_list = [] #holds both tweets and photos, so the timeline can display them in correct date order.
 
     for photo in ordered_photo_list: #cycle through photos and add to combined list
@@ -36,7 +37,7 @@ def timeline(request):
 
     flood_events = getFloodEvents(combined_list)
 
-    context = {'combined_list': combined_list, 'flood_events':flood_events}
+    context = {'combined_list': combined_list, 'flood_events':flood_events, "river_levels": river_levels}
     return render(request, 'flood/timeline.html', context)
 
 def upvote(request, photo_id):
@@ -70,10 +71,10 @@ def getFloodEvents(list):
             start_date = ordered_list[x][0].date()
         else:
             flood_event.append(ordered_list[x-1][0])
-            river_levels = RiverLevel.objects.filter(date_taken__gte=flood_event[0].date(), date_taken__lte=flood_event[-1].date())
+            #river_levels = RiverLevel.objects.filter(date_taken__gte=flood_event[0].date(), date_taken__lte=flood_event[-1].date())
 
             if len(flood_event) > 2:
-                flood_events.append([flood_event[0],flood_event[-1],river_levels]) #add flood event to the flood_events list
+                flood_events.append([flood_event[0],flood_event[-1]]) #add flood event to the flood_events list
             flood_event = [] #reset flood event to empty
         start_date = ordered_list[x][0].date() #set new start_date to the next photo date in list.
     return flood_events
