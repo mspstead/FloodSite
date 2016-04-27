@@ -22,7 +22,6 @@
     </nav>
 </div>
 <script>
-        var river_levels = [];
         var substr = location.search.substr(1); //search url for input
         var dates = substr.split("+"); //get dates seperated by + in url
         var traceLeeds = {x: [], y: [], name: 'Leeds', type: 'scatter'}; //graph data for leeds river data
@@ -42,16 +41,9 @@
                {% if flood_events %} 
                     {% for flood_event in flood_events reversed %} 
                         <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT' }}">{{ flood_event.0|date:'d/m/Y' }} - {{ flood_event.1|date:'d/m/Y' }}</a></li> 
-                        {% for river in flood_event.2 %}>
                             <script>
-                                river_levels.push("{{ river }}");
-                            </script>
-
-                            <script>
-                                /*
-                                //var substr = location.search.substr(1); //search url for input
-                                //var dates = substr.split("+"); //get dates seperated by + in url
-                                var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}"); //get the date_taken of river level
+                                window.onload = displayRiverLevels();
+                                /*var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}"); //get the date_taken of river level
                                 if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) { //check river level date corresponds to dates requested
                                     //console.log("{{ river.place }}")
                                     //console.log("{{ river.river_level }}")
@@ -99,7 +91,6 @@
                                     }
                                 }*/
                             </script>
-                        {% endfor %}
                     {% endfor %} 
                {% endif %}
               </ul>
@@ -182,5 +173,4 @@
         {% endif %}
     </ul>
 </div>
-<body onload=displayRiverLevels(river_levels)></body>
 </html>
