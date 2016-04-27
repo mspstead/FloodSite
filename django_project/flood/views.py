@@ -22,14 +22,6 @@ def timeline(request):
     ordered_photo_list = Photo.objects.order_by("date_taken") #order the photos based on the date_taken
     ordered_tweet_list = Tweets.objects.order_by("date_taken") #order the tweets based on date_taken
     combined_list = [] #holds both tweets and photos, so the timeline can display them in correct date order.
-    river_levels = []
-
-    count = RiverLevel.objects.all().count()
-    number_of_objects = 10
-    for i in xrange(0,count,number_of_objects):
-        smaller_queryset = RiverLevel.objects.all()[i:i+number_of_objects]
-        for model_instance in smaller_queryset:
-            river_levels.append(model_instance)
 
     for photo in ordered_photo_list: #cycle through photos and add to combined list
         date = photo.date_taken
@@ -40,6 +32,9 @@ def timeline(request):
         combined_list.append([date,"tweet",tweet.html])
 
     combined_list.sort(key=lambda x: x[0]) #sort the list based on date_taken.
+
+    river_levels = RiverLevel.objects.filter(date_taken__gte=combined_list[0][0].date(), date_taken__lte=combined_list[-1][0].date())
+
 
     flood_events = getFloodEvents(combined_list)
 
