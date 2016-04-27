@@ -22,7 +22,7 @@ def timeline(request):
     ordered_photo_list = Photo.objects.order_by("date_taken") #order the photos based on the date_taken
     ordered_tweet_list = Tweets.objects.order_by("date_taken") #order the tweets based on date_taken
     combined_list = [] #holds both tweets and photos, so the timeline can display them in correct date order.
-    river_levels = RiverLevel.get.object.all()
+    river_levels = RiverLevel.objects.all()
 
     for photo in ordered_photo_list: #cycle through photos and add to combined list
         date = photo.date_taken
