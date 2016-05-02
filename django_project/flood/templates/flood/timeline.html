@@ -36,10 +36,10 @@
                 <li><a href="timeline.html">All Events</a></li>
                {% if flood_events %} 
                     {% for flood_event in flood_events reversed %} 
-                        <li><a href="timeline.html?{{ flood_event.0|date:'d/m/Y' }}+{{ flood_event.1|date:'d/m/Y' }}">{{ flood_event.0|date:'d/m/Y' }} - {{ flood_event.1|date:'d/m/Y' }}</a></li> 
+                        <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT' }}">{{ flood_event.0|date:'d/m/Y' }} - {{ flood_event.1|date:'d/m/Y' }}</a></li> 
                         {% for river in flood_event.2 %}
                             <script>
-                                var dateTaken = new Date("{{ river.date_taken|date:'d/m/Y' }}"); //get the date_taken of river level
+                                var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}"); //get the date_taken of river level
                                 if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) { //check river level date corresponds to dates requested
                                     //console.log("{{ river.place }}")
                                     //console.log("{{ river.river_level }}")
@@ -137,7 +137,7 @@
         {% if combined_list %}
             {% for object in combined_list reversed %}
                 <script>
-                    var objDate = new Date("{{ object.0|date:'d/m/Y' }}"); //Get date of photo or tweet object
+                    var objDate = new Date("{{ object.0|date:'SHORT_DATE_FORMAT' }}"); //Get date of photo or tweet object
                     var objType = "{{ object.1 }}";//get the objects type (photo or tweet)
                     if (objDate >= new Date(dates[0]) && objDate <= new Date(dates[1])) { //if obj date is between selected flood event dates
                         if(objType == "photo"){ //if the obj is a photo
