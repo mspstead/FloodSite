@@ -9,9 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript" src="{% static 'flood/js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'flood/js/timelinefunctions.js' %}"></script>
-    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <!-- Plotly.js -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <div class="container">
     <nav class="nav nav-pills">
@@ -96,6 +93,8 @@
               </ul>
         </div>
     </div>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script>
         var riverGraph = "riverGraph";
         var leedsdata = [traceLeeds];
@@ -173,4 +172,5 @@
         {% endif %}
     </ul>
 </div>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </html>
