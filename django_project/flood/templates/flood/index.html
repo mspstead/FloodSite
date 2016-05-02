@@ -2,76 +2,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Home</title>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/bootstrap.min.css' %}">
-  <script type="text/javascript" src="{% static 'flood/js/bootstrap.min.js' %}"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <nav class="nav nav-pills">
-      <li role="presentation" class="active"><a href="/">Home</a></li>
-      <li role="presentation"><a href="map">Map</a></li>
-      <li role="presentation"><a href="timeline">Timeline</a></li>
-    </nav>
-    <div class="page-header">
-      <h1>West Yorkshire Flooding</h1>
-    </div>
-    {% if floods %}
-      {% for flood in floods %}
-        <div class="alert alert-danger">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Alert!</strong> <p>Location: {{flood.description}}<br>Type: {{ flood.severity }}<br>Threat Level: {{ flood.severitylevel }}<br>Time: {{flood.time|date:'d/m/Y H:m'}}</p>
-        </div>
-      {% endfor %}
-    {% else %}
-      <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>No Warnings!</strong> There are currently no flood warnings.
-      </div>
-    {% endif %}
-
-    <div class="panel-group" id="flood">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#flood" href="#collapse1">About</a>
-          </h4>
-        </div>
-        <div id="collapse1" class="panel-collapse collapse in">
-          <div class="panel-body">This website resource was produced as part of a research
-            project for the University of Leeds.<br>This website uses Environment Agency flood and river level data from the real-time data API (Beta)
-</div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#flood" href="#collapse2">Map</a>
-          </h4>
-        </div>
-        <div id="collapse2" class="panel-collapse collapse">
-          <div class="panel-body">The map page consists of geo-located photographs sourced from Flickr and Instagram.<br>
-            There are also geo-tagged tweets plotted to this map relating to the flooding on the 26/12/2015<br>
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#flood" href="#collapse3">Timeline</a>
-          </h4>
-        </div>
-        <div id="collapse3" class="panel-collapse collapse">
-          <div class="panel-body">The timeline page provides a breakdown of all the flood data (photos, rain-levels and tweets)<br>
-          
-          </div>
-        </div>
-      </div>
+    <div class="jumbotron">
+      <h1>Bootstrap Test</h1>
+      <a href='map'>Map</a>
+      {% if photo_list %}
+        {% for photo in photo_list %}
+          <li><a href="{{ photo.url }}">{{ photo.title_text }}</a></li>
+        {% endfor %}
+      {% else %}
+        <p>No photos available</p>
+      {% endif %}
     </div>
   </div>
 </body>
 </html>
-
