@@ -10,16 +10,16 @@ location_method = "flickr.photos.geo.getLocation"
 date_method="flickr.photos.getInfo"
 
 
-def reqBuilder(tags, lat, lon, rad):
+def reqBuilder(tag, lat, lon, rad):
     """
     Build a search request based on tags (eg. flood), location(lat,lon) and radius(in km max=20), page default=1
     returns the flickr api data
     """
-    requestArray = []
+    requestArray = [] #used to hold the requests, r.
 
     # Create the url based on params given
     urlInit = "https://api.flickr.com/services/rest/?&method=" + search_method + "&api_key=" + api_key + \
-              "&tags=" + tags + "&has_geo=1&lat=" + lat + "&lon=" + lon + "&radius=" + rad
+              "&tags=" + tag + "&has_geo=1&lat=" + lat + "&lon=" + lon + "&radius=" + rad
 
     r = requests.get(urlInit)   # send the initial request
     requestArray.append(r)  # add the first request to the array
@@ -107,8 +107,11 @@ def getLocality(lat,lon):
 def photoBuilder(photoArray):
 
     #photosDB = [] #An Array which will store all of the photo dictionarys
-    f = open('PhotoData.txt', 'w')
+    f = open('PhotoDataSkateLeeds.txt', 'w')
     count = len(photoArray)
+
+    if photoArray == []:
+        print('No photos available')
 
     for photo in photoArray: #cycle through all of the photos and extract the data to be stored
 
