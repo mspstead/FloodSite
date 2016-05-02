@@ -7,6 +7,7 @@ from Scripts import FloodAreas
 
 def index(request):
     floods = FloodAreas.searchArea("53.7996","-1.5491","20") #search within 20km of leeds for any flood warnings
+    photos = Photo.objects.all()
     context = {'floods':floods} #return list of flood warnings send to webpage.
     return render(request,'flood/index.html', context)
 
