@@ -2,141 +2,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Timeline</title>
     <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/bootstrap-glyphicons.css' %}">
     <link rel="stylesheet" type="text/css" media="all" href="{% static 'flood/css/timeline.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript" src="{% static 'flood/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'flood/js/timelinefunctions.js' %}"></script>
 </head>
 <div class="container">
-    <ul class="nav nav-pills">
-        <li role="presentation"><a href="/flood/">Home</a></li>
+    <nav class="nav nav-pills">
+        <li role="presentation"><a href="/">Home</a></li>
         <li role="presentation"><a href="map">Map</a></li>
         <li role="presentation" class="active"><a href="timeline">Timeline</a></li>
-        <li role="presentation>"><a href="graph">Graph</a> </li>
-
-    </ul>
+    </nav>
+</div>
+<script>
+        var substr = location.search.substr(1); //search url for input
+        var dates = substr.split("+"); //get dates seperated by + in url
+        var traceLeeds = {x: [], y: [], name: 'Leeds', type: 'scatter'}; //graph data for leeds river data
+        var traceCastl = {x: [], y: [], name: 'Castleford', type: 'scatter'}; //graph data for castleford river data
+        var traceKirk = {x: [], y: [], name: 'Kirkstall', type: 'scatter'}; //graph data for kirkstall river data
+        var traceMyth = {x: [], y: [], name: 'Mytholmroyd', type: 'scatter'}; //graph data for Mytholmroyd river data
+        var traceTad = {x: [], y: [], name: 'Tadcaster', type: 'scatter'}; //graph data for Tadcaster river data
+    </script>
+<div class="container">
     <div class="page-header">
         <h1 id="timeline">Timeline</h1>
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Flood Event
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-                {% if flood_events %}
-                    {% for flood_event in flood_events reversed %}
-                        <li><a href="timeline.html?{{ flood_event.0.date_taken }}">{{ flood_event.0.date_taken }}</a></li>
-                    {% endfor %}
-                {% endif %}
+                <li><a href="timeline.html">All Events</a></li>
+               {% if flood_events %} 
+                    {% for flood_event in flood_events reversed %} 
+                        <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT' }}">{{ flood_event.0|date:'d/m/Y' }} - {{ flood_event.1|date:'d/m/Y' }}</a></li> 
+                        {% for river in flood_event.2 %}
+                            <script>
+                                var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}"); //get the date_taken of river level
+                                if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) { //check river level date corresponds to dates requested
+                                    //console.log("{{ river.place }}")
+                                    //console.log("{{ river.river_level }}")
+                                    if ("{{ river.place }}" == "Leeds"){ //populate leeds graph with relevant data
+                                        traceLeeds.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                        traceLeeds.y.push("{{ river.river_level }}");
+                                    }
+                                    else if ("{{ river.place }}" == "Kirkstall"){ //populat kirkstall graph with relevant data
+                                        traceKirk.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                        traceKirk.y.push("{{ river.river_level }}");
+                                    }
+                                    else if ("{{ river.place }}" == "castleford"){ //populate castleford graph
+                                        traceCastl.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                        traceCastl.y.push("{{ river.river_level }}");
+                                    }
+                                    else if ("{{ river.place }}" == "tadcaster"){ //populate tadcaster graph
+                                        traceTad.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                        traceTad.y.push("{{ river.river_level }}");
+                                    }
+                                    else if ("{{ river.place }}" == "mytholmroyd"){ //populate mytholmroyd graph
+                                        traceMyth.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                        traceMyth.y.push("{{ river.river_level }}");
+                                    }
+                                }
+                                else if (dates[0] == ""){ //no dates selected by user so no dates present in url.
+                                    if ("{{ river.place }}".toLowerCase() == "leeds"){ //populate leeds graph with relevant data
+                                        traceLeeds.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                        traceLeeds.y.push("{{ river.river_level }}");
+                                    }
+                                    else if ("{{ river.place }}".toLowerCase() == "kirkstall"){ //populat kirkstall graph with relevant data
+                                        traceKirk.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                        traceKirk.y.push("{{ river.river_level }}");
+                                    }
+                                    else if ("{{ river.place }}".toLowerCase() == "castleford"){ //populate castleford graph
+                                        traceCastl.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                        traceCastl.y.push("{{ river.river_level }}");
+                                    }
+                                    else if ("{{ river.place }}".toLowerCase() == "tadcaster"){ //populate tadcaster graph
+                                        traceTad.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                        traceTad.y.push("{{ river.river_level }}");
+                                    }
+                                    else if ("{{ river.place }}".toLowerCase() == "mytholmroyd"){ //populate mytholmroyd graph
+                                        traceMyth.x.push("{{ river.date_taken|date:'d/m/Y H:m' }}");
+                                        traceMyth.y.push("{{ river.river_level }}");
+                                    }
+                                }
+                            </script>
+                        {% endfor %}
+                    {% endfor %} 
+               {% endif %}
               </ul>
         </div>
     </div>
-    <h2></h2>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        var riverGraph = "riverGraph";
+        var leedsdata = [traceLeeds];
+        var kirkdata = [traceKirk];
+        var castdata = [traceCastl];
+        var taddata = [traceTad];
+        var mythdata = [traceMyth];
+        var alldata = [traceLeeds, traceCastl, traceKirk, traceMyth, traceTad];
+        var allbutton = '<button onclick="Plotly.newPlot(riverGraph, alldata)" class="btn btn-primary" type="button">All</button>';
+        var leedsbutton = '<button onclick="Plotly.newPlot(riverGraph, leedsdata)" class="btn btn-primary" type="button">Leeds</button>';
+        var kirkbutton = '<button onclick="Plotly.newPlot(riverGraph, kirkdata)" class="btn btn-primary" type="button">Kirkstall</button>';
+        var castbutton = '<button onclick="Plotly.newPlot(riverGraph, castdata)" class="btn btn-primary" type="button">Castleford</button>';
+        var tadbutton = '<button onclick="Plotly.newPlot(riverGraph, taddata)" class="btn btn-primary" type="button">Tadcaster</button>';
+        var mythbutton = '<button onclick="Plotly.newPlot(riverGraph, mythdata)" class="btn btn-primary" type="button">Mytholmroyd</button>';
+
+        if (dates[0] != ""){ //if particular flood event dates have been requested by the user
+            if (traceLeeds.x === 0 || traceLeeds.y.length == 0){ //if there is no river data available for the dates display message
+                document.write('<h4 style="text-align: center">No River level data available for the flood event selected.</h4>')
+            }
+            else if (traceLeeds.length <= 1) { //if there is not enough river level data for the selected dates.
+                document.write('<h4 style="text-align: center">Not enough River level data available for selected flood event.</h4>')
+            }
+            else { //display river data for the selected data
+                document.write('<h4 style="text-align: center">Displaying River level data for the selected dates.</h4>'); //add relevant message
+                document.write('<p>Select a river level data source:</p>');
+                document.write(allbutton+leedsbutton+kirkbutton+castbutton+tadbutton+mythbutton);
+                document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>'); //add the graph to the webpage
+                Plotly.newPlot(riverGraph, alldata);
+            }
+        }
+        else if (dates[0] == ""){
+            document.write('<h4 style="text-align: center">Displaying River level data for all available dates.</h4>');
+            document.write('<p>Select a river level data source:</p>');
+            document.write(allbutton+leedsbutton+kirkbutton+castbutton+tadbutton+mythbutton);
+            document.write('<div id="riverGraph" style="min-width: 1100px; width:100%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>');
+            Plotly.newPlot('riverGraph', alldata);
+        }
+    </script>
     <ul class="timeline">
-        {% if photo_list %}
-            {% for photo in photo_list %}
+        {% if combined_list %}
+            {% for object in combined_list reversed %}
                 <script>
-                    var d = new Date("15-11-2015");
-                    if ("{{photo.date_taken}}" >= d) {
-                        document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }},{{ photo.locality }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
+                    var objDate = new Date("{{ object.0|date:'SHORT_DATE_FORMAT' }}"); //Get date of photo or tweet object
+                    var objType = "{{ object.1 }}";//get the objects type (photo or tweet)
+                    if (objDate >= new Date(dates[0]) && objDate <= new Date(dates[1])) { //if obj date is between selected flood event dates
+                        if(objType == "photo"){ //if the obj is a photo
+                            if("{{ object.2.source }}" == "Instagram"){ //use instagram url for link back to owner
+                                document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="http://instagram.com/{{ object.2.owner }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>');
+                            }
+                            else if("{{ object.2.source }}" == "Flickr"){ //use flickr url for link back to owner
+                                document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="https://www.flickr.com/photos/{{ object.2.owner }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>');
+                            }
+                        }
+                        else if(objType == "tweet" && '{{ object.2|safe }}' !== ""){ //if obj is a tweet and its html is safe and not null
+                            document.write('<li class="timeline-inverted"><div class="timeline-badge info"><i class="glyphicon glyphicon-info-sign"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title"></h4><div class="timeline-body">{{ object.2|safe }}</div></div></li>');
+                        }
                     }
-                    else if ("xxx" == d){
-                        document.write('<li><a href="{{ photo.url }}">{{ photo.date_taken }}</a><div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ photo.date_taken.text }}</h4></div><div class="timeline-body"><img src="{{ photo.url }}"/></div></div></li>')
+                    else if (dates[0] == ""){ //else if no flood event is selected
+                        if(objType == "photo"){ //if the obj is a photo
+                            if("{{ object.2.source }}" == "Instagram"){ //use instagram url for link back to owner
+                                document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="http://instagram.com/{{ object.2.owner }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>');
+                            }
+                            else if("{{ object.2.source }}" == "Flickr"){ //use Flickr url for the link back to owner
+                                document.write('<li><div class="timeline-badge success"><i class="glyphicon glyphicon-camera"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">{{ object.2.date_taken.text }}</h4></div><div class="timeline-body"><a href="https://www.flickr.com/photos/{{ object.2.owner }}">{{ object.2.date_taken }}</a><b>{{ object.2.locality }}</b><img src="{{ object.2.url }}" height="100%" width="100%" /><button onclick="up({{ object.2.id }})" class="btn btn-success" type="button">up</button><button onclick="down({{ object.2.id }})" class="btn btn-danger" type="button">down</button><b id="{{ object.2.id }}">{{ object.2.score }}</b></div></div></li>');
+                            }
+                        }
+                        else if(objType == "tweet" && '{{ object.2|safe }}' !== ""){ //if tweet
+                            document.write('<li class="timeline-inverted"><div class="timeline-badge info"><i class="glyphicon glyphicon-info-sign"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title"></h4><div class="timeline-body">{{ object.2|safe }}</div></div></li>');
+                        }
                     }
                 </script>
             {% endfor %}
         {% else %}
             <p>No photos available</p>
         {% endif %}
-        <!--<li>
-          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-              <p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.</p>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-              <hr>
-              <div class="btn-group">
-                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                  <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
-        </li>-->
     </ul>
 </div>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </html>
