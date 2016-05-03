@@ -2,7 +2,7 @@ import requests
 import csv
 from datetime import date, timedelta
 from time import strftime
-from DBcrud import DBcrud
+from DB import DB
 
 base_url = "http://environment.data.gov.uk/flood-monitoring/archive/readings-"
 
@@ -63,8 +63,8 @@ def DownloadRiverData(start_date, end_date):
 
             #print (river_level)
         print(datecsv.strftime("%Y-%m-%d")+", completed.")
-    DB = DBcrud()
-    DB.addRiverLevel(levels)
+    DBupdate = DB()
+    DBupdate.addRiverLevel(levels)
     river_file.close()
 
 def readFromFile(fileName):
@@ -80,8 +80,8 @@ def readFromFile(fileName):
         lng = content[4]
         river_level = {"measure":place, "datetime":date_taken, "level":level, "lat":lat, "lng":lng}
         levels.append(river_level)
-    DB = DBcrud()
-    DB.addRiverLevel(levels)
+    DBupdate = DB()
+    DBupdate.addRiverLevel(levels)
 
 strt_date = date(2015,11,14)
 ed_date = date(2016,01,10)

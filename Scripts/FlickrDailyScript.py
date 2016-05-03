@@ -2,7 +2,7 @@
 import requests
 import xml.etree.ElementTree as ET
 import datetime
-from DBcrud import DBcrud
+from DB import DB
 
 
 
@@ -164,6 +164,6 @@ def photoBuilder(photoArray):
 r = reqBuilder("flood", "53.7996", "-1.5491", "20") #photos request being asked for
 photos = xmlParser(r) #parse the requests
 print(len(photos))
-DB = DBcrud() #create a dbconnector/operator object
+DBupdate = DB() #create a dbconnector/operator object
 photoArray = (photoBuilder(photos)) #get the array of all the photos
-DB.addphotodatabase(photoArray) #add the photos to the database using method from DBcrud
+DBupdate.addphotodatabase(photoArray) #add the photos to the database using method from DBcrud

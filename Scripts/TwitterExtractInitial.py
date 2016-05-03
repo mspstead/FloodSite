@@ -1,7 +1,7 @@
 import csv
 import requests
 import BeautifulSoup
-from DBcrud import DBcrud
+from DB import DB
 
 #Initial twitter script to extract relevant tweets from a csv file of tweets provided.
 
@@ -61,7 +61,7 @@ def ExtractTweetsCsv(csvFile):
     return tweets
 
 tweets = ExtractTweetsCsv("nodes.csv")
-DB = DBcrud() #create a dbconnector/operator object
-DB.addtweetdatabase(tweets) #add tweets to database
+DBupdate = DB() #create a dbconnector/operator object
+DBupdate.addtweetdatabase(tweets) #add tweets to database
 
 

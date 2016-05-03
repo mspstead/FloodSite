@@ -5,7 +5,7 @@ import requests
 import simplejson as json
 import InstagramDailyScript
 import time
-import DBcrud
+import DB
 
 def searchArea(lat,lng,rad):
     """
@@ -49,7 +49,7 @@ def getFloodLocation(floodUrl):
 
 def runInstagram(floodInfo):
 
-    DBUpdate = DBcrud()
+    DBUpdate = DB()
 
     for flood in floodInfo: #cycle through all the flooded areas urls
 

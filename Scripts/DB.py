@@ -1,7 +1,7 @@
 import psycopg2
 
 
-class DBcrud:
+class DB:
 
     def addphotodatabase(self, photoArray):
         """
