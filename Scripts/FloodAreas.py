@@ -9,9 +9,9 @@ import DB
 
 def searchArea(lat,lng,rad):
     """
-    Search for any flood alerts in a 20km radius area.
-    :param lat:
-    :param lng:
+    Search for any flood alerts in a radius area.
+    :param lat:String
+    :param lng:String
     :return:Array of data relating to flood warning areas, urls, description, severity, .
     """
 

@@ -48,7 +48,7 @@ def searchLocation(lat, lng, searchTerm):
 
                 photoArray.append(photoDict) #add photo dictionary to photo array
 
-                print(latitude,longitude,imageUrl,owner,date_taken,title_text,locality,source,score)
+                print(photoDict)
 
     return photoArray
 
@@ -70,5 +70,5 @@ def getLocality(lat,lon):
         if(address.find("type").text == "postal_town"): #find the address_component with type=postal_town
             return address[0].text #get the first value of the address component (Long_name)
 
-        else:
-            return "Yorkshire"
+    else:
+        return "Yorkshire"

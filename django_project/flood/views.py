@@ -25,15 +25,15 @@ def timeline(request):
 
     for photo in ordered_photo_list: #cycle through photos and add to combined list
         date = photo.date_taken
-        combined_list.append([date,"photo",photo])
+        combined_list.append([date,"photo",photo]) #add array of date_taken, type and photo object
 
     for tweet in ordered_tweet_list: #cycle through tweets and add to combined list
         date = tweet.date_taken
-        combined_list.append([date,"tweet",tweet.html])
+        combined_list.append([date,"tweet",tweet.html]) #add date_taken, type and tweet object
 
     combined_list.sort(key=lambda x: x[0]) #sort the list based on date_taken.
 
-    flood_events = getFloodEvents(combined_list)
+    flood_events = getFloodEvents(combined_list) #get the flood events
 
     context = {'combined_list': combined_list, 'flood_events': flood_events}
     return render(request, 'flood/timeline.html', context)
@@ -63,16 +63,18 @@ def getFloodEvents(list):
     flood_event = [] #list to hold individual flood event dates
 
     for x in range(0, len(ordered_list)): #cycle through the list
+
         difference = (ordered_list[x][0].date() - start_date).days #calculate the difference between dates between photos
         if difference <= 1: #check the difference between dates is less than or equal to 1 day
-            flood_event.append(ordered_list[x][0]) #if photos within 1 day of each other add to flood event
-            start_date = ordered_list[x][0].date()
-        else:
-            flood_event.append(ordered_list[x-1][0])
+            flood_event.append(ordered_list[x][0]) #if photos within 1 day of each other add date to flood event
+            start_date = ordered_list[x][0].date() #set the start date to the current objects date
+
+        else: #if difference between dates is greater than 1 day
+            flood_event.append(ordered_list[x-1][0]) # add current objects date to flood event
             river_levels = RiverLevel.objects.filter(date_taken__gte=flood_event[0].date(), date_taken__lte=flood_event[-1].date())
 
-            if len(flood_event) > 2:
-                flood_events.append([flood_event[0],flood_event[-1],river_levels]) #add flood event to the flood_events list
+            if len(flood_event) > 2: #if flood event contains more than 2 dates
+                flood_events.append([flood_event[0],flood_event[-1],river_levels]) #add first and last flood event dates to the flood_events list
             flood_event = [] #reset flood event to empty
         start_date = ordered_list[x][0].date() #set new start_date to the next photo date in list.
     return flood_events
