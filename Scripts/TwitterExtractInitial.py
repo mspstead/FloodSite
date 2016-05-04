@@ -51,13 +51,15 @@ def ExtractTweetsCsv(csvFile):
 
                 html = GetEmbedHtml(TweetId) #get tweets embed html
 
-                tweets.append({"Time":row["TimeInterval"][2:25], "Lat":row["lat"], "Lng":row["lng"], "Label":row["Label"],
-                                    "UserId":row["userid"], "TweetId":TweetId, "Tweet":tweet, "Html":html})
+                tweetDict = {"Time":row["TimeInterval"][2:25], "Lat":row["lat"], "Lng":row["lng"], "Label":row["Label"],
+                                    "UserId":row["userid"], "TweetId":TweetId, "Tweet":tweet, "Html":html}
+
+                tweets.append(tweetDict)
 
                 leng = leng +1 #add one to process tweets
 
-                print "DONE:",leng #output process tweets
-
+                print "DONE:",leng #output tweets number of tweets completed
+                print "Tweet:",tweetDict
     return tweets
 
 tweets = ExtractTweetsCsv("nodes.csv")

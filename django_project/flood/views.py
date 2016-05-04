@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Photo, Tweets, RiverLevel
 from Scripts import FloodAreas
+from operator import itemgetter
 
 # Create your views here.
 
@@ -31,7 +32,7 @@ def timeline(request):
         date = tweet.date_taken
         combined_list.append([date,"tweet",tweet.html]) #add date_taken, type and tweet object
 
-    combined_list.sort(key=lambda x: x[0]) #sort the list based on date_taken.
+    combined_list = sorted(combined_list, key=itemgetter(0)) #sort the list based on date_taken.
 
     flood_events = getFloodEvents(combined_list) #get the flood events
 
