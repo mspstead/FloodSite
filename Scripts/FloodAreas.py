@@ -72,18 +72,18 @@ def runInstagram(floodInfo):
 
         DBUpdate.addphotodatabase(instaArray)
 
+def dailyExecute():
+    floodInfo = searchArea("53.7996","-1.5491","20") #execute for 20km radius around leeds lat/lng
 
-floodInfo = searchArea("53.7996","-1.5491","20") #execute for 20km radius around leeds lat/lng
+    if floodInfo != []: #check that there has been flood alerts
 
-if floodInfo != []: #check that there has been flood alerts
+        for i in range(0,144): #cycle through 144 times as 144*600seconds = 24hours
 
-    for i in range(0,144): #cycle through 144 times as 144*600seconds = 24hours
-
-        runInstagram(floodInfo) #run instagram script every 10minutes for 24hours, gets recent media
-        print("sleeping 10minutes")
-        time.sleep(600) #sleep for 10minutes
-else:
-    print("No flood alerts")
+            runInstagram(floodInfo) #run instagram script every 10minutes for 24hours, gets recent media
+            print("sleeping 10minutes")
+            time.sleep(600) #sleep for 10minutes
+    else:
+        print("No flood alerts")
 
 
 
