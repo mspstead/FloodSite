@@ -30,7 +30,7 @@ def searchArea(lat,lng,rad):
         floodAreaInfo.append({'id':item["@id"], 'description':item["description"],
                               'severity':item["severity"], 'severitylevel':item["severityLevel"],
                               'time':item["timeRaised"]}) #add flood area dictionary to array
-    #print floodAreaInfo
+    print floodAreaInfo
 
     return floodAreaInfo
 
