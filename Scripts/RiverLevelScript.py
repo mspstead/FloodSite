@@ -94,6 +94,7 @@ def readFromFile(fileName):
         lng = content[4]
         river_level = {"measure":place, "datetime":date_taken, "level":level, "lat":lat, "lng":lng} #save data to dictionary
         levels.append(river_level) #add to array
+        print(river_level)
     DBupdate = DB()
     DBupdate.addRiverLevel(levels) #add data to database using levels array
 
