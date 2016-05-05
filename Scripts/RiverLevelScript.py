@@ -78,7 +78,7 @@ def DownloadRiverData(start_date, end_date):
 def readFromFile(fileName):
     """
     Saves river-level data from file to database
-    :param fileName: file produced by DownloadRiverData()
+    :param fileName: string of file location produced by DownloadRiverData()
     :return:
     """
 
@@ -97,8 +97,8 @@ def readFromFile(fileName):
     DBupdate = DB()
     DBupdate.addRiverLevel(levels) #add data to database using levels array
 
-strt_date = date(2015,11,14) #set the start date, earliest start date of 15/01/2015
-ed_date = date(2016,01,10) #set the end date, max end date of  yesterdays date
+strt_date = date(2015,11,14) #set the start date format: Y,M,D , earliest start date of 15/01/2015
+ed_date = date(2016,01,10) #set the end date format: Y,M,D , max end date of  yesterdays date
 
 #DownloadRiverData(strt_date,ed_date) # uncomment to execute either function
 #readFromFile("YorkshireRiverLevels.txt")

@@ -21,11 +21,11 @@
 <script>
         var substr = location.search.substr(1); //search url for input
         var dates = substr.split("+"); //get dates seperated by + in url
-        var traceLeeds = {x: [], y: [], name: 'Leeds', type: 'scatter'}; //graph data for leeds river data
-        var traceCastl = {x: [], y: [], name: 'Castleford', type: 'scatter'}; //graph data for castleford river data
-        var traceKirk = {x: [], y: [], name: 'Kirkstall', type: 'scatter'}; //graph data for kirkstall river data
-        var traceMyth = {x: [], y: [], name: 'Mytholmroyd', type: 'scatter'}; //graph data for Mytholmroyd river data
-        var traceTad = {x: [], y: [], name: 'Tadcaster', type: 'scatter'}; //graph data for Tadcaster river data
+        var traceLeeds = {x: [], y: [], name: 'Leeds', type: 'scatter'}; //holds graph data for leeds river data
+        var traceCastl = {x: [], y: [], name: 'Castleford', type: 'scatter'}; //holds graph data for castleford river data
+        var traceKirk = {x: [], y: [], name: 'Kirkstall', type: 'scatter'}; //holds graph data for kirkstall river data
+        var traceMyth = {x: [], y: [], name: 'Mytholmroyd', type: 'scatter'}; //holds graph data for Mytholmroyd river data
+        var traceTad = {x: [], y: [], name: 'Tadcaster', type: 'scatter'}; //holds graph data for Tadcaster river data
     </script>
 <div class="container">
     <div class="page-header">
@@ -35,10 +35,12 @@
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li><a href="timeline.html">All Events</a></li>
-               {% if flood_events %} 
-                    {% for flood_event in flood_events reversed %} 
+               {% if flood_events %}  <!--Get the flood events list -->
+                    {% for flood_event in flood_events %}  <!--cycle through the flood_events list -->
+                        <!--Add each flood event to drop down menu -->
                         <li><a href="timeline.html?{{ flood_event.0|date:'SHORT_DATE_FORMAT' }}+{{ flood_event.1|date:'SHORT_DATE_FORMAT' }}">{{ flood_event.0|date:'d/m/Y' }} - {{ flood_event.1|date:'d/m/Y' }}</a></li> 
-                        {% for river in flood_event.2 %}
+
+                        {% for river in flood_event.2 %} <!--Third object in a flood event is a list of river levels which is cycled through-->
                             <script>
                                 var dateTaken = new Date("{{ river.date_taken|date:'SHORT_DATE_FORMAT' }}"); //get the date_taken of river level
                                 if (dateTaken >= new Date(dates[0]) && dateTaken <= new Date(dates[1])) { //check river level date corresponds to dates requested
