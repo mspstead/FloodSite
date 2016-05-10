@@ -107,7 +107,7 @@ def getLocality(lat,lon):
 def photoBuilder(photoArray):
 
     #photosDB = [] #An Array which will store all of the photo dictionarys
-    f = open('PhotoDataSkateLeeds.txt', 'w')
+    f = open('PhotoDataYorkshire.txt', 'w')
     count = len(photoArray)
 
     if photoArray == []:
